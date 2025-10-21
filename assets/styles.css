@@ -66,7 +66,7 @@ a {
 .logo img {
   display: block;
   height: 2.5rem;
-  width: auto;
+  width: 10rem;
 }
 
 /* Primär navlista på desktop */
@@ -335,6 +335,307 @@ a {
 /* Gemensam spacing för sektioner */
 .section {
   padding: 4rem 1.5rem;
+}
+
+/* Generiskt statusmeddelande */
+.status-message {
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+/* PageSpeed-verktygets bakgrund */
+.pagespeed {
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+}
+
+/* Gridlayout för testform och resultat */
+.pagespeed-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+}
+
+/* Kort som omsluter formulär och resultat */
+.pagespeed-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: min(600px, 100%);
+}
+
+.pagespeed-description {
+  margin: 0;
+  color: var(--color-muted);
+  max-width: 36ch;
+}
+
+/* Formuläret staplar fält vertikalt */
+.pagespeed-form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pagespeed-fields {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.pagespeed-fields label {
+  font-weight: 600;
+}
+
+.pagespeed-fields input,
+.pagespeed-fields select {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.pagespeed-fields input:focus,
+.pagespeed-fields select:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.35);
+}
+
+.pagespeed-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Resultatkort får eget utseende */
+.pagespeed-result {
+  gap: 1.5rem;
+}
+
+.pagespeed-result h3 {
+  margin: 0;
+}
+
+/* Badge och text presenteras tillsammans */
+.score-indicator {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.score-summary {
+  max-width: 320px;
+  color: var(--color-muted);
+}
+
+.score-total {
+  margin: 0;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.score-label {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Loader medan analysen pågår */
+.pagespeed-loader {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  color: var(--color-muted);
+}
+
+.pagespeed-progress {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  width: 100%;
+}
+
+.pagespeed-progress-bar {
+  width: min(420px, 100%);
+  height: 12px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pagespeed-progress-fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+  border-radius: inherit;
+  transition: width 0.28s ease;
+}
+
+.pagespeed-progress-text {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: 1.25rem;
+}
+
+.pagespeed-progress-value {
+  display: inline-block;
+  min-width: 2ch;
+  text-align: right;
+}
+
+/* Kort för fältdata med mjuk bakgrund */
+.pagespeed-field-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.field-card {
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 1rem 1.25rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field-label {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.field-value {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.field-description {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+/* Sammanfattning av förbättringsförslag */
+.pagespeed-opportunity-summary {
+  display: grid;
+  gap: 1rem;
+}
+
+.opportunity-intro {
+  margin: 0;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.opportunity-item {
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.opportunity-title {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.opportunity-impact {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.pagespeed-reset-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pagespeed-reset {
+  border: 1px solid var(--color-accent);
+  background: #fff;
+  color: var(--color-accent);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.65rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.pagespeed-reset:hover,
+.pagespeed-reset:focus-visible {
+  background: var(--color-accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.pagespeed-error {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
+}
+
+/* Visar övergripande score i cirkel */
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.score-badge.score-low {
+  background: #f97316;
+}
+
+.score-badge.score-medium {
+  background: #facc15;
+  color: #0f172a;
+}
+
+.score-badge.score-high {
+  background: #16a34a;
+}
+
+/* Struktur för listor med metrik och förbättringar */
+.result-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.pagespeed-metric-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pagespeed-metric-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(248, 250, 252, 0.6);
 }
 
 /* Centrera rubriker och ingress */
@@ -686,5 +987,46 @@ a {
   .site-footer .footer-content {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* Kompaktare kort i PageSpeed-sektionen */
+  .pagespeed-card {
+    padding: 1.5rem;
+  }
+
+  .pagespeed-body {
+    gap: 1.5rem;
+  }
+
+  .pagespeed-metric-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .score-indicator {
+    align-items: flex-start;
+  }
+
+  .field-card,
+  .opportunity-item {
+    padding: 0.85rem 1rem;
+  }
+
+  .pagespeed-loader {
+    padding: 1.5rem 1rem;
+  }
+
+  .pagespeed-progress-bar {
+    height: 10px;
+  }
+
+  .pagespeed-progress-text {
+    font-size: 1.05rem;
+  }
+
+  .score-badge {
+    width: 80px;
+    height: 80px;
+    font-size: 1.75rem;
   }
 }

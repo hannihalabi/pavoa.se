@@ -71,6 +71,38 @@
       </div>
     </section>
 
+    <!-- PageSpeed-verktyg som möjliggör teknisk prestandarapport -->
+    <section id="pagespeed" class="section pagespeed">
+      <div class="pagespeed-grid">
+        <article class="pagespeed-card">
+          <h2>Testa din webbplats prestanda</h2>
+          <p class="pagespeed-description">
+            Fyll i din URL och få en snabb rapport från Googles PageSpeed Insights. Perfekt för att spotta tekniska hinder innan lansering.
+          </p>
+          <form id="pagespeed-form" class="pagespeed-form" novalidate>
+            <div class="pagespeed-fields">
+              <label for="pagespeed-url">Webbadress</label>
+              <input type="url" id="pagespeed-url" name="pagespeed-url" placeholder="https://www.exempel.se" required>
+            </div>
+            <div class="pagespeed-fields">
+              <label for="pagespeed-strategy">Enhetstyp</label>
+              <select id="pagespeed-strategy" name="pagespeed-strategy">
+                <option value="mobile">Mobil</option>
+                <option value="desktop">Desktop</option>
+              </select>
+            </div>
+            <div class="pagespeed-actions">
+              <button type="submit" class="primary-button" id="pagespeed-submit">Kör analys</button>
+              <span class="status-message" id="pagespeed-status"></span>
+            </div>
+          </form>
+        </article>
+        <article class="pagespeed-card pagespeed-result" id="pagespeed-result" aria-live="polite">
+          <p class="status-message">Ingen analys körd ännu.</p>
+        </article>
+      </div>
+    </section>
+
     <!-- Tjänster sektion som presenterar tre fokusområden -->
     <section id="tjanster" class="section services">
       <div class="section-heading">

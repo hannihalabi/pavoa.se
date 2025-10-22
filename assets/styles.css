@@ -332,295 +332,157 @@ a {
   font-weight: 700;
 }
 
-/* Gemensam spacing för sektioner */
-.section {
-  padding: 4rem 1.5rem;
-}
-
-/* Generiskt statusmeddelande */
-.status-message {
-  font-weight: 500;
-  color: var(--color-muted);
-}
-
-/* PageSpeed-verktygets bakgrund */
 .pagespeed {
-  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+  background: linear-gradient(180deg, #f1f5f9 0%, #e0e7ff 100%);
 }
 
-/* Gridlayout för testform och resultat */
-.pagespeed-body {
+.pagespeed-container {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
   gap: 2rem;
-  justify-items: center;
-  width: 100%;
+  align-items: start;
 }
 
-/* Kort som omsluter formulär och resultat */
-.pagespeed-card {
+.pagespeed-intro,
+.pagespeed-results > * {
   background: var(--color-surface);
   border-radius: var(--radius-md);
-  padding: 2rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-sm);
   border: 1px solid rgba(148, 163, 184, 0.15);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: min(600px, 100%);
 }
 
-.pagespeed-description {
-  margin: 0;
-  color: var(--color-muted);
-  max-width: 36ch;
+.pagespeed-intro {
+  padding: 2rem;
 }
 
-/* Formuläret staplar fält vertikalt */
 .pagespeed-form {
   display: grid;
-  gap: 1.25rem;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
-.pagespeed-fields {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.pagespeed-fields label {
+.pagespeed-form label {
   font-weight: 600;
 }
 
-.pagespeed-fields input,
-.pagespeed-fields select {
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
+.pagespeed-form-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pagespeed-form-row input[type="text"] {
+  flex: 1 1 220px;
+  padding: 0.85rem 1rem;
   border-radius: var(--radius-sm);
-  font: inherit;
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+  background: #fff;
 }
 
-.pagespeed-fields input:focus,
-.pagespeed-fields select:focus {
-  outline: 2px solid rgba(37, 99, 235, 0.35);
+.pagespeed-form-row input[type="text"]:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 2px;
 }
 
-.pagespeed-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
+.pagespeed-form .primary-button {
+  flex: 0 0 auto;
 }
 
-/* Resultatkort får eget utseende */
-.pagespeed-result {
-  gap: 1.5rem;
-}
-
-.pagespeed-result h3 {
+.form-helper {
+  color: var(--color-muted);
+  font-size: 0.9rem;
   margin: 0;
 }
 
-/* Badge och text presenteras tillsammans */
-.score-indicator {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.score-summary {
-  max-width: 320px;
-  color: var(--color-muted);
-}
-
-.score-total {
-  margin: 0;
-  font-weight: 500;
-  color: var(--color-muted);
-}
-
-.score-label {
-  margin: 0 0 0.25rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-/* Loader medan analysen pågår */
-.pagespeed-loader {
+.analysis-loading {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px dashed rgba(37, 99, 235, 0.3);
   display: grid;
-  justify-items: center;
   gap: 1rem;
-  padding: 2rem 1rem;
-  color: var(--color-muted);
 }
 
-.pagespeed-progress {
-  display: grid;
-  gap: 0.75rem;
-  justify-items: center;
-  width: 100%;
+.analysis-error {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  color: #b91c1c;
+  font-weight: 600;
 }
 
-.pagespeed-progress-bar {
-  width: min(420px, 100%);
-  height: 12px;
-  background: rgba(148, 163, 184, 0.2);
+.progress-meter {
+  position: relative;
+  height: 10px;
+  background: rgba(37, 99, 235, 0.15);
   border-radius: 999px;
   overflow: hidden;
-  position: relative;
 }
 
-.pagespeed-progress-fill {
+.progress-fill {
   position: absolute;
   inset: 0;
   width: 0%;
-  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
-  border-radius: inherit;
-  transition: width 0.28s ease;
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  transition: width 0.25s ease-out;
 }
 
-.pagespeed-progress-text {
-  font-weight: 600;
-  color: var(--color-accent);
-  font-size: 1.25rem;
-}
-
-.pagespeed-progress-value {
-  display: inline-block;
-  min-width: 2ch;
-  text-align: right;
-}
-
-/* Kort för fältdata med mjuk bakgrund */
-.pagespeed-field-list {
-  display: grid;
-  gap: 1rem;
-}
-
-.field-card {
-  background: rgba(248, 250, 252, 0.8);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  padding: 1rem 1.25rem;
-  display: grid;
-  gap: 0.4rem;
-}
-
-.field-label {
+.progress-value {
   margin: 0;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.field-value {
-  margin: 0;
-  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-accent);
 }
 
-.field-description {
-  margin: 0;
-  color: var(--color-muted);
-}
-
-/* Sammanfattning av förbättringsförslag */
-.pagespeed-opportunity-summary {
+.pagespeed-results {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.opportunity-intro {
-  margin: 0;
-  color: var(--color-text);
-  font-weight: 500;
+.pagespeed-results > * {
+  padding: 1.75rem;
 }
 
-.opportunity-item {
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.2);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  display: grid;
-  gap: 0.35rem;
-}
-
-.opportunity-title {
-  margin: 0;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.opportunity-impact {
-  margin: 0;
-  color: var(--color-muted);
-}
-
-.pagespeed-reset-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.pagespeed-reset {
-  border: 1px solid var(--color-accent);
-  background: #fff;
-  color: var(--color-accent);
-  font-weight: 600;
-  border-radius: 999px;
-  padding: 0.65rem 1.5rem;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.pagespeed-reset:hover,
-.pagespeed-reset:focus-visible {
-  background: var(--color-accent);
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-.pagespeed-error {
-  display: grid;
-  gap: 1rem;
-  justify-items: center;
+.score-card {
   text-align: center;
-}
-
-/* Visar övergripande score i cirkel */
-.score-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.score-badge.score-low {
-  background: #f97316;
-}
-
-.score-badge.score-medium {
-  background: #facc15;
-  color: #0f172a;
-}
-
-.score-badge.score-high {
-  background: #16a34a;
-}
-
-/* Struktur för listor med metrik och förbättringar */
-.result-section {
   display: grid;
-  gap: 1rem;
+  gap: 0.25rem;
 }
 
-.pagespeed-metric-list {
+.score-label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.score-value {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-accent);
+}
+
+.score-note {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.summary-card h3,
+.metrics-card h3,
+.field-card h3,
+.tips-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.metric-list,
+.field-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -628,14 +490,57 @@ a {
   gap: 0.75rem;
 }
 
-.pagespeed-metric-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 1rem;
+.metric-item,
+.field-item {
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: rgba(248, 250, 252, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 1rem 1.25rem;
+  background: #fff;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.metric-title,
+.field-title {
+  font-weight: 600;
+}
+
+.metric-detail,
+.field-detail {
+  color: var(--color-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.metric-status {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.metric-status-good {
+  color: #047857;
+}
+
+.metric-status-ok {
+  color: #b45309;
+}
+
+.metric-status-poor {
+  color: #b91c1c;
+}
+
+.tips-card {
+  background: #fef3c7;
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+.tips-card p {
+  margin: 0;
+}
+
+/* Gemensam spacing för sektioner */
+.section {
+  padding: 4rem 1.5rem;
 }
 
 /* Centrera rubriker och ingress */
@@ -968,6 +873,23 @@ a {
 
 /* Telefonanpassning: mindre padding och vertikal footer */
 @media (max-width: 600px) {
+  .pagespeed-intro,
+  .pagespeed-results > * {
+    padding: 1.5rem;
+  }
+
+  .pagespeed-form-row {
+    flex-direction: column;
+  }
+
+  .pagespeed-form .primary-button {
+    width: 100%;
+  }
+
+  .progress-value {
+    text-align: center;
+  }
+
   /* Kompaktare navigation padding */
   .navbar {
     padding: 0.75rem 1rem;
@@ -989,44 +911,19 @@ a {
     align-items: flex-start;
   }
 
-  /* Kompaktare kort i PageSpeed-sektionen */
-  .pagespeed-card {
-    padding: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .pagespeed-container {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   }
 
-  .pagespeed-body {
-    gap: 1.5rem;
+  .pagespeed-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .pagespeed-metric-list li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .score-indicator {
-    align-items: flex-start;
-  }
-
-  .field-card,
-  .opportunity-item {
-    padding: 0.85rem 1rem;
-  }
-
-  .pagespeed-loader {
-    padding: 1.5rem 1rem;
-  }
-
-  .pagespeed-progress-bar {
-    height: 10px;
-  }
-
-  .pagespeed-progress-text {
-    font-size: 1.05rem;
-  }
-
-  .score-badge {
-    width: 80px;
-    height: 80px;
-    font-size: 1.75rem;
+  .score-card,
+  .tips-card {
+    grid-column: 1 / -1;
   }
 }

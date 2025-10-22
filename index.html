@@ -71,35 +71,72 @@
       </div>
     </section>
 
-    <!-- PageSpeed-verktyg som möjliggör teknisk prestandarapport -->
     <section id="pagespeed" class="section pagespeed">
-      <div class="pagespeed-grid">
-        <article class="pagespeed-card">
-          <h2>Testa din webbplats prestanda</h2>
-          <p class="pagespeed-description">
-            Fyll i din URL och få en snabb rapport från Googles PageSpeed Insights. Perfekt för att spotta tekniska hinder innan lansering.
-          </p>
+      <div class="pagespeed-container">
+        <div class="pagespeed-intro">
+          <h2>Snabb kontroll av din hemsidas fart</h2>
+          <p>Fyll i din webbadress så berättar vi på enkel svenska hur sidan mår och vad som är smart att fixa först.</p>
           <form id="pagespeed-form" class="pagespeed-form" novalidate>
-            <div class="pagespeed-fields">
-              <label for="pagespeed-url">Webbadress</label>
-              <input type="url" id="pagespeed-url" name="pagespeed-url" placeholder="https://www.exempel.se" required>
+            <label for="pagespeed-url">Webbadress</label>
+            <div class="pagespeed-form-row">
+              <input
+                type="text"
+                id="pagespeed-url"
+                name="url"
+                inputmode="url"
+                placeholder="t.ex. aftonbladet.se"
+                autocomplete="url"
+                required
+              >
+              <button type="submit" class="primary-button">Analysera</button>
             </div>
-            <div class="pagespeed-fields">
-              <label for="pagespeed-strategy">Enhetstyp</label>
-              <select id="pagespeed-strategy" name="pagespeed-strategy">
-                <option value="mobile">Mobil</option>
-                <option value="desktop">Desktop</option>
-              </select>
-            </div>
-            <div class="pagespeed-actions">
-              <button type="submit" class="primary-button" id="pagespeed-submit">Kör analys</button>
-              <span class="status-message" id="pagespeed-status"></span>
-            </div>
+            <p class="form-helper">Vi använder Googles PageSpeed-verktyg. Resultatet visas här direkt.</p>
           </form>
-        </article>
-        <article class="pagespeed-card pagespeed-result" id="pagespeed-result" aria-live="polite">
-          <p class="status-message">Ingen analys körd ännu.</p>
-        </article>
+
+          <div class="analysis-loading" id="analysis-loading" hidden aria-live="polite">
+            <p>Vi går igenom sidan – håll ut, det tar bara några sekunder.</p>
+            <div
+              class="progress-meter"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <div class="progress-fill" id="loading-fill"></div>
+            </div>
+            <p class="progress-value"><span id="loading-value">0</span> av 100</p>
+          </div>
+
+          <div class="analysis-error" id="analysis-error" hidden role="alert"></div>
+        </div>
+
+        <div class="pagespeed-results" id="analysis-result" hidden>
+          <div class="score-card">
+            <p class="score-label">Prestandapoäng</p>
+            <p class="score-value" id="performance-score">--</p>
+            <p class="score-note">Av 100 möjliga poäng – högre är bättre.</p>
+          </div>
+
+          <div class="summary-card">
+            <h3>Så här mår sidan</h3>
+            <p id="summary-text">Resultatet visas här efter analys.</p>
+          </div>
+
+          <div class="metrics-card">
+            <h3>Nyckelpunkter</h3>
+            <ul id="metric-list" class="metric-list"></ul>
+          </div>
+
+          <div class="field-card">
+            <h3>Hur riktiga besökare upplever sidan</h3>
+            <ul id="field-list" class="field-list"></ul>
+          </div>
+
+          <div class="tips-card">
+            <h3>Smartaste förbättringarna</h3>
+            <p id="tips-text">Vi samlar ihop förbättringsförslag här.</p>
+          </div>
+        </div>
       </div>
     </section>
 

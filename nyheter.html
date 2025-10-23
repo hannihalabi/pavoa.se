@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Senaste nyheter och uppdateringar från Pavoa Webbyrå. Håll koll på vad vi lanserar och lär dig mer om hur vi bygger webbplatser.">
+  <title>Nyheter – Pavoa Webbyrå</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/nyheter.css">
+</head>
+<body class="news-page">
+  <header class="site-header">
+    <nav class="navbar" aria-label="Huvudnavigation">
+      <a class="logo" href="index.html#hero" aria-label="Till startsidan">
+        <img src="assets/logo.svg" alt="Pavoa">
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Visa meny</span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="index.html#tjanster">Tjänster</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#paket">Prispaket</a></li>
+        <li><a class="is-active" href="nyheter.html" aria-current="page">Nyheter</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+      <a class="cta-button glow-cta" href="index.html#kontakt">Bli kontaktad</a>
+    </nav>
+  </header>
+
+  <main class="news-main">
+    <section class="news-hero section">
+      <div class="news-hero__content">
+        <p class="eyebrow">Nyheter från Pavoa</p>
+        <h1>Sök efter något specifikt</h1>
+        <form class="news-search" role="search">
+          <label class="sr-only" for="news-search-input">Sök bland nyheter</label>
+          <div class="news-search__controls">
+            <input
+              type="search"
+              id="news-search-input"
+              name="q"
+              placeholder="Sök nyheter, artiklar eller tips"
+              autocomplete="off"
+            >
+            <button type="submit" class="primary-button">Sök</button>
+          </div>
+        </form>
+      </div>
+      <div class="news-hero__media" aria-hidden="true">
+        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+        <dotlottie-wc
+          src="https://lottie.host/24c06a28-7cb6-420e-b11c-a40d1df07535/4xqKB4VyMB.lottie"
+          style="width: 300px; height: 300px"
+          autoplay
+          loop
+        ></dotlottie-wc>
+      </div>
+    </section>
+
+    <section class="news-highlights section" aria-labelledby="latest-news-heading">
+      <div class="section-heading">
+        <h2 id="latest-news-heading">Senaste nytt</h2>
+        <p>Vi delar våra viktigaste uppdateringar och insikter från kundprojekt.</p>
+      </div>
+      <ul class="news-list" id="news-list">
+        <li class="news-item">
+          <article>
+            <header>
+              <p class="news-item__meta">17 januari 2025 · Case study</p>
+              <h3>Lansering av SaaS-sajt på rekordtid</h3>
+            </header>
+            <p>Vi hjälpte ett nystartat SaaS-bolag att ta fram en lead-genererande webbplats på fyra veckor – komplett med brand design, copy och SEO-struktur.</p>
+            <a class="news-item__link" href="#">Läs mer om projektet</a>
+          </article>
+        </li>
+        <li class="news-item">
+          <article>
+            <header>
+              <p class="news-item__meta">8 januari 2025 · Tips</p>
+              <h3>Checklista för att lansera ny sajt</h3>
+            </header>
+            <p>Vi har sammanställt vår interna checklista för lansering – perfekt för dig som vill spara tid och undvika vanliga snedsteg.</p>
+            <a class="news-item__link" href="#">Hämta checklistan</a>
+          </article>
+        </li>
+        <li class="news-item">
+          <article>
+            <header>
+              <p class="news-item__meta">20 december 2024 · Produkt</p>
+              <h3>Introduktion av vår Pagespeed-analys</h3>
+            </header>
+            <p>Nu kan du få en snabb hälsokontroll av din sajt direkt på startsidan. Funktionen är byggd för att ge konkreta rekommendationer.</p>
+            <a class="news-item__link" href="index.html#pagespeed">Testa verktyget</a>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section class="news-archive-preview section">
+      <div class="archive-card">
+        <h2>Vill du se fler uppdateringar?</h2>
+        <p>Vi sparar alla artiklar i vårt arkiv. Du kan filtrera efter typ och år.</p>
+        <button class="archive-toggle" type="button" data-archive-target="news-archive" aria-expanded="false">
+          Visa äldre nyheter
+        </button>
+        <div class="news-archive" id="news-archive" hidden>
+          <ul class="news-archive__list">
+            <li><span class="news-archive__meta">November 2024 · Event</span> Vi föreläste om SEO för startups på Nyföretagarcentrum.</li>
+            <li><span class="news-archive__meta">Oktober 2024 · Verktyg</span> Checklista för att förbättra konvertering på landningssidor.</li>
+            <li><span class="news-archive__meta">September 2024 · Insights</span> Så planerar vi innehåll för att driva kvalificerade leads.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <a class="logo" href="index.html">Pavoa</a>
+      <p>© <span id="current-year"></span> Pavoa Webbyrå. Alla rättigheter förbehållna.</p>
+      <nav aria-label="Footer navigation">
+        <a href="index.html#tjanster">Tjänster</a>
+        <a href="index.html#paket">Prispaket</a>
+        <a href="nyheter.html" aria-current="page">Nyheter</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="#">Integritetspolicy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/script.js" defer></script>
+  <script src="assets/nyheter.js" defer></script>
+</body>
+</html>

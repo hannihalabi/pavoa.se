@@ -840,10 +840,10 @@ dotlottie-wc {
 
 /* Kort som innehåller testimonials */
 .testimonial-card {
-  max-width: 680px;
+  max-width: 660px;
   margin: 0 auto;
   background: var(--color-surface);
-  padding: 2rem;
+  padding: 5rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
 }
@@ -851,7 +851,7 @@ dotlottie-wc {
 /* Positionerar testimonials för overlay-animation */
 .testimonial-stack {
   position: relative;
-  min-height: 260px;
+  min-height: 200px;
 }
 
 /* Enskilt testimonial som animeras in/ut */

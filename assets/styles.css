@@ -69,6 +69,13 @@ a {
   width: 10rem;
 }
 
+dotlottie-player,
+dotlottie-wc {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
 /* Primär navlista på desktop */
 .nav-links {
   display: flex;
@@ -263,6 +270,13 @@ a {
   gap: 1rem;
 }
 
+.hero-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 /* Primär och sekundär CTA delar grundstil */
 .primary-button,
 .secondary-button {
@@ -379,7 +393,7 @@ a {
 }
 
 .pagespeed-form-row input[type="text"] {
-  flex: 1 1 220px;
+  flex: 1 1 50px;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
@@ -738,7 +752,12 @@ a {
 
 .appointment-content {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(148, 163, 184, 0.15);
 }
 
 .appointment-content h3 {
@@ -752,22 +771,29 @@ a {
 
 .appointment-benefits {
   margin: 0;
-  padding-left: 1.25rem;
+  padding: 0;
+  list-style: none;
   display: grid;
-  gap: 0.5rem;
-  color: var(--color-text);
+  gap: 0.75rem;
 }
 
 .appointment-benefits li {
   position: relative;
+  padding-left: 1.75rem;
+  color: var(--color-muted);
 }
 
-.appointment-benefits li::marker {
+.appointment-benefits li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
   color: var(--color-accent);
+  font-weight: 700;
 }
 
 .appointment-cta {
-  justify-self: flex-start;
+  justify-self: center;
 }
 
 .appointment-frame {
@@ -966,6 +992,7 @@ a {
   /* Visa hamburgermenyknapp */
   .menu-toggle {
     display: flex;
+    margin-left: auto;
   }
 
   /* Döljer stora CTA:n för att spara plats */
@@ -979,6 +1006,13 @@ a {
   .pagespeed-intro,
   .score-card {
     padding: 1.5rem;
+  }
+
+  .pagespeed-intro {
+    max-width: 420px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .pagespeed-form-row {
@@ -1000,18 +1034,50 @@ a {
 
   /* Mindre vertikal yta i hero */
   .hero-section {
-    padding: 3.5rem 1rem;
+    padding: 2.1rem 1rem 3.3rem;
   }
 
   .hero-actions {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: nowrap;
     width: 100%;
     gap: 0.75rem;
   }
 
   .hero-actions a {
-    width: 100%;
+    flex: 1 1 0;
+    min-width: 0;
     justify-content: center;
+  }
+
+  .hero-content .lead {
+    margin-bottom: 1.4rem;
+  }
+
+  .hero-content dotlottie-player {
+    margin: 0.5rem auto 1.2rem;
+    max-width: 320px;
+  }
+
+  .site-header .cta-button {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: 0.75rem;
+    padding: 0.55rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .site-header .logo {
+    order: 0;
+  }
+
+  .site-header .cta-button {
+    order: 1;
+  }
+
+  .site-header .menu-toggle {
+    order: 2;
+    margin-left: 0;
   }
 
   /* Justera generella sektioner */
@@ -1027,13 +1093,37 @@ a {
 
   .appointment-booking {
     margin-top: 2rem;
-    padding: 2.25rem 1.5rem;
-    gap: 1.75rem;
+    margin-bottom: 2rem;
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+    width: 90%;
+    margin-left: 1rem;
+    margin-right: 0;
+    gap: 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .appointment-content {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .appointment-benefits {
+    gap: 0.6rem;
   }
 
   .appointment-cta {
     width: 100%;
     justify-content: center;
+  }
+
+  .appointment-benefits {
+    padding-left: 1.1rem;
+    gap: 0.45rem;
   }
 
   .appointment-frame {
@@ -1043,6 +1133,10 @@ a {
   .appointment-external {
     display: grid;
     padding: 1.5rem;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    box-shadow: none;
+    border-radius: var(--radius-sm);
+    gap: 0.75rem;
   }
 
   .appointment-external .secondary-button {

@@ -54,9 +54,6 @@ if (pagespeedForm) {
   const errorBox = document.getElementById('analysis-error');
   const scoreValue = document.getElementById('performance-score');
   const summaryText = document.getElementById('summary-text');
-  const metricList = document.getElementById('metric-list');
-  const fieldList = document.getElementById('field-list');
-  const tipsText = document.getElementById('tips-text');
 
   let progressTimer;
   let currentProgress = 0;
@@ -120,60 +117,6 @@ if (pagespeedForm) {
         `Sidan hoppar omkring ${formatted}. För en lugn upplevelse – håll dig under ${formatNumber(0.1, 2)}.`
     }
   ];
-
-  const fieldMetricConfig = [
-    {
-      keys: ['FIRST_CONTENTFUL_PAINT_MS'],
-      title: 'När något syns för besökare',
-      convert: (value) => value / 1000,
-      format: (seconds) => `${formatNumber(seconds, 1)} sek`,
-      goal: `Sikta på att något syns inom ${formatNumber(1.8, 1)} sekunder.`
-    },
-    {
-      keys: ['LARGEST_CONTENTFUL_PAINT_MS'],
-      title: 'När huvudinnehållet dyker upp',
-      convert: (value) => value / 1000,
-      format: (seconds) => `${formatNumber(seconds, 1)} sek`,
-      goal: `För bästa upplevelse, se till att det viktiga syns före ${formatNumber(2.5, 1)} sekunder.`
-    },
-    {
-      keys: ['INTERACTION_TO_NEXT_PAINT', 'EXPERIMENTAL_INTERACTION_TO_NEXT_PAINT', 'FIRST_INPUT_DELAY_MS'],
-      title: 'Hur snabbt knappar svarar',
-      convert: (value) => value,
-      format: (ms) => {
-        if (ms >= 1000) {
-          return `${formatNumber(ms / 1000, 1)} sek`;
-        }
-        return `${formatNumber(ms, 0)} ms`;
-      },
-      goal: 'Målet är att det ska gå under 200 ms från klick till respons.'
-    },
-    {
-      keys: ['CUMULATIVE_LAYOUT_SHIFT_SCORE'],
-      title: 'Hur stabil sidan känns',
-      convert: (value) => value / 100,
-      format: (value) => formatNumber(value, 2),
-      goal: 'Håll siffran nära noll så slipper besökare hoppande element.'
-    }
-  ];
-
-  const opportunityMessages = {
-    'uses-optimized-images': 'komprimera bilderna',
-    'efficient-animated-content': 'lätta på tunga animationer',
-    'modern-image-formats': 'byta till modernare bildformat',
-    'render-blocking-resources': 'låta sidan visa innehållet innan extra skript laddas',
-    'unused-javascript': 'plocka bort skript som inte används',
-    'unused-css-rules': 'rensa bort oanvänd designkod',
-    'uses-text-compression': 'slå på komprimering så text laddar snabbare',
-    'server-response-time': 'snabba upp serverns svarstid',
-    'total-byte-weight': 'minska mängden data som laddas',
-    'offscreen-images': 'ladda tunga bilder först när de syns på skärmen',
-    'redirects': 'undvika onödiga omdirigeringar',
-    'uses-responsive-images': 'skala ned bilderna till rätt storlek',
-    'unused-third-party-code': 'plocka bort externa skript du inte använder',
-    'uses-long-cache-ttl': 'låta återkommande besökare slippa ladda om allt',
-    'uses-rel-preconnect': 'förbereda uppkopplingar till externa tjänster'
-  };
 
   pagespeedForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -279,18 +222,9 @@ if (pagespeedForm) {
     }
 
     const metrics = buildMetricEntries(lighthouseResult);
-    renderMetrics(metrics);
 
     if (summaryText) {
       summaryText.textContent = buildSummary(score, metrics);
-    }
-
-    const fieldMetrics = getFieldMetrics(data);
-    renderFieldMetrics(fieldMetrics);
-
-    const opportunities = extractOpportunities(lighthouseResult);
-    if (tipsText) {
-      tipsText.textContent = buildTips(opportunities, score);
     }
 
     showElement(resultWrapper);
@@ -310,6 +244,7 @@ if (pagespeedForm) {
       const status = evaluateStatus(convertedValue, config.thresholds);
 
       entries.push({
+        id: config.id,
         title: config.title,
         valueText: formattedValue,
         detail: config.detail(convertedValue, formattedValue),
@@ -320,215 +255,6 @@ if (pagespeedForm) {
     });
 
     return entries;
-  };
-
-  const renderMetrics = (metrics) => {
-    if (!metricList) {
-      return;
-    }
-
-    metricList.innerHTML = '';
-
-    if (!metrics.length) {
-      const fallback = document.createElement('li');
-      fallback.className = 'metric-item';
-      fallback.textContent = 'Vi kunde inte läsa in nyckelpunkterna den här gången.';
-      metricList.appendChild(fallback);
-      return;
-    }
-
-    metrics.forEach((metric) => {
-      const item = document.createElement('li');
-      item.className = 'metric-item';
-
-      const title = document.createElement('span');
-      title.className = 'metric-title';
-      title.textContent = metric.title;
-
-      const detail = document.createElement('p');
-      detail.className = 'metric-detail';
-      detail.textContent = metric.detail;
-
-      const status = document.createElement('span');
-      status.className = `metric-status metric-status-${metric.statusClassSuffix}`;
-      status.textContent = `${metric.statusText} – ${metric.valueText}`;
-
-      item.append(title, status, detail);
-      metricList.appendChild(item);
-    });
-  };
-
-  const getFieldMetrics = (data) => {
-    const loadingExperience = data?.loadingExperience?.metrics;
-    const originExperience = data?.originLoadingExperience?.metrics;
-    return Object.keys(loadingExperience || {}).length ? loadingExperience : originExperience || {};
-  };
-
-  const renderFieldMetrics = (metrics) => {
-    if (!fieldList) {
-      return;
-    }
-
-    fieldList.innerHTML = '';
-
-    const items = buildFieldEntries(metrics);
-
-    if (!items.length) {
-      const fallback = document.createElement('li');
-      fallback.className = 'field-item';
-      fallback.textContent = 'Vi saknar tillräckligt med fältdata för den här sidan.';
-      fieldList.appendChild(fallback);
-      return;
-    }
-
-    items.forEach((itemData) => {
-      const item = document.createElement('li');
-      item.className = 'field-item';
-
-      const title = document.createElement('span');
-      title.className = 'field-title';
-      title.textContent = itemData.title;
-
-      const detail = document.createElement('p');
-      detail.className = 'field-detail';
-      detail.textContent = itemData.detail;
-
-      item.append(title, detail);
-      fieldList.appendChild(item);
-    });
-  };
-
-  const buildFieldEntries = (metrics) => {
-    const entries = [];
-
-    fieldMetricConfig.forEach((config) => {
-      const metricData = findMetric(metrics, config.keys);
-
-      if (!metricData || typeof metricData.percentile !== 'number') {
-        return;
-      }
-
-      const converted = config.convert(metricData.percentile);
-      const formattedValue = config.format(converted);
-      const category = describeCategory(metricData.category);
-      const share = getDominantShare(metricData.distributions);
-
-      let detail = `Ungefär ${formattedValue}.`;
-
-      if (share) {
-        detail = `${formattedValue} för cirka ${share.percentage}% av besökarna – de upplever det som ${share.label}.`;
-      } else if (category) {
-        detail = `${formattedValue}. Upplevs som ${category} för de flesta.`;
-      }
-
-      detail += ` ${config.goal}`;
-
-      entries.push({
-        title: config.title,
-        detail
-      });
-    });
-
-    return entries;
-  };
-
-  const extractOpportunities = (lighthouseResult) => {
-    const audits = lighthouseResult?.audits || {};
-
-    return Object.entries(audits)
-      .filter(([, audit]) => audit?.details?.type === 'opportunity')
-      .map(([id, audit]) => ({
-        id,
-        title: audit.title,
-        savings: audit.details.overallSavingsMs || 0
-      }))
-      .sort((a, b) => b.savings - a.savings);
-  };
-
-  const buildTips = (opportunities, score) => {
-    const actions = [];
-
-    opportunities.forEach((opportunity) => {
-      const action = mapOpportunity(opportunity.id, opportunity.title);
-      if (action && !actions.includes(action)) {
-        actions.push(action);
-      }
-    });
-
-    if (!actions.length) {
-      if (typeof score === 'number' && score >= 90) {
-        return 'Din sida är redan pigg. Fortsätt hålla koll på bilder och uppdatera innehållet regelbundet.';
-      }
-      return 'Inga tydliga förbättringar stack ut. Håll extra koll på bilder, skript och serverns svarstid.';
-    }
-
-    if (actions.length === 1) {
-      return `Störst effekt får du genom att ${actions[0]}.`;
-    }
-
-    if (actions.length === 2) {
-      return `Börja med att ${actions[0]} och därefter ${actions[1]}.`;
-    }
-
-    return `Börja med att ${actions[0]}, fortsätt med att ${actions[1]} och avsluta med att ${actions[2]}.`;
-  };
-
-  const describeCategory = (category) => {
-    if (category === 'FAST') {
-      return 'snabbt';
-    }
-    if (category === 'AVERAGE') {
-      return 'okej';
-    }
-    if (category === 'SLOW') {
-      return 'långsamt';
-    }
-    return undefined;
-  };
-
-  const getDominantShare = (distributions) => {
-    if (!Array.isArray(distributions) || distributions.length === 0) {
-      return undefined;
-    }
-
-    const sorted = [...distributions].sort((a, b) => (b.proportion || 0) - (a.proportion || 0));
-    const top = sorted[0];
-
-    if (!top || typeof top.proportion !== 'number') {
-      return undefined;
-    }
-
-    let label = 'okej';
-
-    if (top.max <= 1800 || top.max <= 0.1) {
-      label = 'snabbt';
-    } else if (top.min >= 4000 || top.min >= 0.25) {
-      label = 'långsamt';
-    }
-
-    return {
-      percentage: Math.round(top.proportion * 100),
-      label
-    };
-  };
-
-  const mapOpportunity = (id, title) => {
-    const lowerId = id.toLowerCase();
-
-    if (opportunityMessages[lowerId]) {
-      return opportunityMessages[lowerId];
-    }
-
-    const fuzzyMatch = Object.entries(opportunityMessages).find(([key]) => lowerId.includes(key));
-    if (fuzzyMatch) {
-      return fuzzyMatch[1];
-    }
-
-    if (title) {
-      return 'gå igenom övriga åtgärder som rapporten tipsar om';
-    }
-
-    return undefined;
   };
 
   const evaluateStatus = (value, thresholds) => {
@@ -552,28 +278,54 @@ if (pagespeedForm) {
       return 'Vi kunde inte få fram någon prestandapoäng just nu.';
     }
 
-    let summary;
+    const summaryParts = [];
 
     if (score >= 90) {
-      summary = 'Din sida laddar riktigt snabbt och ger ett starkt första intryck.';
+      summaryParts.push('Din sida laddar riktigt snabbt och ger ett starkt första intryck.');
     } else if (score >= 65) {
-      summary = 'Din sida känns okej, men det finns tydliga vinster att hämta.';
+      summaryParts.push('Din sida känns okej, men det finns tydliga vinster att hämta.');
     } else {
-      summary = 'Din sida upplevs trög och riskerar att tappa besökare på vägen.';
+      summaryParts.push('Din sida upplevs trög och riskerar att tappa besökare på vägen.');
     }
 
     const worstMetric = metrics.find((metric) => metric.statusKey === 'poor');
     const okMetric = metrics.find((metric) => metric.statusKey === 'ok');
 
     if (worstMetric) {
-      summary += ` Mest tid går åt när ${worstMetric.title.toLowerCase()}.`;
+      summaryParts.push(`Mest tid går åt när ${worstMetric.title.toLowerCase()}.`);
     } else if (okMetric) {
-      summary += ` Titta gärna på hur ${okMetric.title.toLowerCase()} kan bli ännu snabbare.`;
+      summaryParts.push(`Titta gärna på hur ${okMetric.title.toLowerCase()} kan bli ännu snabbare.`);
     } else {
-      summary += ' Fortsätt hålla koll på bilder, skript och stabilitet så behåller du försprånget.';
+      summaryParts.push('Fortsätt hålla koll på bilder, skript och stabilitet så behåller du försprånget.');
     }
 
-    return summary;
+    const findMetricById = (id) => metrics.find((metric) => metric.id === id);
+
+    const fcp = findMetricById('first-contentful-paint');
+    const lcp = findMetricById('largest-contentful-paint');
+    const speedIndex = findMetricById('speed-index');
+    const tbt = findMetricById('total-blocking-time');
+
+    const detailParts = [];
+
+    if (fcp) {
+      detailParts.push(`Första intrycket syns efter ${fcp.valueText}.`);
+    }
+    if (lcp) {
+      detailParts.push(`Huvudinnehållet är på plats efter ${lcp.valueText}.`);
+    }
+    if (speedIndex) {
+      detailParts.push(`Helhetskänslan av fart landar på ${speedIndex.valueText}.`);
+    }
+    if (tbt) {
+      detailParts.push(`Knappar svarar efter ${tbt.valueText}.`);
+    }
+
+    if (detailParts.length) {
+      summaryParts.push(detailParts.join(' '));
+    }
+
+    return summaryParts.join(' ');
   };
 
   const showError = (message) => {
@@ -607,14 +359,5 @@ if (pagespeedForm) {
       throw new Error('Invalid hostname');
     }
     return url.toString();
-  };
-
-  const findMetric = (metrics, keys) => {
-    for (const key of keys) {
-      if (metrics && metrics[key]) {
-        return metrics[key];
-      }
-    }
-    return undefined;
   };
 }

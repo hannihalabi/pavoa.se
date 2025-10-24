@@ -1056,6 +1056,7 @@ dotlottie-wc {
 
   .hero-content dotlottie-player {
     margin: 0.5rem auto 1.2rem;
+    margin-top: -4rem;
     max-width: 320px;
   }
 

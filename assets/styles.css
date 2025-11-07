@@ -56,17 +56,15 @@ a {
   padding: 1rem 1.5rem;
 }
 
-/* Håll logotyp och text i linje */
+/* Logotyp som textmärke */
 .logo {
   display: inline-flex;
   align-items: center;
-}
-
-/* Sätt maxhöjd på logotypbilden */
-.logo img {
-  display: block;
-  height: 2.5rem;
-  width: 10rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--color-text);
 }
 
 dotlottie-player,
@@ -177,6 +175,10 @@ dotlottie-wc {
     animation: none;
   }
 
+  .rotating-text {
+    transition: none;
+  }
+
   .testimonial-stack {
     min-height: auto;
   }
@@ -233,7 +235,7 @@ dotlottie-wc {
   align-items: center;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 4rem 1.5rem 5rem;
+  padding: 0rem 1.5rem 5rem;
 }
 
 /* Liten överrubrik badge i hero */
@@ -247,13 +249,15 @@ dotlottie-wc {
   background-color: var(--color-accent);
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-sm);
+  margin-top: 2rem
 }
 
 /* Stor rubrik med responsiv storlek */
 .hero-content h1 {
   font-size: clamp(2rem, 5vw, 3rem);
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
+  margin-top: 0rem
 }
 
 /* Introtext med dämpad färg */
@@ -261,6 +265,42 @@ dotlottie-wc {
   color: var(--color-muted);
   max-width: 520px;
   margin-bottom: 2rem;
+}
+
+.rotating-text-wrapper {
+  position: relative;
+}
+
+.rotating-text {
+  display: inline-block;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.rotating-text.is-measuring {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: none;
+  transition: none;
+  width: 100%;
+  display: block;
+}
+
+.rotating-text.is-leaving {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.rotating-text.is-entering {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.section-heading-copy {
+  color: var(--color-muted);
 }
 
 /* Knappgrupp i hero */
@@ -1042,6 +1082,7 @@ dotlottie-wc {
     flex-wrap: nowrap;
     width: 100%;
     gap: 0.75rem;
+    margin-top: -5rem;
   }
 
   .hero-actions a {
@@ -1055,17 +1096,9 @@ dotlottie-wc {
   }
 
   .hero-content dotlottie-player {
-    margin: 0.5rem auto 1.2rem;
-    margin-top: -4rem;
+    margin: -10rem auto 1.2rem;
+    margin-top: -6rem;
     max-width: 320px;
-  }
-
-  .site-header .cta-button {
-    display: inline-flex;
-    margin-left: auto;
-    margin-right: 0.75rem;
-    padding: 0.55rem 1.4rem;
-    font-size: 0.95rem;
   }
 
   .site-header .logo {
@@ -1073,7 +1106,7 @@ dotlottie-wc {
   }
 
   .site-header .cta-button {
-    order: 1;
+    display: none;
   }
 
   .site-header .menu-toggle {
@@ -1171,7 +1204,7 @@ dotlottie-wc {
 
 @media (max-width: 420px) {
   .hero-section {
-    padding: 3rem 1rem 2.75rem;
+    padding: 0rem 1rem 2.75rem;
   }
 
   .hero-card {

@@ -32,10 +32,144 @@ if (menuToggle && navLinks) {
   });
 }
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+const createRotatingTextInstance = ({ element, statements, interval = 5200, transitionDuration = 600 }) => {
+  if (!element || !Array.isArray(statements) || statements.length === 0) {
+    return null;
+  }
+
+  let rotationTimer;
+  let measurementTimer;
+  let currentIndex = 0;
+
+  const setMinHeight = () => {
+    const parent = element.parentElement;
+    if (!parent) {
+      return;
+    }
+
+    const measurement = element.cloneNode(false);
+    measurement.classList.add('is-measuring');
+    measurement.setAttribute('aria-hidden', 'true');
+    parent.appendChild(measurement);
+
+    let maxHeight = 0;
+    statements.forEach((statement) => {
+      measurement.textContent = statement;
+      const height = measurement.offsetHeight;
+      if (height > maxHeight) {
+        maxHeight = height;
+      }
+    });
+
+    element.style.minHeight = `${Math.ceil(maxHeight)}px`;
+    measurement.remove();
+  };
+
+  const scheduleMinHeight = () => {
+    window.clearTimeout(measurementTimer);
+    measurementTimer = window.setTimeout(setMinHeight, 120);
+  };
+
+  const animate = () => {
+    element.classList.add('is-leaving');
+
+    window.setTimeout(() => {
+      currentIndex = (currentIndex + 1) % statements.length;
+      element.textContent = statements[currentIndex];
+      element.classList.remove('is-leaving');
+      element.classList.add('is-entering');
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          element.classList.remove('is-entering');
+        });
+      });
+    }, transitionDuration);
+  };
+
+  const stopRotation = () => {
+    if (rotationTimer) {
+      window.clearInterval(rotationTimer);
+      rotationTimer = undefined;
+    }
+  };
+
+  const startRotation = () => {
+    if (prefersReducedMotion.matches || statements.length <= 1 || rotationTimer) {
+      return;
+    }
+    rotationTimer = window.setInterval(animate, interval);
+  };
+
+  const resetToFirstStatement = () => {
+    currentIndex = 0;
+    element.classList.remove('is-entering', 'is-leaving');
+    element.textContent = statements[0];
+    scheduleMinHeight();
+  };
+
+  element.textContent = statements[0];
+  setMinHeight();
+  window.addEventListener('load', setMinHeight);
+  window.addEventListener('resize', scheduleMinHeight);
+  startRotation();
+
+  return {
+    handleMotionPreferenceChange: (matches) => {
+      if (matches) {
+        stopRotation();
+        resetToFirstStatement();
+      } else {
+        startRotation();
+      }
+    }
+  };
+};
+
+const rotatingTextInstances = [];
+
+const registerRotatingText = (config) => {
+  const instance = createRotatingTextInstance(config);
+  if (instance) {
+    rotatingTextInstances.push(instance);
+  }
+};
+
+registerRotatingText({
+  element: document.querySelector('.hero-rotating-text'),
+  statements: [
+    'Vi hjälper nystartade och etablerade företag att lansera eller optimera tydliga, professionella webbplatser som fungerar lika bra i mobilen som på datorn och är optimerade för att synas på Google och ChatGPT.',
+    'Vi tar fram struktur, design och copy som guidar besökare från första intryck till affär – utan att du behöver samordna flera leverantörer.',
+    'Teknik, SEO, support och löpande optimering ingår så att du kan lansera snabbt och fortsätta växa utan oväntade kostnader.'
+  ],
+  interval: 5200
+});
+
+registerRotatingText({
+  element: document.querySelector('.services-rotating-text'),
+  statements: [
+    'Allt du behöver för att lansera med självförtroende – från första designskiss till live-sajt.',
+    'Vi kombinerar strategi, design och teknik så att lanseringen känns trygg från start till mål.',
+    'Ett och samma team guidar dig genom skiss, copy, bygg och lansering utan onödiga stopp.'
+  ],
+  interval: 5600
+});
+
+const broadcastMotionPreferenceChange = (matches) => {
+  rotatingTextInstances.forEach((instance) => instance.handleMotionPreferenceChange(matches));
+};
+
+if (typeof prefersReducedMotion.addEventListener === 'function') {
+  prefersReducedMotion.addEventListener('change', (event) => broadcastMotionPreferenceChange(event.matches));
+} else if (typeof prefersReducedMotion.addListener === 'function') {
+  prefersReducedMotion.addListener((event) => broadcastMotionPreferenceChange(event.matches));
+}
+
 // Uppdatera footer med nuvarande årtal
 const currentYearElement = document.getElementById('current-year');
 if (currentYearElement) {
-  // Sätt textinnehållet till årets siffra
   currentYearElement.textContent = String(new Date().getFullYear());
 }
 

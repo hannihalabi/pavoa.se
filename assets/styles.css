@@ -1151,7 +1151,7 @@ dotlottie-wc {
   /* Visa hamburgermenyknapp */
   .menu-toggle {
     display: flex;
-    margin-left: auto;
+    margin-left: 0;
     order: 2;
   }
 
@@ -1162,13 +1162,13 @@ dotlottie-wc {
 
   .language-switcher {
     order: 1;
-    margin-left: 0.75rem;
+    margin-left: auto;
     margin-right: 0;
   }
 
   .language-menu {
-    right: auto;
-    left: 0;
+    right: 0;
+    left: auto;
   }
 }
 

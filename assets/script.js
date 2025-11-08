@@ -397,7 +397,7 @@ const translations = {
       popular: 'Most popular',
       base: {
         title: 'Base',
-        price: '1&nbsp;495 SEK / month',
+        price: '€130 / month',
         tagline: 'For a fast, professional start',
         feature1: 'Website built with clean custom code',
         feature2: 'Curated imagery',
@@ -410,7 +410,7 @@ const translations = {
       },
       plus: {
         title: 'Plus',
-        price: '2&nbsp;499 SEK / month',
+        price: '€220 / month',
         tagline: 'For companies that need more clients',
         feature1: 'Everything in Base',
         feature2: 'Slideshows and galleries',
@@ -424,7 +424,7 @@ const translations = {
       },
       premium: {
         title: 'Premium',
-        price: '7&nbsp;995 SEK / month',
+        price: '€695 / month',
         tagline: 'Dominate your market and competitors',
         feature1: 'Everything in Plus',
         feature2: 'Expert-crafted 3D design',
@@ -638,7 +638,7 @@ const translations = {
       popular: 'El más elegido',
       base: {
         title: 'Base',
-        price: '1&nbsp;495 SEK / mes',
+        price: '130 € / mes',
         tagline: 'Para un inicio rápido y profesional',
         feature1: 'Sitio desarrollado con código propio',
         feature2: 'Selección de imágenes',
@@ -651,7 +651,7 @@ const translations = {
       },
       plus: {
         title: 'Plus',
-        price: '2&nbsp;499 SEK / mes',
+        price: '220 € / mes',
         tagline: 'Para empresas que necesitan más clientes',
         feature1: 'Todo lo del plan Base',
         feature2: 'Galerías y sliders',
@@ -665,7 +665,7 @@ const translations = {
       },
       premium: {
         title: 'Premium',
-        price: '7&nbsp;995 SEK / mes',
+        price: '695 € / mes',
         tagline: 'Domina tu mercado y a la competencia',
         feature1: 'Todo lo del plan Plus',
         feature2: 'Diseño 3D creado por expertos',
@@ -879,7 +879,7 @@ const translations = {
       popular: 'Il più scelto',
       base: {
         title: 'Base',
-        price: '1&nbsp;495 SEK / mese',
+        price: '130 € / mese',
         tagline: 'Per partire in modo rapido e professionale',
         feature1: 'Sito sviluppato con codice su misura',
         feature2: 'Selezione di immagini',
@@ -892,7 +892,7 @@ const translations = {
       },
       plus: {
         title: 'Plus',
-        price: '2&nbsp;499 SEK / mese',
+        price: '220 € / mese',
         tagline: 'Per aziende che vogliono più clienti',
         feature1: 'Tutto del pacchetto Base',
         feature2: 'Slider e gallerie',
@@ -906,7 +906,7 @@ const translations = {
       },
       premium: {
         title: 'Premium',
-        price: '7&nbsp;995 SEK / mese',
+        price: '695 € / mese',
         tagline: 'Per dominare il tuo mercato e i concorrenti',
         feature1: 'Tutto del pacchetto Plus',
         feature2: 'Design 3D curato da esperti',

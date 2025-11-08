@@ -2,6 +2,8 @@ const PAGESPEED_API_KEY = 'AIzaSyBGQhx55E6-dIVVxr21hXg_7SCmUWr2vV4';
 const PAGESPEED_ENDPOINT = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 const LANGUAGE_STORAGE_KEY = 'gmnordics-language';
 const FALLBACK_LANGUAGE = 'sv';
+const HERO_ROTATION_INTERVAL = 5200;
+const HERO_TRANSITION_DURATION = 600;
 
 const translations = {
   sv: {
@@ -29,7 +31,7 @@ const translations = {
     hero: {
       eyebrow: 'För företagare',
       heading: 'Hemsidan som utstrålar förtroende',
-      focusPrefix: 'Hemsida skapad för',
+      focusPrefix: 'Skapad för',
       focusWords: ['Kreativitet', 'Lönsamhet', 'Leads'],
       primaryCta: 'Visa prispaket',
       secondaryCta: 'Kontakt',
@@ -270,7 +272,7 @@ const translations = {
     hero: {
       eyebrow: 'For entrepreneurs',
       heading: 'A website that radiates trust',
-      focusPrefix: 'Website built for',
+      focusPrefix: 'Built for',
       focusWords: ['Creativity', 'Profitability', 'Qualified leads'],
       primaryCta: 'See pricing',
       secondaryCta: 'Contact',
@@ -511,7 +513,7 @@ const translations = {
     hero: {
       eyebrow: 'Para emprendedores',
       heading: 'Un sitio web que inspira confianza',
-      focusPrefix: 'Sitio web creado para',
+      focusPrefix: 'Creado para',
       focusWords: ['Creatividad', 'Rentabilidad', 'Clientes potenciales'],
       primaryCta: 'Ver planes',
       secondaryCta: 'Contacto',
@@ -752,7 +754,7 @@ const translations = {
     hero: {
       eyebrow: 'Per imprenditori',
       heading: 'Un sito che trasmette fiducia',
-      focusPrefix: 'Sito creato per',
+      focusPrefix: 'Creato per',
       focusWords: ['Creatività', 'Redditività', 'Lead qualificati'],
       primaryCta: 'Guarda i pacchetti',
       secondaryCta: 'Contatto',
@@ -1151,8 +1153,53 @@ function updateMetaTags(locale) {
 }
 
 const rotatingTextControllers = {};
+let heroSyncTimer;
 
-function createRotatingTextInstance({ element, statements = [], interval = 5200, transitionDuration = 600 }) {
+function stopHeroSyncRotation({ reset = false } = {}) {
+  if (heroSyncTimer) {
+    window.clearInterval(heroSyncTimer);
+    heroSyncTimer = undefined;
+  }
+  if (reset) {
+    const heroController = rotatingTextControllers.hero;
+    const focusController = rotatingTextControllers.heroFocus;
+    heroController?.setActiveIndex(0, { animate: false });
+    focusController?.setActiveIndex(0, { animate: false });
+  }
+}
+
+function startHeroSyncRotation() {
+  stopHeroSyncRotation();
+  const heroController = rotatingTextControllers.hero;
+  const focusController = rotatingTextControllers.heroFocus;
+  if (!heroController || !focusController) {
+    return;
+  }
+  if (prefersReducedMotion.matches) {
+    heroController.setActiveIndex(0, { animate: false });
+    focusController.setActiveIndex(0, { animate: false });
+    return;
+  }
+  heroController.setActiveIndex(focusController.getActiveIndex(), { animate: false });
+  heroSyncTimer = window.setInterval(() => {
+    const nextIndex = focusController.getActiveIndex() + 1;
+    focusController.setActiveIndex(nextIndex, { animate: true });
+    heroController.setActiveIndex(nextIndex, { animate: true });
+  }, HERO_ROTATION_INTERVAL);
+}
+
+function restartHeroSyncRotation() {
+  startHeroSyncRotation();
+}
+
+function createRotatingTextInstance({
+  element,
+  statements = [],
+  interval = 5200,
+  transitionDuration = HERO_TRANSITION_DURATION,
+  autoRotate = true,
+  onIndexChange
+}) {
   if (!element || !Array.isArray(statements) || statements.length === 0) {
     return null;
   }
@@ -1195,38 +1242,62 @@ function createRotatingTextInstance({ element, statements = [], interval = 5200,
     }
   };
 
-  const animate = () => {
-    element.classList.add('is-leaving');
+  const normalizeIndex = (index) => {
+    if (activeStatements.length === 0) {
+      return 0;
+    }
+    const length = activeStatements.length;
+    return ((index % length) + length) % length;
+  };
 
-    window.setTimeout(() => {
-      currentIndex = (currentIndex + 1) % activeStatements.length;
+  const renderIndex = (index, { animate = true } = {}) => {
+    if (!activeStatements.length) {
+      return;
+    }
+
+    const targetIndex = normalizeIndex(index);
+    const commit = () => {
+      currentIndex = targetIndex;
       element.textContent = activeStatements[currentIndex];
-      element.classList.remove('is-leaving');
-      element.classList.add('is-entering');
-
-      requestAnimationFrame(() => {
+      if (animate) {
+        element.classList.remove('is-leaving');
+        element.classList.add('is-entering');
         requestAnimationFrame(() => {
-          element.classList.remove('is-entering');
+          requestAnimationFrame(() => {
+            element.classList.remove('is-entering');
+          });
         });
-      });
-    }, transitionDuration);
+      } else {
+        element.classList.remove('is-entering', 'is-leaving');
+      }
+      onIndexChange?.(currentIndex, { animate });
+    };
+
+    if (!animate) {
+      commit();
+      return;
+    }
+
+    element.classList.add('is-leaving');
+    window.setTimeout(commit, transitionDuration);
   };
 
   const startRotation = () => {
-    if (prefersReducedMotion.matches || activeStatements.length <= 1 || rotationTimer) {
+    if (!autoRotate || prefersReducedMotion.matches || activeStatements.length <= 1 || rotationTimer) {
       return;
     }
-    rotationTimer = window.setInterval(animate, interval);
+    rotationTimer = window.setInterval(() => {
+      renderIndex(currentIndex + 1, { animate: true });
+    }, interval);
   };
 
   const resetToFirstStatement = () => {
-    currentIndex = 0;
-    element.classList.remove('is-entering', 'is-leaving');
-    element.textContent = activeStatements[0];
+    renderIndex(0, { animate: false });
     scheduleMinHeight();
   };
 
-  element.textContent = activeStatements[0];
+  element.classList.remove('is-entering', 'is-leaving');
+  renderIndex(0, { animate: false });
   setMinHeight();
   window.addEventListener('load', setMinHeight);
   window.addEventListener('resize', scheduleMinHeight);
@@ -1249,21 +1320,26 @@ function createRotatingTextInstance({ element, statements = [], interval = 5200,
       stopRotation();
       resetToFirstStatement();
       startRotation();
-    }
+    },
+    setActiveIndex: (index, options) => {
+      renderIndex(index, options);
+    },
+    getActiveIndex: () => currentIndex
   };
 }
 
 function initRotatingTexts() {
+  const heroFocusElement = document.querySelector('.hero-focus-text');
   const heroElement = document.querySelector('.hero-rotating-text');
   const servicesElement = document.querySelector('.services-rotating-text');
-  const heroFocusElement = document.querySelector('.hero-focus-text');
   const locale = getLocale();
 
   if (heroElement) {
     rotatingTextControllers.hero = createRotatingTextInstance({
       element: heroElement,
       statements: locale.hero.statements,
-      interval: 5200
+      interval: HERO_ROTATION_INTERVAL,
+      autoRotate: !heroFocusElement
     });
   }
 
@@ -1271,7 +1347,8 @@ function initRotatingTexts() {
     rotatingTextControllers.heroFocus = createRotatingTextInstance({
       element: heroFocusElement,
       statements: locale.hero.focusWords,
-      interval: 4000
+      interval: HERO_ROTATION_INTERVAL,
+      autoRotate: false
     });
   }
 
@@ -1282,6 +1359,8 @@ function initRotatingTexts() {
       interval: 5600
     });
   }
+
+  restartHeroSyncRotation();
 }
 
 initRotatingTexts();
@@ -1290,6 +1369,11 @@ const broadcastMotionPreferenceChange = (matches) => {
   Object.values(rotatingTextControllers).forEach((controller) => {
     controller?.handleMotionPreferenceChange(matches);
   });
+  if (matches) {
+    stopHeroSyncRotation({ reset: true });
+  } else {
+    restartHeroSyncRotation();
+  }
 };
 
 if (typeof prefersReducedMotion.addEventListener === 'function') {
@@ -1316,6 +1400,9 @@ function applyLanguage(lang) {
   }
   if (rotatingTextControllers.heroFocus) {
     rotatingTextControllers.heroFocus.setStatements(locale.hero.focusWords);
+    restartHeroSyncRotation();
+  } else {
+    stopHeroSyncRotation();
   }
   if (rotatingTextControllers.services) {
     rotatingTextControllers.services.setStatements(locale.services.rotatingStatements);

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professionella hemsidor för nystartade företag. Få en tydlig, mobilanpassad och SEO-optimerad webbplats som passar din budget.">
-  <title>Pavoa Webbyrå – Professionella hemsidor för nystartade företag</title>
+  <meta name="description" content="GM NORDICS bygger skräddarsydda, snabba och SEO-optimerade hemsidor för företag som vill växa tryggt och professionellt.">
+  <title>GM NORDICS – Professionella hemsidor för företag</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,20 +14,52 @@
   <!-- Sticky navigation med LOGOTYPE, huvudlänkar och CTA -->  
   <header class="site-header">
     <nav class="navbar" aria-label="Huvudnavigation">
-      <a class="logo" href="#hero" aria-label="Till startsidan">GM NORDICS</a>
+      <a class="logo" href="#hero" aria-label="Till startsidan" data-i18n="brand.name">GM NORDICS</a>
+      <div class="language-switcher">
+        <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Byt språk" data-i18n="language.buttonLabel" data-i18n-attr="aria-label">
+          <span class="language-icon" aria-hidden="true">🗣️</span>
+          <span class="language-button-label" data-language-label>Svenska</span>
+        </button>
+        <ul class="language-menu" role="listbox" aria-label="Välj språk" data-i18n="language.menuLabel" data-i18n-attr="aria-label">
+          <li>
+            <button type="button" role="option" data-lang="sv">
+              <span class="flag" aria-hidden="true">🇸🇪</span>
+              Svenska
+            </button>
+          </li>
+          <li>
+            <button type="button" role="option" data-lang="en">
+              <span class="flag" aria-hidden="true">🇬🇧</span>
+              English
+            </button>
+          </li>
+          <li>
+            <button type="button" role="option" data-lang="es">
+              <span class="flag" aria-hidden="true">🇪🇸</span>
+              Español
+            </button>
+          </li>
+          <li>
+            <button type="button" role="option" data-lang="it">
+              <span class="flag" aria-hidden="true">🇮🇹</span>
+              Italiano
+            </button>
+          </li>
+        </ul>
+      </div>
       <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation">
-        <span class="sr-only">Visa meny</span>
+        <span class="sr-only" data-i18n="nav.menuToggle">Visa meny</span>
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
       </button>
       <ul class="nav-links" id="primary-navigation">
-        <li><a href="#tjanster">Tjänster</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#paket">Prispaket</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#tjanster" data-i18n="nav.services">Tjänster</a></li>
+        <li><a href="#process" data-i18n="nav.process">Process</a></li>
+        <li><a href="#paket" data-i18n="nav.packages">Prispaket</a></li>
+        <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
       </ul>
-      <a class="cta-button glow-cta" href="#kontakt">Boka online</a>
+      <a class="cta-button glow-cta" href="#kontakt" data-i18n="nav.cta">Boka online</a>
     </nav>
   </header>
 
@@ -35,8 +67,12 @@
     <!-- Hero med värdeerbjudande och animation -->
     <section id="hero" class="hero-section">
       <div class="hero-content">
-        <p class="eyebrow">För företagare</p>
-        <h1>Hemsidan som utstrålar förtroende</h1>
+        <p class="eyebrow" data-i18n="hero.eyebrow">För företagare</p>
+        <h1 data-i18n="hero.heading">Hemsidan som utstrålar förtroende</h1>
+        <p class="hero-focus rotating-text-wrapper" aria-live="polite">
+          <span data-i18n="hero.focusPrefix">Hemsida skapad för</span>
+          <span class="rotating-text hero-focus-text">Kreativitet</span>
+        </p>
         <p class="lead rotating-text-wrapper" aria-live="polite">
           <span class="rotating-text hero-rotating-text">
             Vi hjälper nystartade och etablerade företag att lansera eller optimera tydliga, professionella webbplatser
@@ -56,19 +92,19 @@
           autoplay
         ></dotlottie-player>
         <div class="hero-actions">
-          <a class="primary-button" href="#paket">Visa prispaket</a>
-          <a class="secondary-button" href="#kontakt">Kontakt</a>
+          <a class="primary-button" href="#paket" data-i18n="hero.primaryCta">Visa prispaket</a>
+          <a class="secondary-button" href="#kontakt" data-i18n="hero.secondaryCta">Kontakt</a>
         </div>
       </div>
       <div class="hero-card">
-        <h2>Varför välja Pavoa?</h2>
+        <h2 data-i18n="hero.card.title">Varför välja GM NORDICS?</h2>
         <ul>
-          <li>Inga dyra timarvoden</li>
-          <li>Fasta priser</li>
-          <li>Ren kod (Ingen Wix eller Wordpress)</li>
-          <li>Kostandsfri prototyp</li>
-          <li>Dominans inom er sektor</li>
-          <li>Personlig kontakt 24/7</li>
+          <li data-i18n="hero.card.item1">Inga dyra timarvoden</li>
+          <li data-i18n="hero.card.item2">Fasta priser</li>
+          <li data-i18n="hero.card.item3">Ren kod (Ingen Wix eller Wordpress)</li>
+          <li data-i18n="hero.card.item4">Kostandsfri prototyp</li>
+          <li data-i18n="hero.card.item5">Dominans inom er sektor</li>
+          <li data-i18n="hero.card.item6">Personlig kontakt 24/7</li>
         </ul>
         <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
         <dotlottie-wc
@@ -83,7 +119,7 @@
     <section id="pagespeed" class="section pagespeed">
       <div class="pagespeed-container">
         <div class="pagespeed-intro">
-          <h2>Hur mår din hemsida?</h2>
+          <h2 data-i18n="pagespeed.heading">Hur mår din hemsida?</h2>
           <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
           <dotlottie-wc
             src="https://lottie.host/14b3ddcb-728e-46ad-81f8-54731727575a/TYgyQTy5Nb.lottie"
@@ -91,9 +127,9 @@
             autoplay
             loop
           ></dotlottie-wc>
-          <p>Fyll i din webbadress så berättar vi hur sidan mår och vad som är smartast att fixa först.</p>
+          <p data-i18n="pagespeed.lead">Fyll i din webbadress så berättar vi hur sidan mår och vad som är smartast att fixa först.</p>
           <form id="pagespeed-form" class="pagespeed-form" novalidate>
-            <label for="pagespeed-url">Webbadress</label>
+            <label for="pagespeed-url" data-i18n="pagespeed.label">Webbadress</label>
             <div class="pagespeed-form-row">
               <input
                 type="text"
@@ -101,10 +137,12 @@
                 name="url"
                 inputmode="url"
                 placeholder="t.ex. aftonbladet.se"
+                data-i18n-attr="placeholder"
+                data-i18n="pagespeed.placeholder"
                 autocomplete="url"
                 required
               >
-              <button type="submit" class="primary-button">Analysera</button>
+              <button type="submit" class="primary-button" data-i18n="pagespeed.button">Analysera</button>
             </div>
           </form>
 
@@ -118,7 +156,7 @@
             >
               <div class="progress-fill" id="loading-fill"></div>
             </div>
-            <p class="progress-value"><span id="loading-value">0</span> av 100</p>
+            <p class="progress-value"><span id="loading-value">0</span> <span data-i18n="pagespeed.progressSuffix">av 100</span></p>
           </div>
 
           <div class="analysis-error" id="analysis-error" hidden role="alert"></div>
@@ -127,14 +165,14 @@
         <div class="pagespeed-results" id="analysis-result" hidden>
           <div class="score-card">
             <div class="score-header">
-              <p class="score-label">Prestandapoäng</p>
+              <p class="score-label" data-i18n="pagespeed.scoreLabel">Prestandapoäng</p>
               <p class="score-value" id="performance-score">--</p>
-              <p class="score-note">Av 100 möjliga poäng – högre är bättre.</p>
+              <p class="score-note" data-i18n="pagespeed.scoreNote">Av 100 möjliga poäng – högre är bättre.</p>
             </div>
 
             <div class="score-summary">
-              <h3>Så här mår sidan</h3>
-              <p id="summary-text">Resultatet visas här efter analys.</p>
+              <h3 data-i18n="pagespeed.summaryHeading">Så här mår sidan</h3>
+              <p id="summary-text" data-i18n="pagespeed.summaryDefault">Resultatet visas här efter analys.</p>
             </div>
           </div>
         </div>
@@ -144,7 +182,7 @@
     <!-- Tjänster sektion som presenterar tre fokusområden -->
     <section id="tjanster" class="section services">
       <div class="section-heading">
-        <h2>Tydlighet, trygghet och tillväxt i varje projekt</h2>
+        <h2 data-i18n="services.heading">Tydlighet, trygghet och tillväxt i varje projekt</h2>
         <p class="rotating-text-wrapper section-heading-copy">
           <span class="rotating-text services-rotating-text" aria-live="polite">
             Allt du behöver för att lansera med självförtroende – från första designskiss till live-sajt.
@@ -162,16 +200,16 @@
       </div>
       <div class="service-grid">
         <article class="service-card">
-          <h3>Strategi &amp; struktur</h3>
-          <p>Vi kartlägger målgruppens behov och bygger upp en tydlig informationsarkitektur som leder till konvertering.</p>
+          <h3 data-i18n="services.card1.title">Strategi &amp; struktur</h3>
+          <p data-i18n="services.card1.body">Vi kartlägger målgruppens behov och bygger upp en tydlig informationsarkitektur som leder till konvertering.</p>
         </article>
         <article class="service-card">
-          <h3>Design &amp; varumärke</h3>
-          <p>Professionell design som speglar ditt företag och skapar förtroende – komplett med färger, typsnitt och bildspråk.</p>
+          <h3 data-i18n="services.card2.title">Design &amp; varumärke</h3>
+          <p data-i18n="services.card2.body">Professionell design som speglar ditt företag och skapar förtroende – komplett med färger, typsnitt och bildspråk.</p>
         </article>
         <article class="service-card">
-          <h3>Teknik &amp; SEO</h3>
-          <p>Snabb, mobilanpassad kod med teknisk SEO som ger en bra grund för att synas och driva trafik.</p>
+          <h3 data-i18n="services.card3.title">Teknik &amp; SEO</h3>
+          <p data-i18n="services.card3.body">Snabb, mobilanpassad kod med teknisk SEO som ger en bra grund för att synas och driva trafik.</p>
         </article>
       </div>
     </section>
@@ -179,7 +217,7 @@
     <!-- Process sektion i tre steg för att sätta förväntningar -->
     <section id="process" class="section process">
       <div class="section-heading">
-        <h2>Vår process gör det enkelt att komma igång</h2>
+        <h2 data-i18n="process.heading">Vår process gör det enkelt att komma igång</h2>
         <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
         <dotlottie-player
           src="https://lottie.host/a8881760-e37b-4c5a-8b28-31ef4c3bead2/7nuysQ5ZDs.lottie"
@@ -192,16 +230,16 @@
       </div>
       <ol class="process-steps">
         <li>
-          <h3>1. Kickoff &amp; mål</h3>
-          <p>Vi inleder med ett strukturerat uppstartsmöte där vi definierar mål, målgrupp, budskap och SEO-fokus samt sätter informationsstrukturen för sajten.</p>
+          <h3 data-i18n="process.step1.title">1. Kickoff &amp; mål</h3>
+          <p data-i18n="process.step1.body">Vi inleder med ett strukturerat uppstartsmöte där vi definierar mål, målgrupp, budskap och SEO-fokus samt sätter informationsstrukturen för sajten.</p>
         </li>
         <li>
-          <h3>2. Design &amp; copy</h3>
-          <p>Vi tar fram en interaktiv prototyp och skräddarsydd copy. Tillsammans finjusterar vi innehåll och design tills allt är godkänt och produktionsklart.</p>
+          <h3 data-i18n="process.step2.title">2. Design &amp; copy</h3>
+          <p data-i18n="process.step2.body">Vi tar fram en interaktiv prototyp och skräddarsydd copy. Tillsammans finjusterar vi innehåll och design tills allt är godkänt och produktionsklart.</p>
         </li>
         <li>
-          <h3>3. Bygg &amp; lansering</h3>
-          <p>Vi implementerar lösningen, finjusterar SEO och genomför noggranna tester. Vid lansering får du en robust webbplats som konkurrerar från dag ett.</p>
+          <h3 data-i18n="process.step3.title">3. Bygg &amp; lansering</h3>
+          <p data-i18n="process.step3.body">Vi implementerar lösningen, finjusterar SEO och genomför noggranna tester. Vid lansering får du en robust webbplats som konkurrerar från dag ett.</p>
         </li>
       </ol>
     </section>
@@ -209,80 +247,80 @@
     <!-- Prispaket med tre nivåer och framlyft favorit -->
     <section id="paket" class="section pricing">
       <div class="section-heading">
-        <h2>Tre prispaket för olika behov</h2>
-        <p>Välj den nivå som passar dig bäst – alla paket går att bygga ut när ditt företag växer.</p>
+        <h2 data-i18n="pricing.heading">Tre prispaket för olika behov</h2>
+        <p data-i18n="pricing.lead">Välj den nivå som passar dig bäst – alla paket går att bygga ut när ditt företag växer.</p>
       </div>
       <div class="pricing-grid">
         <article class="pricing-card">
           <header>
-            <h3>Bas</h3>
-            <p class="price">1&nbsp;495 kr/månad</p>
-            <p class="tagline">För en snabb och professionell start</p>
+            <h3 data-i18n="pricing.base.title">Bas</h3>
+            <p class="price" data-i18n="pricing.base.price" data-i18n-attr="html">1&nbsp;495 kr/månad</p>
+            <p class="tagline" data-i18n="pricing.base.tagline">För en snabb och professionell start</p>
           </header>
           <ul class="feature-list">
-            <li>Hemsida utvecklad i ren kod</li>
-            <li>Bilder</li>
-            <li>5 e-postadresser</li>
-            <li>Webbhotell och domänadress</li>
-            <li>SEO-optimering</li>
-            <li>Kontaktformulär</li>
-            <li>Support ingår</li>
+            <li data-i18n="pricing.base.feature1">Hemsida utvecklad i ren kod</li>
+            <li data-i18n="pricing.base.feature2">Bilder</li>
+            <li data-i18n="pricing.base.feature3">5 e-postadresser</li>
+            <li data-i18n="pricing.base.feature4">Webbhotell och domänadress</li>
+            <li data-i18n="pricing.base.feature5">SEO-optimering</li>
+            <li data-i18n="pricing.base.feature6">Kontaktformulär</li>
+            <li data-i18n="pricing.base.feature7">Support ingår</li>
           </ul>
-          <a class="card-cta" href="#kontakt">Välj Bas</a>
+          <a class="card-cta" href="#kontakt" data-i18n="pricing.base.cta">Välj Bas</a>
         </article>
 
         <article class="pricing-card featured">
           <header>
-            <p class="popular">Mest populär</p>
-            <h3>Plus</h3>
-            <p class="price">2&nbsp;499 kr/månad</p>
-            <p class="tagline">För företag med behov av fler kunder</p>
+            <p class="popular" data-i18n="pricing.popular">Mest populär</p>
+            <h3 data-i18n="pricing.plus.title">Plus</h3>
+            <p class="price" data-i18n="pricing.plus.price" data-i18n-attr="html">2&nbsp;499 kr/månad</p>
+            <p class="tagline" data-i18n="pricing.plus.tagline">För företag med behov av fler kunder</p>
           </header>
           <ul class="feature-list">
-            <li>Allt i bas</li>
-            <li>Bildspel och galleri</li>
-            <li>Nyhetsflöde</li>
-            <li>Logotypdesign och unik grafik</li>
-            <li>10 e-postadresser</li>
-            <li>Marknadsföring via Meta</li>
-            <li>Filmredigering</li>
-            <li>Marknadsföringskampanjer</li>
+            <li data-i18n="pricing.plus.feature1">Allt i bas</li>
+            <li data-i18n="pricing.plus.feature2">Bildspel och galleri</li>
+            <li data-i18n="pricing.plus.feature3">Nyhetsflöde</li>
+            <li data-i18n="pricing.plus.feature4">Logotypdesign och unik grafik</li>
+            <li data-i18n="pricing.plus.feature5">10 e-postadresser</li>
+            <li data-i18n="pricing.plus.feature6">Marknadsföring via Meta</li>
+            <li data-i18n="pricing.plus.feature7">Filmredigering</li>
+            <li data-i18n="pricing.plus.feature8">Marknadsföringskampanjer</li>
           </ul>
-          <a class="card-cta" href="#kontakt">Välj Plus</a>
+          <a class="card-cta" href="#kontakt" data-i18n="pricing.plus.cta">Välj Plus</a>
         </article>
 
         <article class="pricing-card">
           <header>
-            <h3>Premium</h3>
-            <p class="price">7&nbsp;995 kr/månad</p>
-            <p class="tagline">Dominera din marknad och dina konkurrenter</p>
+            <h3 data-i18n="pricing.premium.title">Premium</h3>
+            <p class="price" data-i18n="pricing.premium.price" data-i18n-attr="html">7&nbsp;995 kr/månad</p>
+            <p class="tagline" data-i18n="pricing.premium.tagline">Dominera din marknad och dina konkurrenter</p>
           </header>
           <ul class="feature-list">
-            <li>Allt i Plus</li>
-            <li>Expertutformad 3D design</li>
-            <li>Optimerade bilder</li>
-            <li>Obegränsade e-postadresser</li>
-            <li>AI Bloggfunktion</li>
-            <li>SEO-optimering</li>
-            <li>Veckoavstämningar</li>
-            <li>WooCommerce-integration</li>
-            <li>E-handel</li>
+            <li data-i18n="pricing.premium.feature1">Allt i Plus</li>
+            <li data-i18n="pricing.premium.feature2">Expertutformad 3D design</li>
+            <li data-i18n="pricing.premium.feature3">Optimerade bilder</li>
+            <li data-i18n="pricing.premium.feature4">Obegränsade e-postadresser</li>
+            <li data-i18n="pricing.premium.feature5">AI Bloggfunktion</li>
+            <li data-i18n="pricing.premium.feature6">SEO-optimering</li>
+            <li data-i18n="pricing.premium.feature7">Veckoavstämningar</li>
+            <li data-i18n="pricing.premium.feature8">WooCommerce-integration</li>
+            <li data-i18n="pricing.premium.feature9">E-handel</li>
           </ul>
-          <a class="card-cta" href="#kontakt">Välj Premium</a>
+          <a class="card-cta" href="#kontakt" data-i18n="pricing.premium.cta">Välj Premium</a>
         </article>
       </div>
     </section>
 
     <section class="section appointment-booking">
       <div class="appointment-content">
-        <h3>Boka när det passar dig</h3>
-        <p>
+        <h3 data-i18n="appointment.heading">Boka när det passar dig</h3>
+        <p data-i18n="appointment.body">
           Välj en tid som passar dig så går vi igenom mål, tidsplan och vilka delar av webbplatsen som behöver mest kärlek.
         </p>
         <ul class="appointment-benefits">
-          <li>30 minuter digitalt möte via Google Meet</li>
-          <li>Konkreta rekommendationer för din nuvarande sajt</li>
-          <li>En tydlig handlingsplan i skriftform skickas ut</li>
+          <li data-i18n="appointment.benefit1">30 minuter digitalt möte via Google Meet</li>
+          <li data-i18n="appointment.benefit2">Konkreta rekommendationer för din nuvarande sajt</li>
+          <li data-i18n="appointment.benefit3">En tydlig handlingsplan i skriftform skickas ut</li>
         </ul>
       </div>
       <div class="appointment-frame" aria-label="Kalender för att boka möte">
@@ -305,7 +343,7 @@
           target="_blank"
           rel="noopener"
         >
-          Öppna kalender
+          <span data-i18n="appointment.openCalendar">Öppna kalender</span>
         </a>
       </div>
     </section>
@@ -313,24 +351,24 @@
     <!-- Testimonial-stack som roterar kundcitat -->
     <section class="section testimonials">
       <div class="section-heading">
-        <h2>Vad teamet tipsar dig som funderar</h2>
+        <h2 data-i18n="testimonials.heading">Vad teamet tipsar dig som funderar</h2>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-stack" role="list" aria-live="polite">
           <article class="testimonial" role="listitem">
-            <blockquote>
+            <blockquote data-i18n="testimonials.quote1">
               “Pavoa är en fantastisk tjänst för dig som vill ha teknisk expertis med fasta och låga kostnader”
             </blockquote>
             <p class="author">Lina Andersson</p>
           </article>
           <article class="testimonial" role="listitem">
-            <blockquote>
+            <blockquote data-i18n="testimonials.quote2">
               “Seniora IT-utvecklare debiterar 1000-1400 kr per timme, med Pavoa är det fasta priser som gäller vilket kan vara skönt för företagare”
             </blockquote>
             <p class="author">JP Ekström</p>
           </article>
           <article class="testimonial" role="listitem">
-            <blockquote>
+            <blockquote data-i18n="testimonials.quote3">
               “Det är en lyxkänsla att kunna ha ett direktnummer till en av våra experter och rådfråga lite om vad som helst, många av oss blir faktiskt polare med våra klienter”
             </blockquote>
             <p class="author">Sanna Holm</p>
@@ -342,34 +380,34 @@
     <!-- Kontaktsektion med formulär och direktkontakt -->
     <section id="kontakt" class="section contact">
       <div class="section-heading">
-        <h2>Låt oss prata om din nästa webbplats</h2>
-        <p>Fyll i formuläret så återkommer vi inom två arbetsdagar</p>
+        <h2 data-i18n="contact.heading">Låt oss prata om din nästa webbplats</h2>
+        <p data-i18n="contact.lead">Fyll i formuläret så återkommer vi inom två arbetsdagar</p>
       </div>
       <form class="contact-form" aria-label="Kontaktformulär">
-        <label for="name">Namn</label>
-        <input type="text" id="name" name="name" required placeholder="Ditt namn">
+        <label for="name" data-i18n="contact.form.nameLabel">Namn</label>
+        <input type="text" id="name" name="name" required placeholder="Ditt namn" data-i18n="contact.form.namePlaceholder" data-i18n-attr="placeholder">
 
-        <label for="email">E-post</label>
-        <input type="email" id="email" name="email" required placeholder="din@adress.se">
+        <label for="email" data-i18n="contact.form.emailLabel">E-post</label>
+        <input type="email" id="email" name="email" required placeholder="din@adress.se" data-i18n="contact.form.emailPlaceholder" data-i18n-attr="placeholder">
 
-        <label for="company">Företag</label>
-        <input type="text" id="company" name="company" placeholder="Företagsnamn">
+        <label for="company" data-i18n="contact.form.companyLabel">Företag</label>
+        <input type="text" id="company" name="company" placeholder="Företagsnamn" data-i18n="contact.form.companyPlaceholder" data-i18n-attr="placeholder">
 
-        <label for="package">Välj paket</label>
+        <label for="package" data-i18n="contact.form.packageLabel">Välj paket</label>
         <select id="package" name="package">
-          <option value="bas">Bas</option>
-          <option value="plus">Plus</option>
-          <option value="premium">Premium</option>
+          <option value="bas" data-i18n="contact.form.optionBas">Bas</option>
+          <option value="plus" data-i18n="contact.form.optionPlus">Plus</option>
+          <option value="premium" data-i18n="contact.form.optionPremium">Premium</option>
         </select>
 
-        <label for="message">Berätta kort om ditt behov</label>
-        <textarea id="message" name="message" rows="4" placeholder="Vad vill du uppnå med din webbplats?"></textarea>
+        <label for="message" data-i18n="contact.form.messageLabel">Berätta kort om ditt behov</label>
+        <textarea id="message" name="message" rows="4" placeholder="Vad vill du uppnå med din webbplats?" data-i18n="contact.form.messagePlaceholder" data-i18n-attr="placeholder"></textarea>
 
-        <button type="submit" class="primary-button">Skicka förfrågan</button>
+        <button type="submit" class="primary-button" data-i18n="contact.form.submit">Skicka förfrågan</button>
       </form>
       <div class="contact-details">
-        <p><strong>Föredrar du att ringa?</strong> 010-123 45 67</p>
-        <p><strong>E-post:</strong> hello@pavoa.se</p>
+        <p><strong data-i18n="contact.phoneLabel">Föredrar du att ringa?</strong> <span data-i18n="contact.phoneValue">010-123 45 67</span></p>
+        <p><strong data-i18n="contact.emailLabel">E-post:</strong> <span data-i18n="contact.emailValue">hello@pavoa.se</span></p>
       </div>
     </section>
   </main>
@@ -377,14 +415,14 @@
   <!-- Footer med navigation och dynamiskt årtal -->
   <footer class="site-footer">
     <div class="footer-content">
-      <a class="logo" href="#hero">GM NORDICS</a>
-      <p>© <span id="current-year"></span> Pavoa Webbyrå. Alla rättigheter förbehållna.</p>
+      <a class="logo" href="#hero" data-i18n="brand.name">GM NORDICS</a>
+      <p>© <span id="current-year"></span> <span data-i18n="footer.tagline">GM NORDICS. Alla rättigheter förbehållna.</span></p>
       <nav aria-label="Footer navigation">
-        <a href="#tjanster">Tjänster</a>
-        <a href="#paket">Prispaket</a>
-        <a href="om-oss.html">Om oss</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#">Integritetspolicy</a>
+        <a href="#tjanster" data-i18n="footer.nav.services">Tjänster</a>
+        <a href="#paket" data-i18n="footer.nav.packages">Prispaket</a>
+        <a href="om-oss.html" data-i18n="footer.nav.about">Om oss</a>
+        <a href="#kontakt" data-i18n="footer.nav.contact">Kontakt</a>
+        <a href="#" data-i18n="footer.nav.policy">Integritetspolicy</a>
       </nav>
     </div>
   </footer>

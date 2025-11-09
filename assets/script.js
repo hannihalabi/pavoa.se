@@ -23,7 +23,7 @@ const translations = {
     nav: {
       services: 'Tjänster',
       process: 'Process',
-      packages: 'Prispaket',
+      packages: 'Priser',
       contact: 'Kontakt',
       cta: 'Boka online',
       menuToggle: 'Visa meny'
@@ -49,6 +49,12 @@ const translations = {
         item5: 'Dominans inom er sektor',
         item6: 'Personlig kontakt 24/7'
       }
+    },
+    references: {
+      heading: 'Referenser'
+    },
+    calendarBooking: {
+      heading: 'Bokning i Kalender'
     },
     pagespeed: {
       heading: 'Hur mår din hemsida?',
@@ -189,23 +195,17 @@ const translations = {
         tagline: 'Dominera din marknad och dina konkurrenter',
         feature1: 'Allt i Plus',
         feature2: 'Expertutformad 3D-design',
-        feature3: 'Optimerade bilder',
-        feature4: 'Obegränsade e-postadresser',
-        feature5: 'AI-bloggfunktion',
-        feature6: 'SEO-optimering',
-        feature7: 'Veckoavstämningar',
-        feature8: 'WooCommerce-integration',
-        feature9: 'E-handel',
+        feature3: 'Automatisering (AI)',
+        feature4: 'Fortnox Integration med bank',
+        feature5: 'Skapa egen App',
+        feature6: 'Obegränsade e-postadresser',
+        feature7: 'AI-bloggfunktion',
+        feature8: 'SEO-optimering',
+        feature9: 'WooCommerce-integration',
+        feature10: 'Eget CRM system',
+        feature11: 'E-handel',
         cta: 'Välj Premium'
       }
-    },
-    appointment: {
-      heading: 'Boka när det passar dig',
-      body: 'Välj en tid som passar dig så går vi igenom mål, tidsplan och vilka delar av webbplatsen som behöver mest kärlek.',
-      benefit1: '30 minuter digitalt möte via Google Meet',
-      benefit2: 'Konkreta rekommendationer för din nuvarande sajt',
-      benefit3: 'En tydlig handlingsplan i skriftform skickas ut',
-      openCalendar: 'Öppna kalender'
     },
     testimonials: {
       heading: 'Vad teamet tipsar dig som funderar',
@@ -264,7 +264,7 @@ const translations = {
     nav: {
       services: 'Services',
       process: 'Process',
-      packages: 'Pricing',
+      packages: 'Prices',
       contact: 'Contact',
       cta: 'Book online',
       menuToggle: 'Show menu'
@@ -290,6 +290,12 @@ const translations = {
         item5: 'Own your niche',
         item6: 'Direct personal support 24/7'
       }
+    },
+    references: {
+      heading: 'References'
+    },
+    calendarBooking: {
+      heading: 'Calendar booking'
     },
     pagespeed: {
       heading: 'How healthy is your website?',
@@ -430,23 +436,17 @@ const translations = {
         tagline: 'Dominate your market and competitors',
         feature1: 'Everything in Plus',
         feature2: 'Expert-crafted 3D design',
-        feature3: 'Optimized imagery',
-        feature4: 'Unlimited email accounts',
-        feature5: 'AI-powered blog',
-        feature6: 'SEO optimization',
-        feature7: 'Weekly check-ins',
-        feature8: 'WooCommerce integration',
-        feature9: 'E-commerce build',
+        feature3: 'Automations',
+        feature4: 'Fortnox banking integration',
+        feature5: 'Application development',
+        feature6: 'Unlimited email accounts',
+        feature7: 'AI-powered blog',
+        feature8: 'SEO optimization',
+        feature9: 'WooCommerce integration',
+        feature10: 'AI agents for email, advertising, accounting, and more',
+        feature11: 'E-commerce build',
         cta: 'Choose Premium'
       }
-    },
-    appointment: {
-      heading: 'Book when it suits you',
-      body: 'Pick a time that works and we will review your goals, timeline, and which parts of the site need the most care.',
-      benefit1: '30-minute video call via Google Meet',
-      benefit2: 'Actionable recommendations for your current site',
-      benefit3: 'A written action plan delivered after the call',
-      openCalendar: 'Open calendar'
     },
     testimonials: {
       heading: 'What the team tells founders',
@@ -505,7 +505,7 @@ const translations = {
     nav: {
       services: 'Servicios',
       process: 'Proceso',
-      packages: 'Planes',
+      packages: 'Precios',
       contact: 'Contacto',
       cta: 'Reservar online',
       menuToggle: 'Mostrar menú'
@@ -531,6 +531,12 @@ const translations = {
         item5: 'Dominio en tu sector',
         item6: 'Contacto personal 24/7'
       }
+    },
+    references: {
+      heading: 'Referencias'
+    },
+    calendarBooking: {
+      heading: 'Reserva en calendario'
     },
     pagespeed: {
       heading: '¿Cómo se encuentra tu sitio web?',
@@ -640,7 +646,7 @@ const translations = {
       popular: 'El más elegido',
       base: {
         title: 'Base',
-        price: '130 € / mes',
+        price: '€130 / mes',
         tagline: 'Para un inicio rápido y profesional',
         feature1: 'Sitio desarrollado con código propio',
         feature2: 'Selección de imágenes',
@@ -653,7 +659,7 @@ const translations = {
       },
       plus: {
         title: 'Plus',
-        price: '220 € / mes',
+        price: '€220 / mes',
         tagline: 'Para empresas que necesitan más clientes',
         feature1: 'Todo lo del plan Base',
         feature2: 'Galerías y sliders',
@@ -667,27 +673,21 @@ const translations = {
       },
       premium: {
         title: 'Premium',
-        price: '695 € / mes',
+        price: '€695 / mes',
         tagline: 'Domina tu mercado y a la competencia',
         feature1: 'Todo lo del plan Plus',
         feature2: 'Diseño 3D creado por expertos',
-        feature3: 'Imágenes optimizadas',
-        feature4: 'Cuentas de correo ilimitadas',
-        feature5: 'Blog con IA',
-        feature6: 'Optimización SEO avanzada',
-        feature7: 'Reuniones semanales',
-        feature8: 'Integración con WooCommerce',
-        feature9: 'Comercio electrónico completo',
+        feature3: 'Automatizaciones',
+        feature4: 'Integración de Fortnox con tu banco',
+        feature5: 'Desarrollo de aplicaciones',
+        feature6: 'Cuentas de correo ilimitadas',
+        feature7: 'Blog con IA',
+        feature8: 'Optimización SEO avanzada',
+        feature9: 'Integración con WooCommerce',
+        feature10: 'Agentes de IA para correo, publicidad y contabilidad',
+        feature11: 'Comercio electrónico completo',
         cta: 'Elegir Premium'
       }
-    },
-    appointment: {
-      heading: 'Reserva cuando te venga bien',
-      body: 'Elige una hora y revisamos tus objetivos, plazos y qué partes del sitio necesitan más atención.',
-      benefit1: 'Reunión digital de 30 minutos en Google Meet',
-      benefit2: 'Recomendaciones concretas para tu sitio actual',
-      benefit3: 'Plan de acción escrito tras la reunión',
-      openCalendar: 'Abrir calendario'
     },
     testimonials: {
       heading: 'Lo que nuestro equipo recomienda',
@@ -746,7 +746,7 @@ const translations = {
     nav: {
       services: 'Servizi',
       process: 'Processo',
-      packages: 'Pacchetti',
+      packages: 'Prezzi',
       contact: 'Contatti',
       cta: 'Prenota online',
       menuToggle: 'Mostra menu'
@@ -772,6 +772,12 @@ const translations = {
         item5: 'Leadership nel tuo settore',
         item6: 'Referente personale 24/7'
       }
+    },
+    references: {
+      heading: 'Referenze'
+    },
+    calendarBooking: {
+      heading: 'Prenotazione in calendario'
     },
     pagespeed: {
       heading: 'Come sta il tuo sito?',
@@ -881,7 +887,7 @@ const translations = {
       popular: 'Il più scelto',
       base: {
         title: 'Base',
-        price: '130 € / mese',
+        price: '€130 / mese',
         tagline: 'Per partire in modo rapido e professionale',
         feature1: 'Sito sviluppato con codice su misura',
         feature2: 'Selezione di immagini',
@@ -894,7 +900,7 @@ const translations = {
       },
       plus: {
         title: 'Plus',
-        price: '220 € / mese',
+        price: '€220 / mese',
         tagline: 'Per aziende che vogliono più clienti',
         feature1: 'Tutto del pacchetto Base',
         feature2: 'Slider e gallerie',
@@ -908,27 +914,21 @@ const translations = {
       },
       premium: {
         title: 'Premium',
-        price: '695 € / mese',
+        price: '€695 / mese',
         tagline: 'Per dominare il tuo mercato e i concorrenti',
         feature1: 'Tutto del pacchetto Plus',
         feature2: 'Design 3D curato da esperti',
-        feature3: 'Immagini ottimizzate',
-        feature4: 'Caselle email illimitate',
-        feature5: 'Blog con AI integrata',
-        feature6: 'SEO avanzata',
-        feature7: 'Riunioni settimanali',
-        feature8: 'Integrazione WooCommerce',
-        feature9: 'E-commerce completo',
+        feature3: 'Automazioni',
+        feature4: 'Integrazione Fortnox con la tua banca',
+        feature5: 'Sviluppo di applicazioni',
+        feature6: 'Caselle email illimitate',
+        feature7: 'Blog con AI integrata',
+        feature8: 'SEO avanzata',
+        feature9: 'Integrazione WooCommerce',
+        feature10: 'Agenti AI per email, marketing e contabilità',
+        feature11: 'E-commerce completo',
         cta: 'Scegli Premium'
       }
-    },
-    appointment: {
-      heading: 'Prenota quando preferisci',
-      body: 'Scegli l’orario migliore per te e analizziamo obiettivi, tempistiche e priorità del tuo sito.',
-      benefit1: 'Call digitale di 30 minuti su Google Meet',
-      benefit2: 'Raccomandazioni concrete per il sito attuale',
-      benefit3: 'Piano d’azione scritto dopo la call',
-      openCalendar: 'Apri calendario'
     },
     testimonials: {
       heading: 'I consigli del nostro team',

@@ -39,18 +39,19 @@ Alla stilar är samlade här med följande struktur:
 - **Globala elementregler** (`body`, `a`, `.section`, etc.).
 - **Komponentklasser** för hero, knappar, cards, listor m.m.
 - **Animationsregler** för CTA-glow, testimonials och roterande texter.
-- **Responsiva breakpoints** vid 920 px, 600 px och 420 px som justerar navigation, hero-layout, knappar, kalender, priskort etc.
+- **Responsiva breakpoints** vid 920 px, 600 px och 420 px som justerar navigation, språkväxlaren, hero-layouten och knapparna (t.ex. horisontella CTA:er som tvångshålls på en rad och får mindre textstorlek i mobil).
 - **Tillgänglighetsstöd** för `prefers-reduced-motion`, `.sr-only` och fokusstilar.
 
 ## assets/script.js
 
-JavaScriptet laddas defererat och hanterar fem huvudområden:
+JavaScriptet laddas defererat och hanterar sex huvudområden:
 
 1. **Navigation** – öppna/stäng mobilmenyn, uppdatera `aria-expanded` och stäng vid länk-klick eller Escape.
 2. **Språk & valutor** – språkknappen hämtar texter från `translations`-objektet, uppdaterar `data-i18n`-element, byter `lang`-attributet och säkerställer att svenska sidan visar SEK medan övriga språk visar EUR-priser.
-3. **Roterande texter** – en återanvändbar instans-fabrik roterar hero-ingressen och tjänsteingressen, håller behållaren lika hög och respekterar `prefers-reduced-motion`.
-4. **PageSpeed-formuläret** – validerar URL, visar ett progress-steg, anropar Google PageSpeed API (`PAGESPEED_API_KEY`), tolkar svar, bygger metriklistan och skriver en sammanfattning eller felmeddelande på aktuellt språk.
-5. **Footerår** – uppdaterar årtal i footern automatiskt.
+3. **Synkade hero-texter** – samma intervall styr både fokusorden (t.ex. Kreativitet/Lönsamhet/Leads) och respektive hero-copy så de alltid byter samtidigt och respekterar `prefers-reduced-motion`.
+4. **Övriga roterande texter** – återanvända instanser håller sektionerna lika höga och stoppar animationer vid behov.
+5. **PageSpeed-formuläret** – validerar URL, visar ett progress-steg, anropar Google PageSpeed API (`PAGESPEED_API_KEY`), tolkar svar, bygger metriklistan och skriver en sammanfattning eller felmeddelande på aktuellt språk.
+6. **Footerår** – uppdaterar årtal i footern automatiskt.
 
 ## Språk & valutahantering
 

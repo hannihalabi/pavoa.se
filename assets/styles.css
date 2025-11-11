@@ -480,6 +480,19 @@ dotlottie-wc {
   white-space: nowrap;
 }
 
+[data-theme="dark"] .hero-actions .secondary-button {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+[data-theme="dark"] .hero-actions .secondary-button:hover,
+[data-theme="dark"] .hero-actions .secondary-button:focus-visible {
+  border-color: #e5e7eb;
+  background: #e5e7eb;
+  color: #000;
+}
+
 /* Primär och sekundär CTA delar grundstil */
 .primary-button,
 .secondary-button {
@@ -557,6 +570,10 @@ dotlottie-wc {
 
 .pagespeed {
   background: linear-gradient(180deg, #f1f5f9 0%, #e0e7ff 100%);
+}
+
+[data-theme="dark"] .pagespeed {
+  background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
 }
 
 .pagespeed-container {
@@ -829,6 +846,10 @@ dotlottie-wc {
   background: #fff;
 }
 
+[data-theme="dark"] .process {
+  background: #0b1220;
+}
+
 /* Gridad lista över processteg */
 .process-steps {
   list-style: none;
@@ -931,6 +952,17 @@ dotlottie-wc {
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
+[data-theme="dark"] .card-cta {
+  background: #fff;
+  color: #000;
+}
+
+[data-theme="dark"] .card-cta:hover,
+[data-theme="dark"] .card-cta:focus-visible {
+  background: #e5e7eb;
+  color: #000;
+}
+
 /* Hover/focus ger lyft och färgskifte */
 .card-cta:hover,
 .card-cta:focus-visible {
@@ -958,6 +990,10 @@ dotlottie-wc {
 /* Vit bakgrund kring testimonials */
 .testimonials {
   background: #fff;
+}
+
+[data-theme="dark"] .testimonials {
+  background: #0b1220;
 }
 
 /* Kort som innehåller testimonials */
@@ -1016,6 +1052,10 @@ dotlottie-wc {
 /* Kontaktsektion med mjuk gradient */
 .contact {
   background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+}
+
+[data-theme="dark"] .contact {
+  background: linear-gradient(180deg, #0b1120 0%, #111827 100%);
 }
 
 /* Formuläret centreras och får gridgap */

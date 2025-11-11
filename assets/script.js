@@ -4,6 +4,15 @@ const LANGUAGE_STORAGE_KEY = 'gmnordics-language';
 const FALLBACK_LANGUAGE = 'sv';
 const HERO_ROTATION_INTERVAL = 5200;
 const HERO_TRANSITION_DURATION = 600;
+const THEME_STORAGE_KEY = 'gmnordics-theme';
+const THEMES = {
+  LIGHT: 'light',
+  DARK: 'dark'
+};
+const THEME_ICONS = {
+  [THEMES.LIGHT]: '🌇',
+  [THEMES.DARK]: '🏙️'
+};
 
 const translations = {
   sv: {
@@ -19,6 +28,9 @@ const translations = {
     language: {
       buttonLabel: 'Byt språk',
       menuLabel: 'Välj språk'
+    },
+    theme: {
+      toggleLabel: 'Byt tema'
     },
     nav: {
       services: 'Tjänster',
@@ -261,6 +273,9 @@ const translations = {
       buttonLabel: 'Change language',
       menuLabel: 'Select language'
     },
+    theme: {
+      toggleLabel: 'Toggle theme'
+    },
     nav: {
       services: 'Services',
       process: 'Process',
@@ -502,6 +517,9 @@ const translations = {
       buttonLabel: 'Cambiar idioma',
       menuLabel: 'Elegir idioma'
     },
+    theme: {
+      toggleLabel: 'Cambiar tema'
+    },
     nav: {
       services: 'Servicios',
       process: 'Proceso',
@@ -742,6 +760,9 @@ const translations = {
     language: {
       buttonLabel: 'Cambia lingua',
       menuLabel: 'Seleziona lingua'
+    },
+    theme: {
+      toggleLabel: 'Cambia tema'
     },
     nav: {
       services: 'Servizi',
@@ -1020,12 +1041,47 @@ const METRIC_BASE = [
   }
 ];
 
+const storedThemePreference = window.localStorage.getItem(THEME_STORAGE_KEY);
+const initialTheme =
+  storedThemePreference === THEMES.LIGHT || storedThemePreference === THEMES.DARK
+    ? storedThemePreference
+    : window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? THEMES.DARK
+      : THEMES.LIGHT;
+let isThemePreferenceLocked = Boolean(storedThemePreference);
+
 const state = {
   currentLanguage: FALLBACK_LANGUAGE,
+  currentTheme: initialTheme,
   lastAnalysisData: null
 };
 
+document.documentElement.setAttribute('data-theme', state.currentTheme);
+
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+function updateThemeToggleUI() {
+  if (typeof themeToggleButton !== 'undefined' && themeToggleButton) {
+    themeToggleButton.setAttribute('aria-pressed', String(state.currentTheme === THEMES.DARK));
+  }
+  if (typeof themeIcon !== 'undefined' && themeIcon) {
+    const iconKey = state.currentTheme === THEMES.DARK ? THEMES.DARK : THEMES.LIGHT;
+    themeIcon.textContent = THEME_ICONS[iconKey];
+  }
+}
+
+function applyTheme(theme, { persist = true } = {}) {
+  if (theme !== THEMES.LIGHT && theme !== THEMES.DARK) {
+    return;
+  }
+  state.currentTheme = theme;
+  document.documentElement.setAttribute('data-theme', theme);
+  updateThemeToggleUI();
+  if (persist) {
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }
+}
 
 function initNavigation() {
   const menuToggle = document.querySelector('.menu-toggle');
@@ -1120,6 +1176,32 @@ const languageSwitcher = document.querySelector('.language-switcher');
 const languageButton = languageSwitcher?.querySelector('.language-button');
 const languageMenu = languageSwitcher?.querySelector('.language-menu');
 const languageLabel = languageSwitcher?.querySelector('[data-language-label]');
+const themeToggleButton = document.querySelector('.theme-button');
+const themeIcon = document.querySelector('[data-theme-icon]');
+
+updateThemeToggleUI();
+
+if (themeToggleButton) {
+  themeToggleButton.addEventListener('click', () => {
+    const nextTheme = state.currentTheme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK;
+    isThemePreferenceLocked = true;
+    applyTheme(nextTheme);
+  });
+}
+
+if (typeof prefersDarkScheme.addEventListener === 'function') {
+  prefersDarkScheme.addEventListener('change', (event) => {
+    if (!isThemePreferenceLocked) {
+      applyTheme(event.matches ? THEMES.DARK : THEMES.LIGHT, { persist: false });
+    }
+  });
+} else if (typeof prefersDarkScheme.addListener === 'function') {
+  prefersDarkScheme.addListener((event) => {
+    if (!isThemePreferenceLocked) {
+      applyTheme(event.matches ? THEMES.DARK : THEMES.LIGHT, { persist: false });
+    }
+  });
+}
 
 function setLanguageMenuOpen(isOpen) {
   if (!languageSwitcher || !languageButton) {

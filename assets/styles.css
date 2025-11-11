@@ -14,6 +14,18 @@
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+:root[data-theme="dark"] {
+  --color-background: #0b1120;
+  --color-surface: #111827;
+  --color-accent: #60a5fa;
+  --color-accent-dark: #3b82f6;
+  --color-text: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-border: rgba(148, 163, 184, 0.4);
+  --shadow-sm: 0 10px 30px rgba(2, 6, 23, 0.65);
+  --shadow-lg: 0 30px 60px rgba(2, 6, 23, 0.75);
+}
+
 /* Normaliserad box-modell */
 *,
 *::before,
@@ -80,12 +92,17 @@ a {
   order: 2;
 }
 
-.cta-button {
+.theme-toggle {
   order: 3;
+  display: flex;
+}
+
+.cta-button {
+  order: 4;
 }
 
 .menu-toggle {
-  order: 4;
+  order: 5;
 }
 
 .language-switcher {
@@ -168,6 +185,31 @@ a {
 
 .language-menu .flag {
   font-size: 1rem;
+}
+
+.theme-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 999px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
+.theme-button:hover,
+.theme-button:focus-visible {
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.theme-icon {
+  line-height: 1;
 }
 
 dotlottie-player,
@@ -1049,6 +1091,25 @@ dotlottie-wc {
   color: #fff;
 }
 
+[data-theme="dark"] .site-header {
+  background: rgba(11, 17, 32, 0.85);
+  border-bottom-color: rgba(51, 65, 85, 0.8);
+}
+
+[data-theme="dark"] .nav-links {
+  background: var(--color-surface);
+  border-color: rgba(51, 65, 85, 0.8);
+}
+
+[data-theme="dark"] .references-placeholder,
+[data-theme="dark"] .calendar-booking-placeholder {
+  background: var(--color-surface);
+}
+
+[data-theme="dark"] .pricing {
+  background: linear-gradient(180deg, #0b1120 0%, #111827 100%);
+}
+
 /* Tabletanpassning: fäll ut nav och dölj CTA */
 @media (max-width: 920px) {
   .navbar {
@@ -1089,6 +1150,10 @@ dotlottie-wc {
     order: 1;
     margin-left: auto;
     margin-right: 0;
+  }
+  .theme-toggle {
+    order: 2;
+    margin-right: 0.5rem;
   }
 
   .language-menu {

@@ -1137,8 +1137,8 @@ dotlottie-wc {
 }
 
 [data-theme="dark"] .nav-links {
-  background: var(--color-surface);
-  border-color: rgba(51, 65, 85, 0.8);
+  background: transparent;
+  border-color: transparent;
 }
 
 [data-theme="dark"] .references-placeholder,

@@ -10,8 +10,8 @@ const THEMES = {
   DARK: 'dark'
 };
 const THEME_ICONS = {
-  [THEMES.LIGHT]: '🌇',
-  [THEMES.DARK]: '🏙️'
+  [THEMES.LIGHT]: '🏙️',
+  [THEMES.DARK]: '🌇'
 };
 
 const translations = {

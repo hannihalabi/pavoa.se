@@ -1856,3 +1856,92 @@ if (pagespeedForm) {
     }
   });
 }
+
+function setupSellingVideoAutoplay() {
+  const video = document.querySelector('[data-autoplay-when-visible]');
+  if (!video || !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  const lockedClass = 'selling-video-locked';
+  video.classList.add(lockedClass);
+  video.controls = false;
+  video.removeAttribute('controls');
+
+  const interactionEvents = ['click', 'keydown', 'touchstart'];
+  let awaitingUserGesture = false;
+  let observer = null;
+  let isVideoVisible = false;
+
+  function ensureSoundEnabled() {
+    video.muted = false;
+    video.volume = 1;
+  }
+
+  function requestUserGesture() {
+    if (awaitingUserGesture) {
+      return;
+    }
+
+    awaitingUserGesture = true;
+
+    const handleGesture = () => {
+      interactionEvents.forEach((event) => window.removeEventListener(event, handleGesture));
+      awaitingUserGesture = false;
+      playVideo(true);
+    };
+
+    interactionEvents.forEach((event) => window.addEventListener(event, handleGesture));
+  }
+
+  function playVideo(triggeredByUser = false) {
+    ensureSoundEnabled();
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch((error) => {
+        if (!triggeredByUser) {
+          requestUserGesture();
+        }
+        console.warn('Autoplay för säljavideon misslyckades', error);
+      });
+    }
+  }
+
+  const pauseVideo = () => {
+    if (!video.paused) {
+      video.pause();
+    }
+  };
+
+  video.addEventListener('play', ensureSoundEnabled);
+
+  video.addEventListener('ended', () => {
+    if (isVideoVisible) {
+      video.currentTime = 0;
+      playVideo();
+    }
+  });
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.target !== video) {
+          return;
+        }
+
+        if (entry.intersectionRatio >= 0.95) {
+          isVideoVisible = true;
+          playVideo();
+        } else {
+          isVideoVisible = false;
+          pauseVideo();
+        }
+      });
+    },
+    { threshold: [0.25, 0.5, 0.75, 0.95, 1] }
+  );
+
+  observer.observe(video);
+}
+
+setupSellingVideoAutoplay();

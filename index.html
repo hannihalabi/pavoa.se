@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="sv" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 </head>
 <body>
   <!-- Sticky navigation med LOGOTYPE, huvudlänkar och CTA -->  
@@ -18,7 +20,6 @@
       <div class="language-switcher">
         <button class="language-button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Byt språk" data-i18n="language.buttonLabel" data-i18n-attr="aria-label">
           <span class="language-icon" aria-hidden="true">🗣️</span>
-          <span class="language-button-label" data-language-label>Svenska</span>
         </button>
         <ul class="language-menu" role="listbox" aria-label="Välj språk" data-i18n="language.menuLabel" data-i18n-attr="aria-label">
           <li>
@@ -91,10 +92,6 @@
             som fungerar lika bra i mobilen som på datorn och är optimerade för att synas på Google och ChatGPT.
           </span>
         </p>
-        <script
-          src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-          type="module"
-        ></script>
         <dotlottie-player
           src="https://lottie.host/31a9306d-f66d-456f-92ec-efe07888fddb/cnZilW9qOE.lottie"
           background="transparent"
@@ -108,17 +105,18 @@
           <a class="secondary-button" href="#kontakt" data-i18n="hero.secondaryCta">Kontakt</a>
         </div>
       </div>
-      <div class="hero-card">
+      <div class="hero-card surface-card surface-card--deep">
         <h2 data-i18n="hero.card.title">Varför välja GM NORDICS?</h2>
         <ul>
           <li data-i18n="hero.card.item1">Inga dyra timarvoden</li>
           <li data-i18n="hero.card.item2">Fasta priser</li>
-          <li data-i18n="hero.card.item3">Ren kod (Ingen Wix eller Wordpress)</li>
-          <li data-i18n="hero.card.item4">Kostandsfri prototyp</li>
-          <li data-i18n="hero.card.item5">Dominans inom er sektor</li>
-          <li data-i18n="hero.card.item6">Personlig kontakt 24/7</li>
+          <li data-i18n="hero.card.item3">Allt under samma tak</li>
+          <li data-i18n="hero.card.item4">Ren kod (Ingen Wix eller Wordpress)</li>
+          <li data-i18n="hero.card.item5">Kostandsfri prototyp</li>
+          <li data-i18n="hero.card.item6">Dominans inom er sektor</li>
+          <li data-i18n="hero.card.item7">Personlig kontakt 24/7</li>
+          <li data-i18n="hero.card.item8">Ingen bindningstid</li>
         </ul>
-        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
         <dotlottie-wc
           src="https://lottie.host/a866f0a6-787e-4d3b-a547-2cf5a19f0cd5/zLXjwqaWeH.lottie"
           style="width: 300px; height: 300px"
@@ -128,14 +126,144 @@
       </div>
     </section>
 
-    <section id="referenser" class="section references-placeholder">
-      <div class="section-heading">
-        <h2 data-i18n="references.heading">Referenser</h2>
+    <!-- Om oss / teamsektion -->
+    <section id="team" class="section team">
+      <div class="team-portfolio surface-card surface-card--deep">
+        <div
+          class="team-carousel"
+          data-team-carousel
+          data-i18n="team.carousel.label"
+          data-i18n-attr="aria-label"
+          aria-label="Teamets porträtt"
+        >
+          <button
+            class="team-carousel-nav prev"
+            type="button"
+            data-team-prev
+            aria-label="Föregående person"
+            data-i18n="team.carousel.prev"
+            data-i18n-attr="aria-label"
+          >
+            &#x2039;
+          </button>
+          <div class="team-carousel-window">
+            <div class="team-people-track" data-team-track>
+              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/Jonas%20Headshot.jpeg" alt="Jonas Åkerman" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.jonas.name">Jonas Åkerman</h3>
+                  <p class="role" data-i18n="team.members.jonas.role">Lead Developer</p>
+                  <p data-i18n="team.members.jonas.bio">
+                    Kodar som en konservator: med respekt för det beständiga och med noggrannhet in i varje interaktion.
+                  </p>
+                </div>
+              </article>
+
+              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/Anna.jpeg" alt="Anna Bergström" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.anna.name">Anna Bergström</h3>
+                  <p class="role" data-i18n="team.members.anna.role">Grundare &amp; Creative Director</p>
+                  <p data-i18n="team.members.anna.bio">
+                    Leder studion med en känsla för taktil typografi och en okuvlig vilja att göra plats för eftertänksam kommunikation.
+                  </p>
+                </div>
+              </article>
+
+              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/Erik.jpeg" alt="Erik Holm" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.erik.name">Erik Holm</h3>
+                  <p class="role" data-i18n="team.members.erik.role">Operativ chef</p>
+                  <p data-i18n="team.members.erik.bio">
+                    Håller rytmen i varje leverans och ser till att kundresor och resurser är lika väl koreograferade som vår design.
+                  </p>
+                </div>
+              </article>
+
+              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/Erika.jpeg" alt="Erika Dahl" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.erika.name">Erika Dahl</h3>
+                  <p class="role" data-i18n="team.members.erika.role">Kommunikationsstrateg</p>
+                  <p data-i18n="team.members.erika.bio">
+                    Kuraterar våra manifest och tonlägen så att varje uppdrag fångar rätt temperament — från första rubriken till sista brödtexten.
+                  </p>
+                </div>
+              </article>
+
+              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/Henrik%20Tiba.jpeg" alt="Henrik Tiba" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.henrik.name">Henrik Tiba</h3>
+                  <p class="role" data-i18n="team.members.henrik.role">Affärsstrateg</p>
+                  <p data-i18n="team.members.henrik.bio">
+                    Tolkar marknadsdata med klassisk precision och knyter ihop våra kampanjer med affärsnyttan i centrum.
+                  </p>
+                </div>
+              </article>
+
+              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/Johanna.jpeg" alt="Johanna Fors" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.johanna.name">Johanna Fors</h3>
+                  <p class="role" data-i18n="team.members.johanna.role">Design Lead</p>
+                  <p data-i18n="team.members.johanna.bio">
+                    Handplockar färger ur arkiven och binder samman digitala upplevelser med analoga principer.
+                  </p>
+                </div>
+              </article>
+
+              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/Oscar.jpeg" alt="Oscar Lind" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.oscar.name">Oscar Lind</h3>
+                  <p class="role" data-i18n="team.members.oscar.role">Kundpartner</p>
+                  <p data-i18n="team.members.oscar.bio">
+                    Förvaltar relationer över generationer och är ofta den första som möter våra kunder i salongen.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <button
+            class="team-carousel-nav next"
+            type="button"
+            data-team-next
+            aria-label="Nästa person"
+            data-i18n="team.carousel.next"
+            data-i18n-attr="aria-label"
+          >
+            &#x203a;
+          </button>
+          <div
+            class="team-carousel-dots"
+            data-team-dots
+            role="group"
+            aria-label="Personnavigator"
+            data-i18n="team.carousel.dots"
+            data-i18n-attr="aria-label"
+          ></div>
+        </div>
       </div>
     </section>
 
     <section class="section selling-video">
-      <div class="selling-video-content">
+      <div class="selling-video-content surface-card surface-card--raised">
         <div class="selling-video-copy">
           <p class="eyebrow">Förenkla företagandet</p>
           <h2>Få allt på samma ställe</h2>
@@ -158,66 +286,111 @@
       </div>
     </section>
 
-    <section id="pagespeed" class="section pagespeed">
-      <div class="pagespeed-container">
-        <div class="pagespeed-intro">
-          <h2 data-i18n="pagespeed.heading">Hur mår din hemsida?</h2>
-          <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-          <dotlottie-wc
-            src="https://lottie.host/14b3ddcb-728e-46ad-81f8-54731727575a/TYgyQTy5Nb.lottie"
-            style="width: 300px; height: 300px"
-            autoplay
-            loop
-          ></dotlottie-wc>
-          <p data-i18n="pagespeed.lead">Fyll i din webbadress så berättar vi hur sidan mår och vad som är smartast att fixa först.</p>
-          <form id="pagespeed-form" class="pagespeed-form" novalidate>
-            <label for="pagespeed-url" data-i18n="pagespeed.label">Webbadress</label>
-            <div class="pagespeed-form-row">
-              <input
-                type="text"
-                id="pagespeed-url"
-                name="url"
-                inputmode="url"
-                placeholder="t.ex. aftonbladet.se"
-                data-i18n-attr="placeholder"
-                data-i18n="pagespeed.placeholder"
-                autocomplete="url"
-                required
-              >
-              <button type="submit" class="primary-button" data-i18n="pagespeed.button">Analysera</button>
-            </div>
-          </form>
+    <!-- Prispaket med tre nivåer och framlyft favorit -->
+    <section id="paket" class="section pricing">
+      <div class="section-heading">
+        <h2 data-i18n="pricing.heading">Tre prispaket för olika behov</h2>
+        <p data-i18n="pricing.lead">Välj den nivå som passar dig bäst – alla paket går att bygga ut när ditt företag växer.</p>
+      </div>
+      <div
+        class="pricing-carousel"
+        data-pricing-carousel
+        aria-label="Prispaket"
+        data-i18n="pricing.carousel.label"
+        data-i18n-attr="aria-label"
+      >
+        <button
+          class="pricing-carousel-nav prev"
+          type="button"
+          data-pricing-prev
+          aria-label="Föregående paket"
+          data-i18n="pricing.carousel.prev"
+          data-i18n-attr="aria-label"
+        >
+          &#x2039;
+        </button>
+        <div class="pricing-carousel-window">
+          <div class="pricing-grid" data-pricing-track>
+            <article class="pricing-card surface-card surface-card--deep featured" data-pricing-card>
+              <header>
+                <p class="popular" data-i18n="pricing.popular">Mest populär</p>
+                <h3 data-i18n="pricing.plus.title">Plus</h3>
+                <p class="price" data-i18n="pricing.plus.price" data-i18n-attr="html">9&nbsp;995 kr/månad</p>
+                <p class="tagline" data-i18n="pricing.plus.tagline">För företag med behov av fler kunder</p>
+              </header>
+              <ul class="feature-list">
+                <li data-i18n="pricing.plus.feature1">Allt i bas</li>
+                <li data-i18n="pricing.plus.feature2">Bildspel och galleri</li>
+                <li data-i18n="pricing.plus.feature3">Nyhetsflöde</li>
+                <li data-i18n="pricing.plus.feature4">Logotypdesign och unik grafik</li>
+                <li data-i18n="pricing.plus.feature5">10 e-postadresser</li>
+                <li data-i18n="pricing.plus.feature6">Marknadsföring via Meta</li>
+                <li data-i18n="pricing.plus.feature7">Filmredigering</li>
+                <li data-i18n="pricing.plus.feature8">Marknadsföringskampanjer</li>
+              </ul>
+              <a class="card-cta" href="#kontakt" data-i18n="pricing.plus.cta">Välj Plus</a>
+            </article>
 
-          <div class="analysis-loading" id="analysis-loading" hidden aria-live="polite">
-            <div
-              class="progress-meter"
-              role="progressbar"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow="0"
-            >
-              <div class="progress-fill" id="loading-fill"></div>
-            </div>
-            <p class="progress-value"><span id="loading-value">0</span> <span data-i18n="pagespeed.progressSuffix">av 100</span></p>
+            <article class="pricing-card surface-card surface-card--deep" data-pricing-card>
+              <header>
+                <h3 data-i18n="pricing.base.title">Bas</h3>
+                <p class="price" data-i18n="pricing.base.price" data-i18n-attr="html">6&nbsp;995 kr/månad</p>
+                <p class="tagline" data-i18n="pricing.base.tagline">För en snabb och professionell start</p>
+              </header>
+              <ul class="feature-list">
+                <li data-i18n="pricing.base.feature1">Hemsida utvecklad i ren kod</li>
+                <li data-i18n="pricing.base.feature2">Bilder</li>
+                <li data-i18n="pricing.base.feature3">5 e-postadresser</li>
+                <li data-i18n="pricing.base.feature4">Webbhotell och domänadress</li>
+                <li data-i18n="pricing.base.feature5">SEO-optimering</li>
+                <li data-i18n="pricing.base.feature6">Kontaktformulär</li>
+                <li data-i18n="pricing.base.feature7">Support ingår</li>
+              </ul>
+              <a class="card-cta" href="#kontakt" data-i18n="pricing.base.cta">Välj Bas</a>
+            </article>
+
+            <article class="pricing-card surface-card surface-card--deep" data-pricing-card>
+              <header>
+                <h3 data-i18n="pricing.premium.title">Premium</h3>
+                <p class="price" data-i18n="pricing.premium.price" data-i18n-attr="html">14&nbsp;995 kr/månad</p>
+                <p class="tagline" data-i18n="pricing.premium.tagline">Dominera din marknad och dina konkurrenter</p>
+              </header>
+              <ul class="feature-list">
+                <li data-i18n="pricing.premium.feature1">Allt i Plus</li>
+                <li data-i18n="pricing.premium.feature2">Expertutformad 3D-design</li>
+                <li data-i18n="pricing.premium.feature3">AI-automatiseringar</li>
+                <li data-i18n="pricing.premium.feature4">Bokföring</li>
+                <li data-i18n="pricing.premium.feature5">Bokslut</li>
+                <li data-i18n="pricing.premium.feature6">Apputveckling</li>
+                <li data-i18n="pricing.premium.feature7">Back-end-integration</li>
+                <li data-i18n="pricing.premium.feature8">AI-roboten Bloggi</li>
+                <li data-i18n="pricing.premium.feature9">SEO och GEO i världsklass</li>
+                <li data-i18n="pricing.premium.feature10">WooCommerce-integration</li>
+                <li data-i18n="pricing.premium.feature11">Databas och infrastruktur</li>
+                <li data-i18n="pricing.premium.feature12">E-handel och produktreklam</li>
+              </ul>
+              <a class="card-cta" href="#kontakt" data-i18n="pricing.premium.cta">Välj Premium</a>
+            </article>
           </div>
-
-          <div class="analysis-error" id="analysis-error" hidden role="alert"></div>
         </div>
-
-        <div class="pagespeed-results" id="analysis-result" hidden>
-          <div class="score-card">
-            <div class="score-header">
-              <p class="score-label" data-i18n="pagespeed.scoreLabel">Prestandapoäng</p>
-              <p class="score-value" id="performance-score">--</p>
-              <p class="score-note" data-i18n="pagespeed.scoreNote">Av 100 möjliga poäng – högre är bättre.</p>
-            </div>
-
-            <div class="score-summary">
-              <h3 data-i18n="pagespeed.summaryHeading">Så här mår sidan</h3>
-              <p id="summary-text" data-i18n="pagespeed.summaryDefault">Resultatet visas här efter analys.</p>
-            </div>
-          </div>
-        </div>
+        <button
+          class="pricing-carousel-nav next"
+          type="button"
+          data-pricing-next
+          aria-label="Nästa paket"
+          data-i18n="pricing.carousel.next"
+          data-i18n-attr="aria-label"
+        >
+          &#x203a;
+        </button>
+        <div
+          class="pricing-carousel-dots"
+          data-pricing-dots
+          role="group"
+          aria-label="Navigera mellan prispaketen"
+          data-i18n="pricing.carousel.dots"
+          data-i18n-attr="aria-label"
+        ></div>
       </div>
     </section>
 
@@ -230,7 +403,6 @@
             Allt du behöver för att lansera med självförtroende – från första designskiss till live-sajt.
           </span>
         </p>
-        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
         <dotlottie-player
           src="https://lottie.host/5473bcae-9f70-4f4b-9db1-3f21b696942d/NKltmSAMwo.lottie"
           background="transparent"
@@ -241,15 +413,15 @@
         ></dotlottie-player>
       </div>
       <div class="service-grid">
-        <article class="service-card">
+        <article class="service-card surface-card surface-card--compact">
           <h3 data-i18n="services.card1.title">Strategi &amp; struktur</h3>
           <p data-i18n="services.card1.body">Vi kartlägger målgruppens behov och bygger upp en tydlig informationsarkitektur som leder till konvertering.</p>
         </article>
-        <article class="service-card">
+        <article class="service-card surface-card surface-card--compact">
           <h3 data-i18n="services.card2.title">Design &amp; varumärke</h3>
           <p data-i18n="services.card2.body">Professionell design som speglar ditt företag och skapar förtroende – komplett med färger, typsnitt och bildspråk.</p>
         </article>
-        <article class="service-card">
+        <article class="service-card surface-card surface-card--compact">
           <h3 data-i18n="services.card3.title">Teknik &amp; SEO</h3>
           <p data-i18n="services.card3.body">Snabb, mobilanpassad kod med teknisk SEO som ger en bra grund för att synas och driva trafik.</p>
         </article>
@@ -260,7 +432,6 @@
     <section id="process" class="section process">
       <div class="section-heading">
         <h2 data-i18n="process.heading">Vår process gör det enkelt att komma igång</h2>
-        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
         <dotlottie-player
           src="https://lottie.host/a8881760-e37b-4c5a-8b28-31ef4c3bead2/7nuysQ5ZDs.lottie"
           background="transparent"
@@ -271,88 +442,19 @@
         ></dotlottie-player>
       </div>
       <ol class="process-steps">
-        <li>
+        <li class="surface-card surface-card--compact">
           <h3 data-i18n="process.step1.title">1. Kickoff &amp; mål</h3>
           <p data-i18n="process.step1.body">Vi inleder med ett strukturerat uppstartsmöte där vi definierar mål, målgrupp, budskap och SEO-fokus samt sätter informationsstrukturen för sajten.</p>
         </li>
-        <li>
+        <li class="surface-card surface-card--compact">
           <h3 data-i18n="process.step2.title">2. Design &amp; copy</h3>
           <p data-i18n="process.step2.body">Vi tar fram en interaktiv prototyp och skräddarsydd copy. Tillsammans finjusterar vi innehåll och design tills allt är godkänt och produktionsklart.</p>
         </li>
-        <li>
+        <li class="surface-card surface-card--compact">
           <h3 data-i18n="process.step3.title">3. Bygg &amp; lansering</h3>
           <p data-i18n="process.step3.body">Vi implementerar lösningen, finjusterar SEO och genomför noggranna tester. Vid lansering får du en robust webbplats som konkurrerar från dag ett.</p>
         </li>
       </ol>
-    </section>
-
-    <!-- Prispaket med tre nivåer och framlyft favorit -->
-    <section id="paket" class="section pricing">
-      <div class="section-heading">
-        <h2 data-i18n="pricing.heading">Tre prispaket för olika behov</h2>
-        <p data-i18n="pricing.lead">Välj den nivå som passar dig bäst – alla paket går att bygga ut när ditt företag växer.</p>
-      </div>
-      <div class="pricing-grid">
-        <article class="pricing-card">
-          <header>
-            <h3 data-i18n="pricing.base.title">Bas</h3>
-            <p class="price" data-i18n="pricing.base.price" data-i18n-attr="html">1&nbsp;495 kr/månad</p>
-            <p class="tagline" data-i18n="pricing.base.tagline">För en snabb och professionell start</p>
-          </header>
-          <ul class="feature-list">
-            <li data-i18n="pricing.base.feature1">Hemsida utvecklad i ren kod</li>
-            <li data-i18n="pricing.base.feature2">Bilder</li>
-            <li data-i18n="pricing.base.feature3">5 e-postadresser</li>
-            <li data-i18n="pricing.base.feature4">Webbhotell och domänadress</li>
-            <li data-i18n="pricing.base.feature5">SEO-optimering</li>
-            <li data-i18n="pricing.base.feature6">Kontaktformulär</li>
-            <li data-i18n="pricing.base.feature7">Support ingår</li>
-          </ul>
-          <a class="card-cta" href="#kontakt" data-i18n="pricing.base.cta">Välj Bas</a>
-        </article>
-
-        <article class="pricing-card featured">
-          <header>
-            <p class="popular" data-i18n="pricing.popular">Mest populär</p>
-            <h3 data-i18n="pricing.plus.title">Plus</h3>
-            <p class="price" data-i18n="pricing.plus.price" data-i18n-attr="html">2&nbsp;499 kr/månad</p>
-            <p class="tagline" data-i18n="pricing.plus.tagline">För företag med behov av fler kunder</p>
-          </header>
-          <ul class="feature-list">
-            <li data-i18n="pricing.plus.feature1">Allt i bas</li>
-            <li data-i18n="pricing.plus.feature2">Bildspel och galleri</li>
-            <li data-i18n="pricing.plus.feature3">Nyhetsflöde</li>
-            <li data-i18n="pricing.plus.feature4">Logotypdesign och unik grafik</li>
-            <li data-i18n="pricing.plus.feature5">10 e-postadresser</li>
-            <li data-i18n="pricing.plus.feature6">Marknadsföring via Meta</li>
-            <li data-i18n="pricing.plus.feature7">Filmredigering</li>
-            <li data-i18n="pricing.plus.feature8">Marknadsföringskampanjer</li>
-          </ul>
-          <a class="card-cta" href="#kontakt" data-i18n="pricing.plus.cta">Välj Plus</a>
-        </article>
-
-        <article class="pricing-card">
-          <header>
-            <h3 data-i18n="pricing.premium.title">Premium</h3>
-            <p class="price" data-i18n="pricing.premium.price" data-i18n-attr="html">7&nbsp;995 kr/månad</p>
-            <p class="tagline" data-i18n="pricing.premium.tagline">Dominera din marknad och dina konkurrenter</p>
-          </header>
-          <ul class="feature-list">
-            <li data-i18n="pricing.premium.feature1">Allt i Plus</li>
-            <li data-i18n="pricing.premium.feature2">Expertutformad 3D design</li>
-            <li data-i18n="pricing.premium.feature3">Optimerade bilder</li>
-            <li data-i18n="pricing.premium.feature4">Obegränsade e-postadresser</li>
-            <li data-i18n="pricing.premium.feature5">AI Bloggfunktion</li>
-            <li data-i18n="pricing.premium.feature6">SEO-optimering</li>
-            <li data-i18n="pricing.premium.feature7">Veckoavstämningar</li>
-            <li data-i18n="pricing.premium.feature8">SEO-optimering</li>
-            <li data-i18n="pricing.premium.feature9">WooCommerce-integration</li>
-            <li data-i18n="pricing.premium.feature10">Eget CRM system</li>
-            <li data-i18n="pricing.premium.feature11">E-handel</li>
-          </ul>
-          <a class="card-cta" href="#kontakt" data-i18n="pricing.premium.cta">Välj Premium</a>
-        </article>
-      </div>
     </section>
 
     <!-- Testimonial-stack som roterar kundcitat -->
@@ -360,7 +462,7 @@
       <div class="section-heading">
         <h2 data-i18n="testimonials.heading">Vad teamet tipsar dig som funderar</h2>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card surface-card surface-card--raised">
         <div class="testimonial-stack" role="list" aria-live="polite">
           <article class="testimonial" role="listitem">
             <blockquote data-i18n="testimonials.quote1">
@@ -433,7 +535,7 @@
       <nav aria-label="Footer navigation">
         <a href="#tjanster" data-i18n="footer.nav.services">Tjänster</a>
         <a href="#paket" data-i18n="footer.nav.packages">Prispaket</a>
-        <a href="om-oss.html" data-i18n="footer.nav.about">Om oss</a>
+        <a href="#team" data-i18n="footer.nav.about">Om oss</a>
         <a href="#kontakt" data-i18n="footer.nav.contact">Kontakt</a>
         <a href="#" data-i18n="footer.nav.policy">Integritetspolicy</a>
       </nav>

@@ -1,5 +1,3 @@
-const PAGESPEED_API_KEY = 'AIzaSyBGQhx55E6-dIVVxr21hXg_7SCmUWr2vV4';
-const PAGESPEED_ENDPOINT = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 const LANGUAGE_STORAGE_KEY = 'gmnordics-language';
 const FALLBACK_LANGUAGE = 'sv';
 const HERO_ROTATION_INTERVAL = 5200;
@@ -19,7 +17,6 @@ const translations = {
     languageName: 'Svenska',
     htmlLang: 'sv',
     numberFormat: 'sv-SE',
-    pagespeedLocale: 'sv_SE',
     meta: {
       title: 'GM NORDICS – Professionella hemsidor för företag',
       description: 'GM NORDICS bygger skräddarsydda, snabba och SEO-optimerade hemsidor för företag som vill växa tryggt och professionellt.'
@@ -42,7 +39,7 @@ const translations = {
     },
     hero: {
       eyebrow: 'För företagare',
-      heading: 'Hemsidan som utstrålar förtroende',
+      heading: 'Dominera din bransch, med vår kompetens',
       focusPrefix: 'Skapad för',
       focusWords: ['Kreativitet', 'Lönsamhet', 'Leads'],
       primaryCta: 'Visa prispaket',
@@ -55,85 +52,17 @@ const translations = {
       card: {
         title: 'Varför välja GM NORDICS?',
         item1: 'Inga dyra timarvoden',
-        item2: 'Fasta priser',
-        item3: 'Ren kod (ingen Wix eller WordPress)',
-        item4: 'Kostnadsfri prototyp',
-        item5: 'Dominans inom er sektor',
-        item6: 'Personlig kontakt 24/7'
+        item2: 'En hel marknadsavdelning',
+        item3: 'Ingen bindningstid',
+        item4: 'Allt under samma tak',
+        item5: 'Ren kod (ej wix/wordpress)',
+        item6: 'Video, ljud och content ingår',
+        item7: 'Dominera dina konkurrenter',
+        item8: 'Personlig kontakt'
       }
-    },
-    references: {
-      heading: 'Referenser'
     },
     calendarBooking: {
       heading: 'Bokning i Kalender'
-    },
-    pagespeed: {
-      heading: 'Hur mår din hemsida?',
-      lead: 'Fyll i din webbadress så berättar vi hur sidan mår och vad som är smartast att fixa först.',
-      label: 'Webbadress',
-      placeholder: 't.ex. aftonbladet.se',
-      button: 'Analysera',
-      progressSuffix: 'av 100',
-      scoreLabel: 'Prestandapoäng',
-      scoreNote: 'Av 100 möjliga poäng – högre är bättre.',
-      summaryHeading: 'Så här mår sidan',
-      summaryDefault: 'Resultatet visas här efter analys.',
-      scoreValueTemplate: '{{score}} av 100',
-      scoreUnavailable: 'Ingen poäng',
-      errors: {
-        empty: 'Skriv in en webbadress, till exempel aftonbladet.se.',
-        invalid: 'Webbadressen verkar felstavad. Dubbelkolla och försök igen.',
-        failed: 'Vi kunde tyvärr inte läsa in resultatet just nu. Försök igen om en liten stund.'
-      },
-      status: {
-        good: 'Känns snabbt',
-        ok: 'Okej men kan vässas',
-        poor: 'Segt – prioritera detta',
-        unknown: 'Data saknas'
-      },
-      summary: {
-        noScore: 'Vi kunde inte få fram någon prestandapoäng just nu.',
-        high: 'Din sida laddar riktigt snabbt och ger ett starkt första intryck.',
-        medium: 'Din sida känns okej, men det finns tydliga vinster att hämta.',
-        low: 'Din sida upplevs trög och riskerar att tappa besökare på vägen.',
-        poorMetric: '{{metric}} tar längst tid och bör prioriteras.',
-        okMetric: 'Se om {{metric}} kan bli ännu snabbare.',
-        allGood: 'Fortsätt hålla koll på bilder, skript och stabilitet så behåller du försprånget.',
-        details: {
-          fcp: 'Första intrycket syns efter {{value}}.',
-          lcp: 'Huvudinnehållet är på plats efter {{value}}.',
-          speedIndex: 'Helhetskänslan av fart landar på {{value}}.',
-          tbt: 'Knappar svarar efter {{value}}.'
-        }
-      },
-      units: {
-        secondsShort: 'sek',
-        secondsLong: 'sekunder',
-        milliseconds: 'ms'
-      },
-      metrics: {
-        fcp: {
-          title: 'Tid tills något syns',
-          detail: 'Första intrycket dyker upp efter {{value}}. Försök hålla dig under {{target}}.'
-        },
-        lcp: {
-          title: 'När huvudinnehållet syns',
-          detail: 'Det viktigaste innehållet syns efter {{value}}. Ett bra mål är {{target}}.'
-        },
-        speedIndex: {
-          title: 'Helhetskänslan av fart',
-          detail: 'Så lång tid tar det innan sidan ser färdig ut: {{value}}. Satsa på max {{target}}.'
-        },
-        tbt: {
-          title: 'Hur snabbt knapparna reagerar',
-          detail: 'Så lång fördröjning uppstår innan sidan svarar: {{value}}. Håll den under {{target}}.'
-        },
-        cls: {
-          title: 'Hur stabil sidan känns',
-          detail: 'Sidan hoppar omkring {{value}}. För en lugn upplevelse – håll dig under {{target}}.'
-        }
-      }
     },
     services: {
       heading: 'Tydlighet, trygghet och tillväxt i varje projekt',
@@ -170,52 +99,112 @@ const translations = {
         body: 'Vi implementerar lösningen, finjusterar SEO och genomför noggranna tester. Vid lansering får du en robust webbplats som konkurrerar från dag ett.'
       }
     },
+    team: {
+      eyebrow: 'Teamet',
+      heading: 'Människorna bakom GM NORDICS',
+      lead:
+        'GM NORDICS är ett kompakt specialistteam där utvecklare, strateger och designers jobbar tätt ihop varje dag. Här är människorna du kommer att prata med från första möte till lanserad lösning.',
+      carousel: {
+        label: 'Teamets porträtt',
+        prev: 'Föregående person',
+        next: 'Nästa person',
+        dots: 'Navigera mellan teammedlemmarna'
+      },
+      members: {
+        jonas: {
+          name: 'Jonas Åkerman',
+          role: 'Lead Developer',
+          bio: 'Kodar som en konservator: med respekt för det beständiga och med noggrannhet in i varje interaktion.'
+        },
+        anna: {
+          name: 'Anna Bergström',
+          role: 'Grundare & Creative Director',
+          bio: 'Leder studion med en känsla för taktil typografi och en okuvlig vilja att göra plats för eftertänksam kommunikation.'
+        },
+        erik: {
+          name: 'Erik Holm',
+          role: 'Operativ chef',
+          bio: 'Håller rytmen i varje leverans och ser till att kundresor och resurser är lika väl koreograferade som vår design.'
+        },
+        erika: {
+          name: 'Erika Dahl',
+          role: 'Kommunikationsstrateg',
+          bio: 'Kuraterar våra manifest och tonlägen så att varje uppdrag fångar rätt temperament — från första rubriken till sista brödtexten.'
+        },
+        henrik: {
+          name: 'Henrik Tiba',
+          role: 'Affärsstrateg',
+          bio: 'Tolkar marknadsdata med klassisk precision och knyter ihop våra kampanjer med affärsnyttan i centrum.'
+        },
+        johanna: {
+          name: 'Johanna Fors',
+          role: 'Design Lead',
+          bio: 'Handplockar färger ur arkiven och binder samman digitala upplevelser med analoga principer.'
+        },
+        oscar: {
+          name: 'Oscar Lind',
+          role: 'Kundpartner',
+          bio: 'Förvaltar relationer över generationer och är ofta den första som möter våra kunder i salongen.'
+        },
+        david: {
+          name: 'David Nilsson',
+          role: 'AI-specialist',
+          bio: 'Driver våra AI-prototyper och ser till att automationer känns lika genomarbetade som den visuella upplevelsen.'
+        }
+      }
+    },
     pricing: {
       heading: 'Tre prispaket för olika behov',
       lead: 'Välj den nivå som passar dig bäst – alla paket går att bygga ut när ditt företag växer.',
       popular: 'Mest populär',
+      carousel: {
+        label: 'Prispaket',
+        prev: 'Föregående paket',
+        next: 'Nästa paket',
+        dots: 'Navigera mellan prispaketen'
+      },
       base: {
         title: 'Bas',
-        price: '1&nbsp;495 kr/månad',
+        price: '6&nbsp;995 kr/månad',
         tagline: 'För en snabb och professionell start',
         feature1: 'Hemsida utvecklad i ren kod',
-        feature2: 'Bilder',
-        feature3: '5 e-postadresser',
+        feature2: 'Organisk trafik',
+        feature3: 'Obegränsade e-postadresser',
         feature4: 'Webbhotell och domänadress',
-        feature5: 'SEO-optimering',
-        feature6: 'Kontaktformulär',
-        feature7: 'Support ingår',
+        feature5: 'Ranka högt på Google',
+        feature6: 'Logotypdesign och unik grafik',
+        feature7: 'Support kontorstider',
         cta: 'Välj Bas'
       },
       plus: {
         title: 'Plus',
-        price: '2&nbsp;499 kr/månad',
+        price: '9&nbsp;995 kr/månad',
         tagline: 'För företag med behov av fler kunder',
         feature1: 'Allt i Bas',
-        feature2: 'Bildspel och galleri',
-        feature3: 'Nyhetsflöde',
-        feature4: 'Logotypdesign och unik grafik',
+        feature2: 'Uppdatering av sociala medier',
+        feature3: 'Marknadsanalys',
+        feature4: 'Bokningssystem',
         feature5: '10 e-postadresser',
-        feature6: 'Marknadsföring via Meta',
-        feature7: 'Filmredigering',
-        feature8: 'Marknadsföringskampanjer',
+        feature6: 'Marknadsföring',
+        feature7: 'Reklamkampanjer i världsklass',
+        feature8: 'Bild- ljud, och video för content',
         cta: 'Välj Plus'
       },
       premium: {
         title: 'Premium',
-        price: '7&nbsp;995 kr/månad',
+        price: '14&nbsp;995 kr/månad',
         tagline: 'Dominera din marknad och dina konkurrenter',
         feature1: 'Allt i Plus',
-        feature2: 'Expertutformad 3D-design',
-        feature3: 'Automatisering (AI)',
-        feature4: 'Fortnox Integration med bank',
-        feature5: 'Skapa egen App',
-        feature6: 'Obegränsade e-postadresser',
-        feature7: 'AI-bloggfunktion',
-        feature8: 'SEO-optimering',
+        feature2: 'Professionell 3D-design',
+        feature3: 'AI-Agenter',
+        feature4: 'Löpande bokföring',
+        feature5: 'Apputveckling',
+        feature6: 'Back-end-integration',
+        feature7: 'AI-roboten Bloggi',
+        feature8: 'SEO och GEO i världsklass',
         feature9: 'WooCommerce-integration',
-        feature10: 'Eget CRM system',
-        feature11: 'E-handel',
+        feature10: 'Databas och infrastruktur',
+        feature11: 'E-handel och produktreklam',
         cta: 'Välj Premium'
       }
     },
@@ -263,7 +252,6 @@ const translations = {
     languageName: 'English',
     htmlLang: 'en',
     numberFormat: 'en-US',
-    pagespeedLocale: 'en_US',
     meta: {
       title: 'GM NORDICS – Professional websites for growing companies',
       description: 'GM NORDICS designs and builds fast, SEO-ready websites for companies that want a trustworthy digital presence and predictable growth.'
@@ -300,84 +288,16 @@ const translations = {
         title: 'Why choose GM NORDICS?',
         item1: 'No costly hourly fees',
         item2: 'Fixed pricing',
-        item3: 'Hand-coded builds (no Wix or WordPress)',
-        item4: 'Complimentary prototype',
-        item5: 'Own your niche',
-        item6: 'Direct personal support 24/7'
+        item3: 'Everything under one roof',
+        item4: 'Hand-coded builds (no Wix or WordPress)',
+        item5: 'Complimentary prototype',
+        item6: 'Own your niche',
+        item7: 'Direct personal support 24/7',
+        item8: 'No long-term contracts'
       }
-    },
-    references: {
-      heading: 'References'
     },
     calendarBooking: {
       heading: 'Calendar booking'
-    },
-    pagespeed: {
-      heading: 'How healthy is your website?',
-      lead: 'Share your URL and we will tell you how the site performs and what to optimize first.',
-      label: 'Website',
-      placeholder: 'e.g. example.com',
-      button: 'Analyze',
-      progressSuffix: 'of 100',
-      scoreLabel: 'Performance score',
-      scoreNote: 'Out of 100 possible points – higher is better.',
-      summaryHeading: 'How the page performs',
-      summaryDefault: 'Your result appears here after the analysis.',
-      scoreValueTemplate: '{{score}} out of 100',
-      scoreUnavailable: 'No score',
-      errors: {
-        empty: 'Enter a web address such as example.com.',
-        invalid: 'The URL seems incorrect. Double-check and try again.',
-        failed: 'We could not load the results right now. Please try again in a moment.'
-      },
-      status: {
-        good: 'Feels fast',
-        ok: 'Okay but can improve',
-        poor: 'Slow – prioritize this',
-        unknown: 'No data'
-      },
-      summary: {
-        noScore: 'We could not retrieve a performance score right now.',
-        high: 'Your site loads very quickly and builds trust instantly.',
-        medium: 'The site feels fine but there are clear wins waiting.',
-        low: 'The site feels sluggish and risks losing visitors along the way.',
-        poorMetric: '{{metric}} takes the longest time and should be prioritized.',
-        okMetric: 'Consider squeezing more speed out of {{metric}}.',
-        allGood: 'Keep an eye on images, scripts, and stability to stay ahead.',
-        details: {
-          fcp: 'First content appears after {{value}}.',
-          lcp: 'Main content is ready after {{value}}.',
-          speedIndex: 'The overall sense of speed lands at {{value}}.',
-          tbt: 'Buttons respond after {{value}}.'
-        }
-      },
-      units: {
-        secondsShort: 's',
-        secondsLong: 'seconds',
-        milliseconds: 'ms'
-      },
-      metrics: {
-        fcp: {
-          title: 'Time until something appears',
-          detail: 'The first impression shows after {{value}}. Aim to stay below {{target}}.'
-        },
-        lcp: {
-          title: 'When the main content is visible',
-          detail: 'The key content becomes visible after {{value}}. A solid target is {{target}}.'
-        },
-        speedIndex: {
-          title: 'Overall sense of speed',
-          detail: 'The page looks complete after {{value}}. Try to keep it under {{target}}.'
-        },
-        tbt: {
-          title: 'How quickly buttons respond',
-          detail: 'Interactions are delayed by {{value}}. Keep it below {{target}}.'
-        },
-        cls: {
-          title: 'Visual stability',
-          detail: 'Layout shift adds up to {{value}}. Stay below {{target}} for a calm experience.'
-        }
-      }
     },
     services: {
       heading: 'Clarity, confidence, and growth in every project',
@@ -414,10 +334,70 @@ const translations = {
         body: 'We implement, polish SEO, and run thorough tests. At launch you get a robust site ready to compete from day one.'
       }
     },
+    team: {
+      eyebrow: 'The team',
+      heading: 'The people behind GM NORDICS',
+      lead:
+        'GM NORDICS is a compact specialist team where developers, strategists, and designers collaborate every day. Meet the people you will talk to from kickoff to launch.',
+      carousel: {
+        label: 'Team portraits',
+        prev: 'Previous person',
+        next: 'Next person',
+        dots: 'Navigate between team members'
+      },
+      members: {
+        jonas: {
+          name: 'Jonas Åkerman',
+          role: 'Lead Developer',
+          bio: 'Codes like a conservator, with respect for what lasts and obsessive care for every interaction.'
+        },
+        anna: {
+          name: 'Anna Bergström',
+          role: 'Founder & Creative Director',
+          bio: 'Leads the studio with a feel for tactile typography and an unstoppable drive to make space for thoughtful communication.'
+        },
+        erik: {
+          name: 'Erik Holm',
+          role: 'Operations Lead',
+          bio: 'Keeps every delivery in rhythm so journeys and resources stay as choreographed as our design.'
+        },
+        erika: {
+          name: 'Erika Dahl',
+          role: 'Communications Strategist',
+          bio: 'Curates our manifestos and tone of voice so each assignment captures the right temperament—from headline to long-form copy.'
+        },
+        henrik: {
+          name: 'Henrik Tiba',
+          role: 'Business Strategist',
+          bio: 'Interprets market data with classical precision and ties every campaign back to measurable business value.'
+        },
+        johanna: {
+          name: 'Johanna Fors',
+          role: 'Design Lead',
+          bio: 'Handpicks colors from the archives and links digital experiences with analog principles.'
+        },
+        oscar: {
+          name: 'Oscar Lind',
+          role: 'Client Partner',
+          bio: 'Nurtures relationships across generations and is often the first person to welcome new clients.'
+        },
+        david: {
+          name: 'David Nilsson',
+          role: 'AI Specialist',
+          bio: 'Builds AI prototypes and ensures our automation flows feel as refined as the rest of the experience.'
+        }
+      }
+    },
     pricing: {
       heading: 'Three packages for different needs',
       lead: 'Choose the tier that suits you – every package can grow with your company.',
       popular: 'Most popular',
+      carousel: {
+        label: 'Pricing packages',
+        prev: 'Previous package',
+        next: 'Next package',
+        dots: 'Browse pricing packages'
+      },
       base: {
         title: 'Base',
         price: '€130 / month',
@@ -451,15 +431,15 @@ const translations = {
         tagline: 'Dominate your market and competitors',
         feature1: 'Everything in Plus',
         feature2: 'Expert-crafted 3D design',
-        feature3: 'Automations',
-        feature4: 'Fortnox banking integration',
+        feature3: 'AI agents',
+        feature4: 'Ongoing bookkeeping',
         feature5: 'Application development',
-        feature6: 'Unlimited email accounts',
-        feature7: 'AI-powered blog',
-        feature8: 'SEO optimization',
+        feature6: 'Back-end integration',
+        feature7: 'AI-powered Bloggi assistant',
+        feature8: 'World-class SEO and GEO',
         feature9: 'WooCommerce integration',
-        feature10: 'AI agents for email, advertising, accounting, and more',
-        feature11: 'E-commerce build',
+        feature10: 'Database and infrastructure',
+        feature11: 'E-commerce and product ads',
         cta: 'Choose Premium'
       }
     },
@@ -507,7 +487,6 @@ const translations = {
     languageName: 'Español',
     htmlLang: 'es',
     numberFormat: 'es-ES',
-    pagespeedLocale: 'es_ES',
     meta: {
       title: 'GM NORDICS – Sitios web profesionales para pymes ambiciosas',
       description: 'GM NORDICS diseña y desarrolla sitios web rápidos y optimizados para SEO para empresas que necesitan una presencia digital fiable y crecimiento predecible.'
@@ -544,84 +523,16 @@ const translations = {
         title: '¿Por qué elegir GM NORDICS?',
         item1: 'Sin tarifas por hora elevadas',
         item2: 'Precios fijos',
-        item3: 'Código propio (sin Wix ni WordPress)',
-        item4: 'Prototipo sin coste',
-        item5: 'Dominio en tu sector',
-        item6: 'Contacto personal 24/7'
+        item3: 'Todo bajo el mismo techo',
+        item4: 'Código propio (sin Wix ni WordPress)',
+        item5: 'Prototipo sin coste',
+        item6: 'Dominio en tu sector',
+        item7: 'Contacto personal 24/7',
+        item8: 'Sin compromiso a largo plazo'
       }
-    },
-    references: {
-      heading: 'Referencias'
     },
     calendarBooking: {
       heading: 'Reserva en calendario'
-    },
-    pagespeed: {
-      heading: '¿Cómo se encuentra tu sitio web?',
-      lead: 'Escribe tu URL y te diremos cómo rinde la página y qué conviene optimizar primero.',
-      label: 'Dirección web',
-      placeholder: 'p. ej. ejemplo.com',
-      button: 'Analizar',
-      progressSuffix: 'de 100',
-      scoreLabel: 'Puntuación de rendimiento',
-      scoreNote: 'De 100 puntos posibles: cuanto más alta, mejor.',
-      summaryHeading: 'Estado de la página',
-      summaryDefault: 'Verás aquí tu resultado después del análisis.',
-      scoreValueTemplate: '{{score}} de 100',
-      scoreUnavailable: 'Sin puntuación',
-      errors: {
-        empty: 'Escribe una dirección web, por ejemplo ejemplo.com.',
-        invalid: 'La URL parece incorrecta. Revisa y vuelve a intentarlo.',
-        failed: 'No pudimos cargar los resultados ahora mismo. Inténtalo de nuevo en unos instantes.'
-      },
-      status: {
-        good: 'Se siente rápido',
-        ok: 'Aceptable pero mejorable',
-        poor: 'Lento: prioriza esto',
-        unknown: 'Sin datos'
-      },
-      summary: {
-        noScore: 'No pudimos obtener una puntuación de rendimiento en este momento.',
-        high: 'Tu sitio carga muy rápido y genera confianza al instante.',
-        medium: 'La página va bien, pero hay mejoras claras por ganar.',
-        low: 'La página se siente lenta y puede perder visitas en el camino.',
-        poorMetric: '{{metric}} es lo que más tarda y debe priorizarse.',
-        okMetric: 'Busca acelerar {{metric}} si es posible.',
-        allGood: 'Controla imágenes, scripts y estabilidad para mantener la ventaja.',
-        details: {
-          fcp: 'La primera impresión aparece tras {{value}}.',
-          lcp: 'El contenido principal está listo tras {{value}}.',
-          speedIndex: 'La sensación global de velocidad es de {{value}}.',
-          tbt: 'Los botones responden después de {{value}}.'
-        }
-      },
-      units: {
-        secondsShort: 's',
-        secondsLong: 'segundos',
-        milliseconds: 'ms'
-      },
-      metrics: {
-        fcp: {
-          title: 'Tiempo hasta que algo aparece',
-          detail: 'La primera impresión llega tras {{value}}. Intenta mantenerte por debajo de {{target}}.'
-        },
-        lcp: {
-          title: 'Cuándo se ve el contenido principal',
-          detail: 'El contenido clave aparece tras {{value}}. Un buen objetivo es {{target}}.'
-        },
-        speedIndex: {
-          title: 'Sensación global de velocidad',
-          detail: 'La página parece completa tras {{value}}. Procura estar por debajo de {{target}}.'
-        },
-        tbt: {
-          title: 'Qué tan rápido responden los botones',
-          detail: 'Las interacciones se retrasan {{value}}. Mantenlas por debajo de {{target}}.'
-        },
-        cls: {
-          title: 'Estabilidad visual',
-          detail: 'El diseño salta {{value}}. Para una experiencia tranquila, mantente por debajo de {{target}}.'
-        }
-      }
     },
     services: {
       heading: 'Claridad, confianza y crecimiento en cada proyecto',
@@ -658,10 +569,70 @@ const translations = {
         body: 'Implementamos, refinamos el SEO y probamos a fondo. Al lanzar entregamos un sitio robusto listo para competir.'
       }
     },
+    team: {
+      eyebrow: 'El equipo',
+      heading: 'Las personas detrás de GM NORDICS',
+      lead:
+        'GM NORDICS es un equipo compacto de especialistas donde desarrolladores, estrategas y diseñadores colaboran a diario. Conoce a las personas que te acompañan desde el primer encuentro hasta el lanzamiento.',
+      carousel: {
+        label: 'Retratos del equipo',
+        prev: 'Persona anterior',
+        next: 'Siguiente persona',
+        dots: 'Navega entre los miembros del equipo'
+      },
+      members: {
+        jonas: {
+          name: 'Jonas Åkerman',
+          role: 'Líder de desarrollo',
+          bio: 'Programa como un conservador, con respeto por lo perdurable y una precisión obsesiva en cada interacción.'
+        },
+        anna: {
+          name: 'Anna Bergström',
+          role: 'Fundadora y directora creativa',
+          bio: 'Dirige el estudio con sensibilidad por la tipografía táctil y un empeño incansable por dar espacio a una comunicación reflexiva.'
+        },
+        erik: {
+          name: 'Erik Holm',
+          role: 'Director de operaciones',
+          bio: 'Mantiene el ritmo de cada entrega para que los recorridos de cliente y los recursos estén tan coreografiados como nuestro diseño.'
+        },
+        erika: {
+          name: 'Erika Dahl',
+          role: 'Estratega de comunicación',
+          bio: 'Curadora de nuestros manifiestos y tonos de voz para que cada encargo capture el temperamento correcto, del titular al cuerpo del texto.'
+        },
+        henrik: {
+          name: 'Henrik Tiba',
+          role: 'Estratega de negocio',
+          bio: 'Interpreta los datos de mercado con precisión clásica y conecta cada campaña con el retorno del negocio.'
+        },
+        johanna: {
+          name: 'Johanna Fors',
+          role: 'Líder de diseño',
+          bio: 'Selecciona colores de los archivos y une experiencias digitales con principios analógicos.'
+        },
+        oscar: {
+          name: 'Oscar Lind',
+          role: 'Socio de clientes',
+          bio: 'Cultiva relaciones a lo largo de generaciones y suele ser la primera persona que recibe a nuestros clientes.'
+        },
+        david: {
+          name: 'David Nilsson',
+          role: 'Especialista en IA',
+          bio: 'Crea prototipos con IA y se asegura de que las automatizaciones se sientan tan cuidadas como el diseño.'
+        }
+      }
+    },
     pricing: {
       heading: 'Tres planes para necesidades distintas',
       lead: 'Elige el plan que más te convenga: todos pueden crecer con tu empresa.',
       popular: 'El más elegido',
+      carousel: {
+        label: 'Planes de precios',
+        prev: 'Plan anterior',
+        next: 'Plan siguiente',
+        dots: 'Navega entre los planes disponibles'
+      },
       base: {
         title: 'Base',
         price: '€130 / mes',
@@ -695,15 +666,15 @@ const translations = {
         tagline: 'Domina tu mercado y a la competencia',
         feature1: 'Todo lo del plan Plus',
         feature2: 'Diseño 3D creado por expertos',
-        feature3: 'Automatizaciones',
-        feature4: 'Integración de Fortnox con tu banco',
+        feature3: 'Agentes de IA',
+        feature4: 'Contabilidad continua',
         feature5: 'Desarrollo de aplicaciones',
-        feature6: 'Cuentas de correo ilimitadas',
-        feature7: 'Blog con IA',
-        feature8: 'Optimización SEO avanzada',
+        feature6: 'Integración back-end',
+        feature7: 'Robot de IA Bloggi',
+        feature8: 'SEO y GEO de primer nivel',
         feature9: 'Integración con WooCommerce',
-        feature10: 'Agentes de IA para correo, publicidad y contabilidad',
-        feature11: 'Comercio electrónico completo',
+        feature10: 'Base de datos e infraestructura',
+        feature11: 'Comercio electrónico y anuncios de productos',
         cta: 'Elegir Premium'
       }
     },
@@ -751,7 +722,6 @@ const translations = {
     languageName: 'Italiano',
     htmlLang: 'it',
     numberFormat: 'it-IT',
-    pagespeedLocale: 'it_IT',
     meta: {
       title: 'GM NORDICS – Siti web professionali per aziende in crescita',
       description: 'GM NORDICS progetta e sviluppa siti veloci e ottimizzati per la SEO per aziende che vogliono una presenza digitale credibile e risultati prevedibili.'
@@ -788,84 +758,16 @@ const translations = {
         title: 'Perché scegliere GM NORDICS?',
         item1: 'Niente tariffe orarie elevate',
         item2: 'Prezzi fissi',
-        item3: 'Sviluppo su misura (niente Wix o WordPress)',
-        item4: 'Prototipo gratuito',
-        item5: 'Leadership nel tuo settore',
-        item6: 'Referente personale 24/7'
+        item3: 'Tutto sotto lo stesso tetto',
+        item4: 'Sviluppo su misura (niente Wix o WordPress)',
+        item5: 'Prototipo gratuito',
+        item6: 'Leadership nel tuo settore',
+        item7: 'Referente personale 24/7',
+        item8: 'Nessun vincolo a lungo termine'
       }
-    },
-    references: {
-      heading: 'Referenze'
     },
     calendarBooking: {
       heading: 'Prenotazione in calendario'
-    },
-    pagespeed: {
-      heading: 'Come sta il tuo sito?',
-      lead: 'Inserisci l’indirizzo e ti diremo come si comporta la pagina e da dove conviene iniziare.',
-      label: 'Indirizzo web',
-      placeholder: 'es. esempio.it',
-      button: 'Analizza',
-      progressSuffix: 'su 100',
-      scoreLabel: 'Punteggio prestazionale',
-      scoreNote: 'Su 100 punti disponibili – più è alto, meglio è.',
-      summaryHeading: 'Stato della pagina',
-      summaryDefault: 'Il risultato apparirà qui al termine dell’analisi.',
-      scoreValueTemplate: '{{score}} su 100',
-      scoreUnavailable: 'Nessun punteggio',
-      errors: {
-        empty: 'Inserisci un indirizzo web, ad esempio esempio.it.',
-        invalid: 'L’URL sembra errato. Controlla e riprova.',
-        failed: 'Non siamo riusciti a caricare i risultati. Riprova tra poco.'
-      },
-      status: {
-        good: 'Sembra veloce',
-        ok: 'Discreto ma migliorabile',
-        poor: 'Lento – da priorizzare',
-        unknown: 'Nessun dato'
-      },
-      summary: {
-        noScore: 'Al momento non è stato possibile ottenere un punteggio.',
-        high: 'Il tuo sito carica molto velocemente e trasmette subito fiducia.',
-        medium: 'Il sito funziona bene ma ci sono margini di miglioramento evidenti.',
-        low: 'Il sito risulta lento e rischia di perdere utenti per strada.',
-        poorMetric: '{{metric}} è la fase più lenta e va priorizzata.',
-        okMetric: 'Valuta se puoi rendere ancora più rapido {{metric}}.',
-        allGood: 'Continua a monitorare immagini, script e stabilità per restare avanti.',
-        details: {
-          fcp: 'Il primo contenuto appare dopo {{value}}.',
-          lcp: 'Il contenuto principale è pronto dopo {{value}}.',
-          speedIndex: 'La percezione generale di velocità è di {{value}}.',
-          tbt: 'I pulsanti rispondono dopo {{value}}.'
-        }
-      },
-      units: {
-        secondsShort: 's',
-        secondsLong: 'secondi',
-        milliseconds: 'ms'
-      },
-      metrics: {
-        fcp: {
-          title: 'Tempo prima che appaia qualcosa',
-          detail: 'La prima impressione arriva dopo {{value}}. Mantieniti sotto {{target}}.'
-        },
-        lcp: {
-          title: 'Quando compare il contenuto principale',
-          detail: 'Il contenuto più importante è visibile dopo {{value}}. Un buon obiettivo è {{target}}.'
-        },
-        speedIndex: {
-          title: 'Percezione complessiva di velocità',
-          detail: 'La pagina sembra completa dopo {{value}}. Cerca di restare sotto {{target}}.'
-        },
-        tbt: {
-          title: 'Reattività dei pulsanti',
-          detail: 'Le interazioni hanno un ritardo di {{value}}. Tienilo sotto {{target}}.'
-        },
-        cls: {
-          title: 'Stabilità visiva',
-          detail: 'Il layout si sposta di {{value}}. Per un’esperienza fluida resta sotto {{target}}.'
-        }
-      }
     },
     services: {
       heading: 'Chiarezza, sicurezza e crescita in ogni progetto',
@@ -902,10 +804,70 @@ const translations = {
         body: 'Implementiamo la soluzione, ottimizziamo la SEO e testiamo tutto. Al lancio hai un sito pronto a competere.'
       }
     },
+    team: {
+      eyebrow: 'Il team',
+      heading: 'Le persone dietro GM NORDICS',
+      lead:
+        'GM NORDICS è un team compatto di specialisti in cui sviluppatori, strategist e designer lavorano fianco a fianco ogni giorno. Ecco le persone con cui parlerai dal kickoff al lancio.',
+      carousel: {
+        label: 'Ritratti del team',
+        prev: 'Persona precedente',
+        next: 'Persona successiva',
+        dots: 'Naviga tra i membri del team'
+      },
+      members: {
+        jonas: {
+          name: 'Jonas Åkerman',
+          role: 'Lead Developer',
+          bio: 'Scrive codice come un conservatore, con rispetto per ciò che dura e una cura maniacale per ogni interazione.'
+        },
+        anna: {
+          name: 'Anna Bergström',
+          role: 'Fondatrice e Creative Director',
+          bio: 'Guida lo studio con un gusto per la tipografia tattile e una volontà instancabile di dare spazio a una comunicazione ponderata.'
+        },
+        erik: {
+          name: 'Erik Holm',
+          role: 'Responsabile operativo',
+          bio: 'Mantiene il ritmo di ogni consegna così che journey e risorse siano coreografati quanto il nostro design.'
+        },
+        erika: {
+          name: 'Erika Dahl',
+          role: 'Stratega della comunicazione',
+          bio: 'Cura i nostri manifesti e il tono di voce così che ogni incarico catturi il temperamento giusto, dal titolo al body copy.'
+        },
+        henrik: {
+          name: 'Henrik Tiba',
+          role: 'Stratega di business',
+          bio: "Legge i dati di mercato con precisione classica e collega ogni campagna al valore per l'azienda."
+        },
+        johanna: {
+          name: 'Johanna Fors',
+          role: 'Design Lead',
+          bio: 'Seleziona colori dagli archivi e intreccia esperienze digitali con principi analogici.'
+        },
+        oscar: {
+          name: 'Oscar Lind',
+          role: 'Client Partner',
+          bio: 'Coltiva relazioni tra generazioni ed è spesso il primo volto che accoglie i clienti.'
+        },
+        david: {
+          name: 'David Nilsson',
+          role: 'Specialista AI',
+          bio: 'Realizza prototipi AI e garantisce che i flussi automatizzati siano curati quanto il design.'
+        }
+      }
+    },
     pricing: {
       heading: 'Tre pacchetti per esigenze diverse',
       lead: 'Scegli il pacchetto che fa per te: ognuno può crescere insieme alla tua azienda.',
       popular: 'Il più scelto',
+      carousel: {
+        label: 'Pacchetti disponibili',
+        prev: 'Pacchetto precedente',
+        next: 'Pacchetto successivo',
+        dots: 'Naviga tra i pacchetti'
+      },
       base: {
         title: 'Base',
         price: '€130 / mese',
@@ -939,15 +901,15 @@ const translations = {
         tagline: 'Per dominare il tuo mercato e i concorrenti',
         feature1: 'Tutto del pacchetto Plus',
         feature2: 'Design 3D curato da esperti',
-        feature3: 'Automazioni',
-        feature4: 'Integrazione Fortnox con la tua banca',
+        feature3: 'Agenti IA',
+        feature4: 'Contabilità continuativa',
         feature5: 'Sviluppo di applicazioni',
-        feature6: 'Caselle email illimitate',
-        feature7: 'Blog con AI integrata',
-        feature8: 'SEO avanzata',
+        feature6: 'Integrazione back-end',
+        feature7: 'Robot IA Bloggi',
+        feature8: 'SEO e GEO di livello mondiale',
         feature9: 'Integrazione WooCommerce',
-        feature10: 'Agenti AI per email, marketing e contabilità',
-        feature11: 'E-commerce completo',
+        feature10: 'Database e infrastruttura',
+        feature11: 'E-commerce e promozione prodotti',
         cta: 'Scegli Premium'
       }
     },
@@ -993,67 +955,15 @@ const translations = {
   }
 };
 
-const METRIC_BASE = [
-  {
-    key: 'fcp',
-    id: 'first-contentful-paint',
-    convert: (value) => value / 1000,
-    thresholds: { good: 1.8, ok: 3 },
-    unit: 'seconds',
-    decimals: 1,
-    target: 1.8
-  },
-  {
-    key: 'lcp',
-    id: 'largest-contentful-paint',
-    convert: (value) => value / 1000,
-    thresholds: { good: 2.5, ok: 4 },
-    unit: 'seconds',
-    decimals: 1,
-    target: 2.5
-  },
-  {
-    key: 'speedIndex',
-    id: 'speed-index',
-    convert: (value) => value / 1000,
-    thresholds: { good: 3.4, ok: 5.8 },
-    unit: 'seconds',
-    decimals: 1,
-    target: 3.4
-  },
-  {
-    key: 'tbt',
-    id: 'total-blocking-time',
-    convert: (value) => value,
-    thresholds: { good: 200, ok: 600 },
-    unit: 'milliseconds',
-    decimals: 0,
-    target: 200
-  },
-  {
-    key: 'cls',
-    id: 'cumulative-layout-shift',
-    convert: (value) => value,
-    thresholds: { good: 0.1, ok: 0.25 },
-    unit: 'unitless',
-    decimals: 2,
-    target: 0.1
-  }
-];
-
 const storedThemePreference = window.localStorage.getItem(THEME_STORAGE_KEY);
-const initialTheme =
-  storedThemePreference === THEMES.LIGHT || storedThemePreference === THEMES.DARK
-    ? storedThemePreference
-    : window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? THEMES.DARK
-      : THEMES.LIGHT;
-let isThemePreferenceLocked = Boolean(storedThemePreference);
+const hasStoredThemePreference =
+  storedThemePreference === THEMES.LIGHT || storedThemePreference === THEMES.DARK;
+const initialTheme = hasStoredThemePreference ? storedThemePreference : THEMES.DARK;
+let isThemePreferenceLocked = hasStoredThemePreference;
 
 const state = {
   currentLanguage: FALLBACK_LANGUAGE,
-  currentTheme: initialTheme,
-  lastAnalysisData: null
+  currentTheme: initialTheme
 };
 
 document.documentElement.setAttribute('data-theme', state.currentTheme);
@@ -1138,20 +1048,6 @@ function getNestedValue(object, path) {
   return path.split('.').reduce((acc, part) => (acc ? acc[part] : undefined), object);
 }
 
-function formatTemplate(template, replacements) {
-  return template.replace(/\{\{(.*?)\}\}/g, (_, token) => {
-    return replacements[token] ?? '';
-  });
-}
-
-function formatNumberLocalized(value, maximumFractionDigits = 0, lang = state.currentLanguage) {
-  const locale = translations[lang];
-  return new Intl.NumberFormat(locale.numberFormat, {
-    minimumFractionDigits: 0,
-    maximumFractionDigits
-  }).format(value);
-}
-
 function applyStaticTranslations(lang) {
   const locale = translations[lang];
   const elements = document.querySelectorAll('[data-i18n]');
@@ -1175,7 +1071,6 @@ function applyStaticTranslations(lang) {
 const languageSwitcher = document.querySelector('.language-switcher');
 const languageButton = languageSwitcher?.querySelector('.language-button');
 const languageMenu = languageSwitcher?.querySelector('.language-menu');
-const languageLabel = languageSwitcher?.querySelector('[data-language-label]');
 const themeToggleButton = document.querySelector('.theme-button');
 const themeIcon = document.querySelector('[data-theme-icon]');
 
@@ -1236,6 +1131,8 @@ function updateMetaTags(locale) {
 
 const rotatingTextControllers = {};
 let heroSyncTimer;
+let teamCarouselController = null;
+let pricingCarouselController = null;
 
 function stopHeroSyncRotation({ reset = false } = {}) {
   if (heroSyncTimer) {
@@ -1473,9 +1370,8 @@ function applyLanguage(lang) {
   const locale = translations[lang];
   updateMetaTags(locale);
   applyStaticTranslations(lang);
-  if (languageLabel) {
-    languageLabel.textContent = locale.languageName;
-  }
+  teamCarouselController?.refreshLabels();
+  pricingCarouselController?.refreshLabels();
   updateLanguageMenuSelection(lang);
   if (rotatingTextControllers.hero) {
     rotatingTextControllers.hero.setStatements(locale.hero.statements);
@@ -1488,18 +1384,6 @@ function applyLanguage(lang) {
   }
   if (rotatingTextControllers.services) {
     rotatingTextControllers.services.setStatements(locale.services.rotatingStatements);
-  }
-  if (state.lastAnalysisData) {
-    renderAnalysis(state.lastAnalysisData);
-  } else {
-    const summaryText = document.getElementById('summary-text');
-    if (summaryText) {
-      summaryText.textContent = locale.pagespeed.summaryDefault;
-    }
-    const scoreValue = document.getElementById('performance-score');
-    if (scoreValue) {
-      scoreValue.textContent = locale.pagespeed.scoreUnavailable;
-    }
   }
 }
 
@@ -1546,315 +1430,267 @@ if (currentYearElement) {
   currentYearElement.textContent = String(new Date().getFullYear());
 }
 
-const pagespeedForm = document.getElementById('pagespeed-form');
-const loadingWrapper = document.getElementById('analysis-loading');
-const loadingMeter = loadingWrapper?.querySelector('.progress-meter');
-const loadingFill = document.getElementById('loading-fill');
-const loadingValue = document.getElementById('loading-value');
-const resultWrapper = document.getElementById('analysis-result');
-const errorBox = document.getElementById('analysis-error');
-const scoreValue = document.getElementById('performance-score');
-const summaryText = document.getElementById('summary-text');
+function initResponsiveCarousel({
+  rootSelector,
+  windowSelector,
+  trackSelector,
+  cardSelector,
+  prevSelector,
+  nextSelector,
+  dotsSelector,
+  dotClassName,
+  readyClass,
+  sliderBreakpoint = '(max-width: 900px)',
+  getDotLabel,
+  defaultIndex = 0
+}) {
+  const carousel = typeof rootSelector === 'string' ? document.querySelector(rootSelector) : rootSelector;
+  if (!carousel) {
+    return null;
+  }
 
-let progressTimer;
-let currentProgress = 0;
+  const track = carousel.querySelector(trackSelector);
+  const viewport = carousel.querySelector(windowSelector);
+  const prevBtn = carousel.querySelector(prevSelector);
+  const nextBtn = carousel.querySelector(nextSelector);
+  const dotsContainer = carousel.querySelector(dotsSelector);
 
-function hideElement(element) {
-  if (!element) {
-    return;
+  if (!track || !viewport) {
+    return null;
   }
-  element.setAttribute('hidden', '');
-}
 
-function showElement(element) {
-  if (!element) {
-    return;
+  if (readyClass) {
+    document.body.classList.add(readyClass);
   }
-  element.removeAttribute('hidden');
-}
 
-function updateProgress(value) {
-  const rounded = Math.max(0, Math.min(100, Math.round(value)));
-  if (loadingFill) {
-    loadingFill.style.width = `${rounded}%`;
-  }
-  if (loadingValue) {
-    loadingValue.textContent = String(rounded);
-  }
-  if (loadingMeter) {
-    loadingMeter.setAttribute('aria-valuenow', String(rounded));
-  }
-}
+  const cards = Array.from(track.querySelectorAll(cardSelector));
+  const useBreakpoint = typeof sliderBreakpoint === 'string' && sliderBreakpoint.length > 0;
+  const mediaQuery = useBreakpoint ? window.matchMedia(sliderBreakpoint) : null;
+  const hasMultipleCards = cards.length > 1;
+  const clampIndex = (index) => Math.max(0, Math.min(cards.length - 1, index));
+  const isSliderActive = () => hasMultipleCards && (!mediaQuery || mediaQuery.matches);
+  let currentIndex = clampIndex(Number.isFinite(defaultIndex) ? defaultIndex : 0);
+  let startX = 0;
+  let deltaX = 0;
+  let baseTranslate = 0;
+  let isDragging = false;
+  let slideWidth = 0;
+  let dots = [];
 
-function startLoading() {
-  stopLoadingTimer();
-  currentProgress = 0;
-  updateProgress(0);
-  showElement(loadingWrapper);
-  progressTimer = window.setInterval(() => {
-    const increment = Math.random() * 6 + 1;
-    currentProgress = Math.min(currentProgress + increment, 96);
-    updateProgress(currentProgress);
-    if (currentProgress >= 96) {
-      stopLoadingTimer();
-    }
-  }, 160);
-}
-
-function finishLoading() {
-  stopLoadingTimer();
-  updateProgress(100);
-  window.setTimeout(() => {
-    hideElement(loadingWrapper);
-  }, 400);
-}
-
-function stopLoadingTimer() {
-  if (progressTimer) {
-    window.clearInterval(progressTimer);
-    progressTimer = undefined;
-  }
-}
-
-function showError(message) {
-  if (!errorBox) {
-    alert(message);
-    return;
-  }
-  errorBox.textContent = message;
-  showElement(errorBox);
-}
-
-function normaliseUrl(value) {
-  const hasProtocol = /^https?:\/\//i.test(value);
-  const candidate = hasProtocol ? value : `https://${value}`;
-  const url = new URL(candidate);
-  if (!url.hostname.includes('.')) {
-    throw new Error('Invalid hostname');
-  }
-  return url.toString();
-}
-
-function formatMetricValue(metric, value) {
-  const locale = getLocale();
-  if (metric.unit === 'seconds') {
-    return `${formatNumberLocalized(value, metric.decimals)} ${locale.pagespeed.units.secondsShort}`;
-  }
-  if (metric.unit === 'milliseconds') {
-    if (value >= 1000) {
-      const seconds = value / 1000;
-      return `${formatNumberLocalized(seconds, 1)} ${locale.pagespeed.units.secondsShort}`;
-    }
-    return `${formatNumberLocalized(value, 0)} ${locale.pagespeed.units.milliseconds}`;
-  }
-  if (metric.unit === 'unitless') {
-    return formatNumberLocalized(value, metric.decimals);
-  }
-  return formatNumberLocalized(value, metric.decimals);
-}
-
-function formatMetricTarget(metric) {
-  const locale = getLocale();
-  if (metric.unit === 'seconds') {
-    return `${formatNumberLocalized(metric.target, metric.decimals)} ${locale.pagespeed.units.secondsShort}`;
-  }
-  if (metric.unit === 'milliseconds') {
-    return `${formatNumberLocalized(metric.target, 0)} ${locale.pagespeed.units.milliseconds}`;
-  }
-  if (metric.unit === 'unitless') {
-    return formatNumberLocalized(metric.target, metric.decimals);
-  }
-  return String(metric.target);
-}
-
-function buildMetricEntries(lighthouseResult) {
-  const entries = [];
-  const locale = getLocale();
-
-  METRIC_BASE.forEach((metric) => {
-    const audit = lighthouseResult?.audits?.[metric.id];
-    if (!audit || typeof audit.numericValue !== 'number') {
+  const updateButtons = () => {
+    if (!prevBtn || !nextBtn) {
       return;
     }
+    const active = isSliderActive();
+    prevBtn.disabled = !active || currentIndex === 0;
+    nextBtn.disabled = !active || currentIndex === cards.length - 1;
+  };
 
-    const convertedValue = metric.convert(audit.numericValue);
-    const formattedValue = formatMetricValue(metric, convertedValue);
-    const translationsForMetric = locale.pagespeed.metrics[metric.key];
-    const thresholds = metric.thresholds;
-    const status = evaluateStatus(convertedValue, thresholds);
-
-    entries.push({
-      id: metric.id,
-      title: translationsForMetric.title,
-      valueText: formattedValue,
-      detail: formatTemplate(translationsForMetric.detail, {
-        value: formattedValue,
-        target: formatMetricTarget(metric)
-      }),
-      statusKey: status.key,
-      statusText: status.text,
-      statusClassSuffix: status.classSuffix
+  const updateDots = () => {
+    if (!dots.length) {
+      return;
+    }
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
     });
+  };
+
+  const refreshDotLabels = () => {
+    if (!dots.length) {
+      return;
+    }
+    dots.forEach((dot, index) => {
+      const label =
+        typeof getDotLabel === 'function'
+          ? getDotLabel(cards[index], index)
+          : cards[index]?.querySelector('h3')?.textContent?.trim();
+      dot.setAttribute('aria-label', label || `Slide ${index + 1}`);
+    });
+  };
+
+  const computeSlideWidth = () => {
+    if (!isSliderActive()) {
+      return 0;
+    }
+    const firstCard = cards[0];
+    if (!firstCard) {
+      return viewport.offsetWidth;
+    }
+    const trackStyles = window.getComputedStyle(track);
+    const gapValue = trackStyles.gap || trackStyles.columnGap || trackStyles.rowGap || '0';
+    const gap = Number.parseFloat(gapValue) || 0;
+    return firstCard.offsetWidth + gap;
+  };
+
+  const applyTranslate = () => {
+    if (!isSliderActive()) {
+      track.style.transform = '';
+      slideWidth = 0;
+      return;
+    }
+    slideWidth = computeSlideWidth();
+    baseTranslate = -currentIndex * slideWidth;
+    track.style.transform = `translateX(${baseTranslate}px)`;
+  };
+
+  const snapWithoutAnimation = () => {
+    track.style.transition = 'none';
+    applyTranslate();
+    requestAnimationFrame(() => {
+      track.style.transition = '';
+    });
+  };
+
+  const moveToIndex = (index) => {
+    if (!isSliderActive()) {
+      return;
+    }
+    const targetIndex = clampIndex(index);
+    if (targetIndex === currentIndex) {
+      applyTranslate();
+      return;
+    }
+    currentIndex = targetIndex;
+    track.style.transition = 'transform 0.5s cubic-bezier(0.55, 0, 0.1, 1)';
+    applyTranslate();
+    updateDots();
+    updateButtons();
+  };
+
+  const handleNav = (direction) => {
+    moveToIndex(currentIndex + direction);
+  };
+
+  const handleDragStart = (event) => {
+    if (!isSliderActive()) {
+      return;
+    }
+    isDragging = true;
+    startX = event.touches ? event.touches[0].clientX : event.clientX;
+    deltaX = 0;
+    slideWidth = computeSlideWidth();
+    baseTranslate = -currentIndex * slideWidth;
+    track.style.transition = 'none';
+  };
+
+  const handleDragMove = (event) => {
+    if (!isDragging || !isSliderActive()) {
+      return;
+    }
+    const currentX = event.touches ? event.touches[0].clientX : event.clientX;
+    deltaX = currentX - startX;
+    track.style.transform = `translateX(${baseTranslate + deltaX}px)`;
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging || !isSliderActive()) {
+      return;
+    }
+    isDragging = false;
+    const threshold = slideWidth * 0.15;
+    if (deltaX > threshold) {
+      currentIndex = clampIndex(currentIndex - 1);
+    } else if (deltaX < -threshold) {
+      currentIndex = clampIndex(currentIndex + 1);
+    }
+    track.style.transition = 'transform 0.45s cubic-bezier(0.55, 0, 0.1, 1)';
+    applyTranslate();
+    updateDots();
+    updateButtons();
+    deltaX = 0;
+  };
+
+  const handleLayoutChange = () => {
+    const active = isSliderActive();
+    if (!active) {
+      track.style.transition = '';
+      track.style.transform = '';
+      currentIndex = 0;
+      slideWidth = 0;
+    } else {
+      if (!Number.isFinite(defaultIndex) || defaultIndex >= cards.length) {
+        currentIndex = clampIndex(currentIndex);
+      } else {
+        currentIndex = clampIndex(defaultIndex);
+      }
+      snapWithoutAnimation();
+      updateDots();
+    }
+    updateButtons();
+  };
+
+  const createDots = () => {
+    if (!dotsContainer) {
+      return;
+    }
+    dotsContainer.innerHTML = '';
+    if (!hasMultipleCards) {
+      dots = [];
+      return;
+    }
+    dots = cards.map((_, index) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = dotClassName || 'carousel-dot';
+      dotsContainer.appendChild(dot);
+      dot.addEventListener('click', () => moveToIndex(index));
+      return dot;
+    });
+    refreshDotLabels();
+  };
+
+  if (mediaQuery) {
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', handleLayoutChange);
+    } else if (typeof mediaQuery.addListener === 'function') {
+      mediaQuery.addListener(handleLayoutChange);
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    if (isSliderActive()) {
+      snapWithoutAnimation();
+    } else {
+      track.style.transform = '';
+    }
   });
 
-  return entries;
-}
+  prevBtn?.addEventListener('click', () => handleNav(-1));
+  nextBtn?.addEventListener('click', () => handleNav(1));
 
-function evaluateStatus(value, thresholds) {
-  const locale = getLocale();
-  if (typeof value !== 'number') {
-    return { key: 'unknown', text: locale.pagespeed.status.unknown, classSuffix: 'ok' };
+  createDots();
+  updateDots();
+  updateButtons();
+  if (isSliderActive()) {
+    snapWithoutAnimation();
   }
 
-  if (value <= thresholds.good) {
-    return { key: 'good', text: locale.pagespeed.status.good, classSuffix: 'good' };
-  }
+  track.addEventListener('touchstart', handleDragStart, { passive: true });
+  track.addEventListener('touchmove', handleDragMove, { passive: true });
+  track.addEventListener('touchend', handleDragEnd);
+  track.addEventListener('touchcancel', handleDragEnd);
 
-  if (value <= thresholds.ok) {
-    return { key: 'ok', text: locale.pagespeed.status.ok, classSuffix: 'ok' };
-  }
-
-  return { key: 'poor', text: locale.pagespeed.status.poor, classSuffix: 'poor' };
-}
-
-function buildSummary(score, metrics) {
-  const locale = getLocale();
-  const summaryConfig = locale.pagespeed.summary;
-
-  if (typeof score !== 'number') {
-    return summaryConfig.noScore;
-  }
-
-  const summaryParts = [];
-
-  if (score >= 90) {
-    summaryParts.push(summaryConfig.high);
-  } else if (score >= 65) {
-    summaryParts.push(summaryConfig.medium);
-  } else {
-    summaryParts.push(summaryConfig.low);
-  }
-
-  const worstMetric = metrics.find((metric) => metric.statusKey === 'poor');
-  const okMetric = metrics.find((metric) => metric.statusKey === 'ok');
-
-  if (worstMetric) {
-    summaryParts.push(formatTemplate(summaryConfig.poorMetric, { metric: worstMetric.title }));
-  } else if (okMetric) {
-    summaryParts.push(formatTemplate(summaryConfig.okMetric, { metric: okMetric.title }));
-  } else {
-    summaryParts.push(summaryConfig.allGood);
-  }
-
-  const findMetricById = (id) => metrics.find((metric) => metric.id === id);
-  const fcp = findMetricById('first-contentful-paint');
-  const lcp = findMetricById('largest-contentful-paint');
-  const speedIndex = findMetricById('speed-index');
-  const tbt = findMetricById('total-blocking-time');
-
-  const detailParts = [];
-
-  if (fcp) {
-    detailParts.push(formatTemplate(summaryConfig.details.fcp, { value: fcp.valueText }));
-  }
-  if (lcp) {
-    detailParts.push(formatTemplate(summaryConfig.details.lcp, { value: lcp.valueText }));
-  }
-  if (speedIndex) {
-    detailParts.push(formatTemplate(summaryConfig.details.speedIndex, { value: speedIndex.valueText }));
-  }
-  if (tbt) {
-    detailParts.push(formatTemplate(summaryConfig.details.tbt, { value: tbt.valueText }));
-  }
-
-  if (detailParts.length) {
-    summaryParts.push(detailParts.join(' '));
-  }
-
-  return summaryParts.join(' ');
-}
-
-function setScoreValue(score) {
-  if (!scoreValue) {
-    return;
-  }
-  const locale = getLocale();
-  if (typeof score === 'number') {
-    scoreValue.textContent = formatTemplate(locale.pagespeed.scoreValueTemplate, { score: String(score) });
-  } else {
-    scoreValue.textContent = locale.pagespeed.scoreUnavailable;
-  }
-}
-
-function renderAnalysis(data) {
-  const lighthouseResult = data?.lighthouseResult;
-  const scoreRaw = lighthouseResult?.categories?.performance?.score;
-  const score = typeof scoreRaw === 'number' ? Math.round(scoreRaw * 100) : null;
-
-  setScoreValue(score);
-
-  const metrics = buildMetricEntries(lighthouseResult);
-
-  if (summaryText) {
-    summaryText.textContent = buildSummary(score, metrics);
-  }
-
-  state.lastAnalysisData = data;
-  showElement(resultWrapper);
-}
-
-if (pagespeedForm) {
-  pagespeedForm.addEventListener('submit', async (event) => {
+  track.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'touch' || !isSliderActive()) {
+      return;
+    }
     event.preventDefault();
-    const urlInput = document.getElementById('pagespeed-url');
-    if (!urlInput) {
-      return;
-    }
-
-    const locale = getLocale();
-    const rawValue = urlInput.value.trim();
-
-    if (!rawValue) {
-      showError(locale.pagespeed.errors.empty);
-      return;
-    }
-
-    let normalisedUrl;
-
-    try {
-      normalisedUrl = normaliseUrl(rawValue);
-    } catch (error) {
-      showError(locale.pagespeed.errors.invalid);
-      return;
-    }
-
-    hideElement(errorBox);
-    hideElement(resultWrapper);
-
-    startLoading();
-
-    try {
-      const apiUrl = `${PAGESPEED_ENDPOINT}?url=${encodeURIComponent(normalisedUrl)}&category=performance&strategy=mobile&locale=${locale.pagespeedLocale}&key=${PAGESPEED_API_KEY}`;
-      const response = await fetch(apiUrl);
-
-      if (!response.ok) {
-        throw new Error('API response failed');
-      }
-
-      const data = await response.json();
-
-      if (data.error) {
-        throw new Error(data.error.message || 'API error');
-      }
-
-      renderAnalysis(data);
-      finishLoading();
-    } catch (error) {
-      finishLoading();
-      showError(locale.pagespeed.errors.failed);
-      console.error(error);
-    }
+    handleDragStart(event);
+    const moveListener = (moveEvent) => handleDragMove(moveEvent);
+    const upListener = () => {
+      handleDragEnd();
+      window.removeEventListener('pointermove', moveListener);
+      window.removeEventListener('pointerup', upListener);
+      window.removeEventListener('pointercancel', upListener);
+    };
+    window.addEventListener('pointermove', moveListener);
+    window.addEventListener('pointerup', upListener);
+    window.addEventListener('pointercancel', upListener);
   });
+
+  return {
+    refreshLabels: () => refreshDotLabels()
+  };
 }
 
 function setupSellingVideoAutoplay() {
@@ -1944,4 +1780,29 @@ function setupSellingVideoAutoplay() {
   observer.observe(video);
 }
 
+teamCarouselController = initResponsiveCarousel({
+  rootSelector: '[data-team-carousel]',
+  windowSelector: '.team-carousel-window',
+  trackSelector: '[data-team-track]',
+  cardSelector: '[data-team-card]',
+  prevSelector: '[data-team-prev]',
+  nextSelector: '[data-team-next]',
+  dotsSelector: '[data-team-dots]',
+  dotClassName: 'team-carousel-dot',
+  readyClass: 'team-carousel-ready',
+  getDotLabel: (card) => card?.querySelector('[data-team-name]')?.textContent?.trim()
+});
+
+pricingCarouselController = initResponsiveCarousel({
+  rootSelector: '[data-pricing-carousel]',
+  windowSelector: '.pricing-carousel-window',
+  trackSelector: '[data-pricing-track]',
+  cardSelector: '[data-pricing-card]',
+  prevSelector: '[data-pricing-prev]',
+  nextSelector: '[data-pricing-next]',
+  dotsSelector: '[data-pricing-dots]',
+  dotClassName: 'pricing-carousel-dot',
+  getDotLabel: (card) => card?.querySelector('h3')?.textContent?.trim(),
+  defaultIndex: 1
+});
 setupSellingVideoAutoplay();

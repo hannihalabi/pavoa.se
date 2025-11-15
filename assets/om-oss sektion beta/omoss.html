@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier Norden — Om oss</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="omoss.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="portfolio" aria-label="Teamets porträtt">
+
+        <div class="carousel">
+          <button class="carousel-nav prev" id="prevBtn" aria-label="Föregående person">
+            &#x2039;
+          </button>
+          <div class="carousel-window">
+            <div class="people-track" id="peopleTrack">
+              <article class="person-card">
+                <div class="portrait-frame">
+                  <img src="Headshots/Jonas Headshot.jpeg" alt="Jonas Åkerman" loading="lazy" />
+                </div>
+                <div class="person-copy">
+                  <h3>Jonas Åkerman</h3>
+                  <p class="role">Lead Developer</p>
+                  <p>
+                    Kodar som en konservator: med respekt för det beständiga och med
+                    noggrannhet in i varje interaktion.
+                  </p>
+                </div>
+              </article>
+
+              <article class="person-card">
+                <div class="portrait-frame">
+                  <img src="Headshots/Anna.jpeg" alt="Anna Bergström" loading="lazy" />
+                </div>
+                <div class="person-copy">
+                  <h3>Anna Bergström</h3>
+                  <p class="role">Grundare &amp; Creative Director</p>
+                  <p>
+                    Leder studion med en känsla för taktil typografi och en okuvlig
+                    vilja att göra plats för eftertänksam kommunikation.
+                  </p>
+                </div>
+              </article>
+
+              <article class="person-card">
+                <div class="portrait-frame">
+                  <img src="Headshots/Erik.jpeg" alt="Erik Holm" loading="lazy" />
+                </div>
+                <div class="person-copy">
+                  <h3>Erik Holm</h3>
+                  <p class="role">Operativ chef</p>
+                  <p>
+                    Håller rytmen i varje leverans, ser till att kundresor och
+                    resurser är lika väl koreograferade som vår design.
+                  </p>
+                </div>
+              </article>
+
+              <article class="person-card">
+                <div class="portrait-frame">
+                  <img src="Headshots/Erika.jpeg" alt="Erika Dahl" loading="lazy" />
+                </div>
+                <div class="person-copy">
+                  <h3>Erika Dahl</h3>
+                  <p class="role">Kommunikationsstrateg</p>
+                  <p>
+                    Kuraterar våra manifest och tonlägen så att varje uppdrag fångar
+                    rätt temperament — från första rubriken till sista brödtexten.
+                  </p>
+                </div>
+              </article>
+
+              <article class="person-card">
+                <div class="portrait-frame">
+                  <img src="Headshots/Henrik Tiba.jpeg" alt="Henrik Tiba" loading="lazy" />
+                </div>
+                <div class="person-copy">
+                  <h3>Henrik Tiba</h3>
+                  <p class="role">Affärsstrateg</p>
+                  <p>
+                    Tolkar marknadsdata med klassisk precision och knyter ihop våra
+                    kampanjer med affärsnyttan i centrum.
+                  </p>
+                </div>
+              </article>
+
+              <article class="person-card">
+                <div class="portrait-frame">
+                  <img src="Headshots/Johanna.jpeg" alt="Johanna Fors" loading="lazy" />
+                </div>
+                <div class="person-copy">
+                  <h3>Johanna Fors</h3>
+                  <p class="role">Design Lead</p>
+                  <p>
+                    Handplockar färger ur arkiven och binder samman digitala
+                    upplevelser med analoga principer.
+                  </p>
+                </div>
+              </article>
+
+              <article class="person-card">
+                <div class="portrait-frame">
+                  <img src="Headshots/Oscar.jpeg" alt="Oscar Lind" loading="lazy" />
+                </div>
+                <div class="person-copy">
+                  <h3>Oscar Lind</h3>
+                  <p class="role">Kundpartner</p>
+                  <p>
+                    Förvaltar relationer över generationer och är ofta den första som
+                    möter våra kunder i salongen.
+                  </p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+          <button class="carousel-nav next" id="nextBtn" aria-label="Nästa person">
+            &#x203a;
+          </button>
+        </div>
+        <div class="carousel-dots" id="peopleDots" aria-label="Personnavigator"></div>
+      </section>
+    </main>
+    <script src="omoss.js" defer></script>
+  </body>
+</html>

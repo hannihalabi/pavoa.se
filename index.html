@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
@@ -128,7 +129,7 @@
 
     <!-- Om oss / teamsektion -->
     <section id="team" class="section team">
-      <div class="team-portfolio surface-card surface-card--deep">
+      <div class="team-portfolio">
         <div
           class="team-carousel"
           data-team-carousel
@@ -148,7 +149,7 @@
           </button>
           <div class="team-carousel-window">
             <div class="team-people-track" data-team-track>
-              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+              <article class="team-person-card" data-team-card>
                 <div class="team-portrait-frame">
                   <img src="assets/headshots/Jonas%20Headshot.jpeg" alt="Jonas Åkerman" loading="lazy">
                 </div>
@@ -161,7 +162,7 @@
                 </div>
               </article>
 
-              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+              <article class="team-person-card" data-team-card>
                 <div class="team-portrait-frame">
                   <img src="assets/headshots/Anna.jpeg" alt="Anna Bergström" loading="lazy">
                 </div>
@@ -174,7 +175,7 @@
                 </div>
               </article>
 
-              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+              <article class="team-person-card" data-team-card>
                 <div class="team-portrait-frame">
                   <img src="assets/headshots/Erik.jpeg" alt="Erik Holm" loading="lazy">
                 </div>
@@ -187,7 +188,7 @@
                 </div>
               </article>
 
-              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+              <article class="team-person-card" data-team-card>
                 <div class="team-portrait-frame">
                   <img src="assets/headshots/Erika.jpeg" alt="Erika Dahl" loading="lazy">
                 </div>
@@ -200,7 +201,7 @@
                 </div>
               </article>
 
-              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+              <article class="team-person-card" data-team-card>
                 <div class="team-portrait-frame">
                   <img src="assets/headshots/Henrik%20Tiba.jpeg" alt="Henrik Tiba" loading="lazy">
                 </div>
@@ -213,7 +214,7 @@
                 </div>
               </article>
 
-              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+              <article class="team-person-card" data-team-card>
                 <div class="team-portrait-frame">
                   <img src="assets/headshots/Johanna.jpeg" alt="Johanna Fors" loading="lazy">
                 </div>
@@ -226,7 +227,7 @@
                 </div>
               </article>
 
-              <article class="team-person-card surface-card surface-card--compact" data-team-card>
+              <article class="team-person-card" data-team-card>
                 <div class="team-portrait-frame">
                   <img src="assets/headshots/Oscar.jpeg" alt="Oscar Lind" loading="lazy">
                 </div>
@@ -235,6 +236,19 @@
                   <p class="role" data-i18n="team.members.oscar.role">Kundpartner</p>
                   <p data-i18n="team.members.oscar.bio">
                     Förvaltar relationer över generationer och är ofta den första som möter våra kunder i salongen.
+                  </p>
+                </div>
+              </article>
+
+              <article class="team-person-card" data-team-card>
+                <div class="team-portrait-frame">
+                  <img src="assets/headshots/David2.jpeg" alt="David Nilsson" loading="lazy">
+                </div>
+                <div class="team-person-copy">
+                  <h3 data-team-name data-i18n="team.members.david.name">David Nilsson</h3>
+                  <p class="role" data-i18n="team.members.david.role">AI-specialist</p>
+                  <p data-i18n="team.members.david.bio">
+                    Driver våra AI-prototyper och ser till att automationer känns lika genomarbetade som den visuella upplevelsen.
                   </p>
                 </div>
               </article>
@@ -311,6 +325,24 @@
         </button>
         <div class="pricing-carousel-window">
           <div class="pricing-grid" data-pricing-track>
+            <article class="pricing-card surface-card surface-card--deep" data-pricing-card>
+              <header>
+                <h3 data-i18n="pricing.base.title">Bas</h3>
+                <p class="price" data-i18n="pricing.base.price" data-i18n-attr="html">6&nbsp;995 kr/månad</p>
+                <p class="tagline" data-i18n="pricing.base.tagline">För en snabb och professionell start</p>
+              </header>
+              <ul class="feature-list">
+                <li data-i18n="pricing.base.feature1">Hemsida utvecklad i ren kod</li>
+                <li data-i18n="pricing.base.feature2">Bilder</li>
+                <li data-i18n="pricing.base.feature3">5 e-postadresser</li>
+                <li data-i18n="pricing.base.feature4">Webbhotell och domänadress</li>
+                <li data-i18n="pricing.base.feature5">SEO-optimering</li>
+                <li data-i18n="pricing.base.feature6">Kontaktformulär</li>
+                <li data-i18n="pricing.base.feature7">Support ingår</li>
+              </ul>
+              <a class="card-cta" href="#kontakt" data-i18n="pricing.base.cta">Välj Bas</a>
+            </article>
+
             <article class="pricing-card surface-card surface-card--deep featured" data-pricing-card>
               <header>
                 <p class="popular" data-i18n="pricing.popular">Mest populär</p>
@@ -333,24 +365,6 @@
 
             <article class="pricing-card surface-card surface-card--deep" data-pricing-card>
               <header>
-                <h3 data-i18n="pricing.base.title">Bas</h3>
-                <p class="price" data-i18n="pricing.base.price" data-i18n-attr="html">6&nbsp;995 kr/månad</p>
-                <p class="tagline" data-i18n="pricing.base.tagline">För en snabb och professionell start</p>
-              </header>
-              <ul class="feature-list">
-                <li data-i18n="pricing.base.feature1">Hemsida utvecklad i ren kod</li>
-                <li data-i18n="pricing.base.feature2">Bilder</li>
-                <li data-i18n="pricing.base.feature3">5 e-postadresser</li>
-                <li data-i18n="pricing.base.feature4">Webbhotell och domänadress</li>
-                <li data-i18n="pricing.base.feature5">SEO-optimering</li>
-                <li data-i18n="pricing.base.feature6">Kontaktformulär</li>
-                <li data-i18n="pricing.base.feature7">Support ingår</li>
-              </ul>
-              <a class="card-cta" href="#kontakt" data-i18n="pricing.base.cta">Välj Bas</a>
-            </article>
-
-            <article class="pricing-card surface-card surface-card--deep" data-pricing-card>
-              <header>
                 <h3 data-i18n="pricing.premium.title">Premium</h3>
                 <p class="price" data-i18n="pricing.premium.price" data-i18n-attr="html">14&nbsp;995 kr/månad</p>
                 <p class="tagline" data-i18n="pricing.premium.tagline">Dominera din marknad och dina konkurrenter</p>
@@ -358,16 +372,15 @@
               <ul class="feature-list">
                 <li data-i18n="pricing.premium.feature1">Allt i Plus</li>
                 <li data-i18n="pricing.premium.feature2">Expertutformad 3D-design</li>
-                <li data-i18n="pricing.premium.feature3">AI-automatiseringar</li>
-                <li data-i18n="pricing.premium.feature4">Bokföring</li>
-                <li data-i18n="pricing.premium.feature5">Bokslut</li>
-                <li data-i18n="pricing.premium.feature6">Apputveckling</li>
-                <li data-i18n="pricing.premium.feature7">Back-end-integration</li>
-                <li data-i18n="pricing.premium.feature8">AI-roboten Bloggi</li>
-                <li data-i18n="pricing.premium.feature9">SEO och GEO i världsklass</li>
-                <li data-i18n="pricing.premium.feature10">WooCommerce-integration</li>
-                <li data-i18n="pricing.premium.feature11">Databas och infrastruktur</li>
-                <li data-i18n="pricing.premium.feature12">E-handel och produktreklam</li>
+                <li data-i18n="pricing.premium.feature3">AI-Agenter</li>
+                <li data-i18n="pricing.premium.feature4">Löpande bokföring</li>
+                <li data-i18n="pricing.premium.feature5">Apputveckling</li>
+                <li data-i18n="pricing.premium.feature6">Back-end-integration</li>
+                <li data-i18n="pricing.premium.feature7">AI-roboten Bloggi</li>
+                <li data-i18n="pricing.premium.feature8">SEO och GEO i världsklass</li>
+                <li data-i18n="pricing.premium.feature9">WooCommerce-integration</li>
+                <li data-i18n="pricing.premium.feature10">Databas och infrastruktur</li>
+                <li data-i18n="pricing.premium.feature11">E-handel och produktreklam</li>
               </ul>
               <a class="card-cta" href="#kontakt" data-i18n="pricing.premium.cta">Välj Premium</a>
             </article>

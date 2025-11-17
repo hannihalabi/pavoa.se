@@ -150,6 +150,11 @@ const translations = {
           name: 'David Nilsson',
           role: 'AI-specialist',
           bio: 'Driver våra AI-prototyper och ser till att automationer känns lika genomarbetade som den visuella upplevelsen.'
+        },
+        amanda: {
+          name: 'Amanda Nilsson',
+          role: 'Projektledare & kundansvarig',
+          bio: 'För dialogen med våra kunder, syr ihop varje möte och ser till att varje leverans håller tempot och känslan som GM NORDICS står för.'
         }
       }
     },
@@ -385,6 +390,11 @@ const translations = {
           name: 'David Nilsson',
           role: 'AI Specialist',
           bio: 'Builds AI prototypes and ensures our automation flows feel as refined as the rest of the experience.'
+        },
+        amanda: {
+          name: 'Amanda Nilsson',
+          role: 'Project Lead & Client Liaison',
+          bio: 'Keeps communication flowing with our clients, coordinates every touchpoint, and makes sure each delivery keeps GM NORDICS\' pace and tone.'
         }
       }
     },
@@ -620,6 +630,11 @@ const translations = {
           name: 'David Nilsson',
           role: 'Especialista en IA',
           bio: 'Crea prototipos con IA y se asegura de que las automatizaciones se sientan tan cuidadas como el diseño.'
+        },
+        amanda: {
+          name: 'Amanda Nilsson',
+          role: 'Líder de proyectos y enlace con clientes',
+          bio: 'Mantiene viva la comunicación con nuestros clientes, organiza cada punto de contacto y garantiza que cada entrega conserve el ritmo y el tono de GM NORDICS.'
         }
       }
     },
@@ -855,6 +870,11 @@ const translations = {
           name: 'David Nilsson',
           role: 'Specialista AI',
           bio: 'Realizza prototipi AI e garantisce che i flussi automatizzati siano curati quanto il design.'
+        },
+        amanda: {
+          name: 'Amanda Nilsson',
+          role: 'Project lead e referente clienti',
+          bio: 'Mantiene il dialogo con i clienti, coordina ogni touchpoint e assicura che ogni consegna mantenga ritmo e tono firmati GM NORDICS.'
         }
       }
     },
